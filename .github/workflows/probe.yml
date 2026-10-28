@@ -1,8 +1,13 @@
 name: probe
-on: {push: {branches: [probe-feeds]}}
+on: {push: {branches: [probe-feeds], paths-ignore: [probe/result.txt]}}
+permissions: {contents: write}
 jobs:
   probe:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: pip install -q feedparser requests && python probe/probe.py probe/urls.txt
+      - run: pip install -q feedparser requests && python probe/probe.py probe/urls.txt > probe/result.txt
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add probe/result.txt && git commit -m "resultado" && git push

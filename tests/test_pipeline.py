@@ -57,7 +57,15 @@ class ClassifyTest(unittest.TestCase):
         tech_feed = dict(SOURCE, topic="tech")
         self.check("A new release from the lab", "tech", source=tech_feed)
         africa_feed = dict(SOURCE, region="africa")
-        self.check("Community leaders meet farmers", "geopolitica", ["africa"], source=africa_feed)
+        self.check("Community leaders meet farmers in Kenya", "geopolitica", ["africa"], source=africa_feed)
+
+    def test_regional_feed_needs_more_than_its_region(self):
+        me_feed = dict(SOURCE, region="medio_oriente")
+        self.check("Manchester United: why managers fail to succeed Ferguson", None, source=me_feed)
+        self.check("Gulf ministers meet in Riyadh", "geopolitica", ["medio_oriente"], source=me_feed)
+
+    def test_west_bank_is_not_a_bank(self):
+        self.check("Palestinians in the West Bank see little hope in Israeli vote", "geopolitica", ["medio_oriente"])
 
     def test_irrelevant(self):
         self.check("Local bakery wins award for best croissant", None)
@@ -75,6 +83,12 @@ class ConfigTest(unittest.TestCase):
             self.assertTrue(source["urls"], source["id"])
             for url in source["urls"]:
                 self.assertTrue(url.startswith("https://"), url)
+
+
+class CleanTextTest(unittest.TestCase):
+    def test_double_escaped_entities(self):
+        from radar.feeds import clean_text
+        self.assertEqual(clean_text("&amp;quot;Ma&amp;#039;aden&amp;quot; <b>names</b> chair"), '"Ma\'aden" names chair')
 
 
 class FeedTest(unittest.TestCase):
