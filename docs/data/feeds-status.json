@@ -1,61 +1,17 @@
 {
- "updated": 1793210057,
- "ok": 44,
+ "updated": 1793211021,
+ "ok": 48,
  "total": 49,
  "feeds": [
   {
-   "source_id": "alarabiya",
-   "source": "Al Arabiya",
-   "lang": "ar",
-   "url": "https://www.alarabiya.net/feed/rss2/ar.xml",
-   "ok": false,
-   "items": 0,
-   "error": "HTTP 403",
-   "seconds": 0.4,
-   "last_ok": null
-  },
-  {
-   "source_id": "asharqbusiness",
-   "source": "Asharq Business",
-   "lang": "ar",
-   "url": "https://asharqbusiness.com/rss",
-   "ok": false,
-   "items": 0,
-   "error": "HTTP 404",
-   "seconds": 1.3,
-   "last_ok": null
-  },
-  {
-   "source_id": "calcalist",
-   "source": "Calcalist",
-   "lang": "he",
-   "url": "https://www.calcalist.co.il/GeneralRSS/0,16335,L-8,00.xml",
-   "ok": false,
-   "items": 0,
-   "error": "HTTP 404",
-   "seconds": 0.4,
-   "last_ok": null
-  },
-  {
-   "source_id": "dw-es",
-   "source": "DW Español",
-   "lang": "es",
-   "url": "https://rss.dw.com/xml/rss-es-all",
+   "source_id": "faz-wirtschaft",
+   "source": "FAZ",
+   "lang": "de",
+   "url": "https://www.faz.net/rss/aktuell/wirtschaft/",
    "ok": false,
    "items": 0,
    "error": "no es un feed válido (SAXParseException)",
-   "seconds": 0.4,
-   "last_ok": null
-  },
-  {
-   "source_id": "lesechos",
-   "source": "Les Echos",
-   "lang": "fr",
-   "url": "https://services.lesechos.fr/rss/les-echos-finance-marches.xml",
-   "ok": false,
-   "items": 0,
-   "error": "HTTP 403",
-   "seconds": 0.3,
+   "seconds": 0.8,
    "last_ok": null
   },
   {
@@ -66,8 +22,8 @@
    "ok": true,
    "items": 25,
    "error": null,
-   "seconds": 0.5,
-   "last_ok": 1793210057
+   "seconds": 0.4,
+   "last_ok": 1793211021
   },
   {
    "source_id": "aljazeera",
@@ -78,7 +34,7 @@
    "items": 25,
    "error": null,
    "seconds": 0.3,
-   "last_ok": 1793210057
+   "last_ok": 1793211021
   },
   {
    "source_id": "almonitor",
@@ -88,8 +44,8 @@
    "ok": true,
    "items": 20,
    "error": null,
-   "seconds": 0.5,
-   "last_ok": 1793210057
+   "seconds": 0.2,
+   "last_ok": 1793211021
   },
   {
    "source_id": "allafrica",
@@ -99,8 +55,8 @@
    "ok": true,
    "items": 33,
    "error": null,
-   "seconds": 0.5,
-   "last_ok": 1793210057
+   "seconds": 0.3,
+   "last_ok": 1793211021
   },
   {
    "source_id": "aawsat",
@@ -110,8 +66,19 @@
    "ok": true,
    "items": 300,
    "error": null,
-   "seconds": 0.9,
-   "last_ok": 1793210057
+   "seconds": 0.7,
+   "last_ok": 1793211021
+  },
+  {
+   "source_id": "asharqbusiness",
+   "source": "Asharq Business",
+   "lang": "ar",
+   "url": "https://asharqbusiness.com/rss.xml",
+   "ok": true,
+   "items": 30,
+   "error": null,
+   "seconds": 0.5,
+   "last_ok": 1793211021
   },
   {
    "source_id": "bbc-ar",
@@ -121,8 +88,8 @@
    "ok": true,
    "items": 27,
    "error": null,
-   "seconds": 0.4,
-   "last_ok": 1793210057
+   "seconds": 0.1,
+   "last_ok": 1793211021
   },
   {
    "source_id": "bbc",
@@ -132,8 +99,8 @@
    "ok": true,
    "items": 21,
    "error": null,
-   "seconds": 0.3,
-   "last_ok": 1793210057
+   "seconds": 0.2,
+   "last_ok": 1793211021
   },
   {
    "source_id": "bbc",
@@ -143,8 +110,8 @@
    "ok": true,
    "items": 45,
    "error": null,
-   "seconds": 0.3,
-   "last_ok": 1793210057
+   "seconds": 0.1,
+   "last_ok": 1793211021
   },
   {
    "source_id": "bbc",
@@ -154,8 +121,8 @@
    "ok": true,
    "items": 20,
    "error": null,
-   "seconds": 0.4,
-   "last_ok": 1793210057
+   "seconds": 0.2,
+   "last_ok": 1793211021
   },
   {
    "source_id": "bbc-africa",
@@ -166,7 +133,7 @@
    "items": 34,
    "error": null,
    "seconds": 0.3,
-   "last_ok": 1793210057
+   "last_ok": 1793211021
   },
   {
    "source_id": "bbc-me",
@@ -176,8 +143,8 @@
    "ok": true,
    "items": 23,
    "error": null,
-   "seconds": 0.3,
-   "last_ok": 1793210057
+   "seconds": 0.1,
+   "last_ok": 1793211021
   },
   {
    "source_id": "cnbc",
@@ -188,7 +155,7 @@
    "items": 30,
    "error": null,
    "seconds": 0.4,
-   "last_ok": 1793210057
+   "last_ok": 1793211021
   },
   {
    "source_id": "cnbc",
@@ -199,7 +166,7 @@
    "items": 30,
    "error": null,
    "seconds": 0.4,
-   "last_ok": 1793210057
+   "last_ok": 1793211021
   },
   {
    "source_id": "cnbc",
@@ -209,8 +176,19 @@
    "ok": true,
    "items": 30,
    "error": null,
+   "seconds": 0.5,
+   "last_ok": 1793211021
+  },
+  {
+   "source_id": "dw-es",
+   "source": "DW Español",
+   "lang": "es",
+   "url": "https://rss.dw.com/xml/rss-sp-all",
+   "ok": true,
+   "items": 16,
+   "error": null,
    "seconds": 0.3,
-   "last_ok": 1793210057
+   "last_ok": 1793211021
   },
   {
    "source_id": "spiegel",
@@ -220,8 +198,8 @@
    "ok": true,
    "items": 20,
    "error": null,
-   "seconds": 0.9,
-   "last_ok": 1793210057
+   "seconds": 0.5,
+   "last_ok": 1793211021
   },
   {
    "source_id": "spiegel",
@@ -231,8 +209,8 @@
    "ok": true,
    "items": 20,
    "error": null,
-   "seconds": 0.8,
-   "last_ok": 1793210057
+   "seconds": 0.7,
+   "last_ok": 1793211021
   },
   {
    "source_id": "dw-de",
@@ -243,7 +221,7 @@
    "items": 77,
    "error": null,
    "seconds": 0.8,
-   "last_ok": 1793210057
+   "last_ok": 1793211021
   },
   {
    "source_id": "elpais",
@@ -253,8 +231,8 @@
    "ok": true,
    "items": 23,
    "error": null,
-   "seconds": 0.6,
-   "last_ok": 1793210057
+   "seconds": 0.4,
+   "last_ok": 1793211021
   },
   {
    "source_id": "ft",
@@ -264,8 +242,8 @@
    "ok": true,
    "items": 25,
    "error": null,
-   "seconds": 0.5,
-   "last_ok": 1793210057
+   "seconds": 0.4,
+   "last_ok": 1793211021
   },
   {
    "source_id": "ft",
@@ -275,8 +253,8 @@
    "ok": true,
    "items": 25,
    "error": null,
-   "seconds": 0.6,
-   "last_ok": 1793210057
+   "seconds": 0.4,
+   "last_ok": 1793211021
   },
   {
    "source_id": "ft",
@@ -286,8 +264,8 @@
    "ok": true,
    "items": 25,
    "error": null,
-   "seconds": 0.6,
-   "last_ok": 1793210057
+   "seconds": 0.5,
+   "last_ok": 1793211021
   },
   {
    "source_id": "foreignpolicy",
@@ -297,8 +275,8 @@
    "ok": true,
    "items": 25,
    "error": null,
-   "seconds": 0.6,
-   "last_ok": 1793210057
+   "seconds": 0.5,
+   "last_ok": 1793211021
   },
   {
    "source_id": "france24-afrique",
@@ -308,8 +286,8 @@
    "ok": true,
    "items": 30,
    "error": null,
-   "seconds": 0.5,
-   "last_ok": 1793210057
+   "seconds": 0.3,
+   "last_ok": 1793211021
   },
   {
    "source_id": "france24-mo",
@@ -319,8 +297,8 @@
    "ok": true,
    "items": 30,
    "error": null,
-   "seconds": 0.5,
-   "last_ok": 1793210057
+   "seconds": 0.3,
+   "last_ok": 1793211021
   },
   {
    "source_id": "globes",
@@ -330,8 +308,8 @@
    "ok": true,
    "items": 15,
    "error": null,
-   "seconds": 1.0,
-   "last_ok": 1793210057
+   "seconds": 0.9,
+   "last_ok": 1793211021
   },
   {
    "source_id": "haaretz",
@@ -342,7 +320,7 @@
    "items": 100,
    "error": null,
    "seconds": 1.0,
-   "last_ok": 1793210057
+   "last_ok": 1793211021
   },
   {
    "source_id": "handelsblatt",
@@ -352,8 +330,8 @@
    "ok": true,
    "items": 20,
    "error": null,
-   "seconds": 0.7,
-   "last_ok": 1793210057
+   "seconds": 0.9,
+   "last_ok": 1793211021
   },
   {
    "source_id": "jeuneafrique",
@@ -363,8 +341,19 @@
    "ok": true,
    "items": 30,
    "error": null,
-   "seconds": 0.8,
-   "last_ok": 1793210057
+   "seconds": 0.7,
+   "last_ok": 1793211021
+  },
+  {
+   "source_id": "lefigaro-eco",
+   "source": "Le Figaro Économie",
+   "lang": "fr",
+   "url": "https://www.lefigaro.fr/rss/figaro_economie.xml",
+   "ok": true,
+   "items": 20,
+   "error": null,
+   "seconds": 0.6,
+   "last_ok": 1793211021
   },
   {
    "source_id": "lemonde",
@@ -374,8 +363,8 @@
    "ok": true,
    "items": 20,
    "error": null,
-   "seconds": 0.3,
-   "last_ok": 1793210057
+   "seconds": 0.8,
+   "last_ok": 1793211021
   },
   {
    "source_id": "lemonde-afrique",
@@ -385,8 +374,8 @@
    "ok": true,
    "items": 20,
    "error": null,
-   "seconds": 0.5,
-   "last_ok": 1793210057
+   "seconds": 0.6,
+   "last_ok": 1793211021
   },
   {
    "source_id": "mittr",
@@ -396,8 +385,8 @@
    "ok": true,
    "items": 10,
    "error": null,
-   "seconds": 0.5,
-   "last_ok": 1793210057
+   "seconds": 0.4,
+   "last_ok": 1793211021
   },
   {
    "source_id": "mee",
@@ -407,8 +396,8 @@
    "ok": true,
    "items": 20,
    "error": null,
-   "seconds": 0.6,
-   "last_ok": 1793210057
+   "seconds": 0.5,
+   "last_ok": 1793211021
   },
   {
    "source_id": "rfi-afrique",
@@ -418,8 +407,8 @@
    "ok": true,
    "items": 23,
    "error": null,
-   "seconds": 0.5,
-   "last_ok": 1793210057
+   "seconds": 0.6,
+   "last_ok": 1793211021
   },
   {
    "source_id": "restofworld",
@@ -429,8 +418,8 @@
    "ok": true,
    "items": 12,
    "error": null,
-   "seconds": 0.3,
-   "last_ok": 1793210057
+   "seconds": 0.2,
+   "last_ok": 1793211021
   },
   {
    "source_id": "techcrunch",
@@ -440,8 +429,8 @@
    "ok": true,
    "items": 20,
    "error": null,
-   "seconds": 0.2,
-   "last_ok": 1793210057
+   "seconds": 0.3,
+   "last_ok": 1793211021
   },
   {
    "source_id": "africareport",
@@ -451,8 +440,8 @@
    "ok": true,
    "items": 10,
    "error": null,
-   "seconds": 0.6,
-   "last_ok": 1793210057
+   "seconds": 0.3,
+   "last_ok": 1793211021
   },
   {
    "source_id": "guardian",
@@ -462,8 +451,8 @@
    "ok": true,
    "items": 19,
    "error": null,
-   "seconds": 0.6,
-   "last_ok": 1793210057
+   "seconds": 0.3,
+   "last_ok": 1793211021
   },
   {
    "source_id": "guardian",
@@ -473,8 +462,8 @@
    "ok": true,
    "items": 20,
    "error": null,
-   "seconds": 0.6,
-   "last_ok": 1793210057
+   "seconds": 0.4,
+   "last_ok": 1793211021
   },
   {
    "source_id": "guardian",
@@ -484,8 +473,8 @@
    "ok": true,
    "items": 45,
    "error": null,
-   "seconds": 0.5,
-   "last_ok": 1793210057
+   "seconds": 0.4,
+   "last_ok": 1793211021
   },
   {
    "source_id": "guardian-africa",
@@ -495,8 +484,8 @@
    "ok": true,
    "items": 20,
    "error": null,
-   "seconds": 0.9,
-   "last_ok": 1793210057
+   "seconds": 0.7,
+   "last_ok": 1793211021
   },
   {
    "source_id": "guardian-me",
@@ -506,8 +495,8 @@
    "ok": true,
    "items": 20,
    "error": null,
-   "seconds": 0.5,
-   "last_ok": 1793210057
+   "seconds": 0.2,
+   "last_ok": 1793211021
   },
   {
    "source_id": "thenational",
@@ -517,8 +506,19 @@
    "ok": true,
    "items": 100,
    "error": null,
-   "seconds": 1.3,
-   "last_ok": 1793210057
+   "seconds": 1.1,
+   "last_ok": 1793211021
+  },
+  {
+   "source_id": "themarker",
+   "source": "TheMarker",
+   "lang": "he",
+   "url": "https://www.themarker.com/srv/tm-all-articles",
+   "ok": true,
+   "items": 100,
+   "error": null,
+   "seconds": 0.6,
+   "last_ok": 1793211021
   },
   {
    "source_id": "ynet",
@@ -528,8 +528,8 @@
    "ok": true,
    "items": 30,
    "error": null,
-   "seconds": 0.4,
-   "last_ok": 1793210057
+   "seconds": 0.3,
+   "last_ok": 1793211021
   },
   {
    "source_id": "heise",
@@ -539,8 +539,8 @@
    "ok": true,
    "items": 152,
    "error": null,
-   "seconds": 1.2,
-   "last_ok": 1793210057
+   "seconds": 1.0,
+   "last_ok": 1793211021
   }
  ]
 }
