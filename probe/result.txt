@@ -1,0 +1,27 @@
+403   0 https://www.alarabiya.net/.mrss/ar.xml  | 
+403   0 https://www.alarabiya.net/feed/rss2/ar/arab-and-world.xml  | 
+403   0 https://www.alarabiya.net/tools/mrss/?cat=main  | 
+403   0 https://www.alarabiya.net/rss.xml  | 
+200  30 https://asharqbusiness.com/rss.xml  | موافقاً التوقعات.. الفيدرالي الأميركي يبقي أسعار الفائدة دون
+404   0 https://asharqbusiness.com/feed  | 
+404   0 https://www.asharqbusiness.com/rss  | 
+404   0 https://asharqbusiness.com/rss/latest  | 
+404   0 https://www.calcalist.co.il/Integration/StoryRss8.xml  | 
+404   0 https://www.calcalist.co.il/Integration/StoryRss3674.xml  | 
+404   0 https://www.calcalist.co.il/Integration/StoryRss1.xml  | 
+404   0 https://www.calcalist.co.il/GeneralRSS/0,16335,L-3674,00.xml  | 
+200  16 https://rss.dw.com/rdf/rss-sp-all  | Muere a los 96 años la líder sindical hispana Dolores Huerta
+200  16 https://rss.dw.com/xml/rss-sp-all  | Muere a los 96 años la líder sindical hispana Dolores Huerta
+200  19 https://rss.dw.com/xml/rss-sp-top  | "Grave accidente de trenes" en España: más de 60 muertos
+503   0 https://syndication.lesechos.fr/rss/rss_finance-marches.xml  | 
+503   0 https://syndication.lesechos.fr/rss/rss_une.xml  | 
+403   0 https://www.lesechos.fr/rss/rss_finance-marches.xml  | 
+403   0 https://www.lesechos.fr/rss/rss_une_titres.xml  | 
+403   0 https://www.timesofisrael.com/feed/  | 
+200  20 https://www.lefigaro.fr/rss/figaro_economie.xml  | Deux accidents graves en moins d’un an : la descente aux enf
+404   0 https://www.boursorama.com/rss/actualites/economie  | 
+200  51 https://www.faz.net/rss/aktuell/wirtschaft/  | Kollision in Bremerhaven: „Die Verantwortung trägt immer der
+200  40 https://www.tagesschau.de/infoservices/alle-meldungen-100~rss2.xml  | Marktbericht: Der DAX behauptet sich
+200 100 https://www.themarker.com/srv/tm-all-articles  | אושרה סופית הקמת שני מגדלים בני 25 קומות בכיכר אתרים בתל אבי
+403   0 https://www.argaam.com/ar/rss/articles  | 
+404   0 https://www.aleqt.com/rss.xml  | 
