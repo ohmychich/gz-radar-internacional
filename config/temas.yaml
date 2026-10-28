@@ -1,0 +1,170 @@
+# Reglas de clasificación. Se aplican sobre el título y el resumen originales
+# y también sobre su traducción al español.
+#
+# Sintaxis de cada palabra clave:
+#   palabra      coincide con la palabra completa, sin distinguir mayúsculas
+#   palabra*     coincide con cualquier palabra que empiece así (bond* → bonds, bondholders)
+#   =AI          distingue mayúsculas (para siglas que chocan con palabras comunes)
+#   En árabe y hebreo se busca el texto tal cual, porque los prefijos van pegados.
+#
+# Cada noticia va a una sola columna: la que suma más coincidencias.
+
+topics:
+  mercados:
+    label: Mercado de capitales
+    keywords:
+      en: [IPO*, initial public offering, listing, bond*, eurobond*, sovereign debt, debt restructuring,
+           "=M&A", merger*, acquisition*, takeover*, buyout*, private equity, venture capital, hedge fund*,
+           asset manager*, central bank*, Federal Reserve, "=Fed", "=ECB", interest rate*, rate cut*, rate hike*,
+           monetary policy, inflation, "=SEC", stock exchange*, bourse, sovereign wealth fund*, "=IMF",
+           World Bank, credit rating*, Moody's, Fitch, downgrade*, earnings, dividend*, buyback*,
+           capital market*, investor*, sukuk, fundraising, valuation, bank*, banking, debt, yields]
+      es: [salida a bolsa, "=OPV", emisión de bonos, bono*, deuda soberana, deuda, fusión, fusiones, adquisición*,
+           banco central, Reserva Federal, tipos de interés, tasas de interés, tasa de interés, política monetaria,
+           inflación, fondo soberano, "=FMI", Banco Mundial, calificación crediticia, bolsa de valores,
+           mercado de capitales, mercados financieros, inversor*, inversionista*, capital de riesgo, banca, banco*]
+      fr: [introduction en bourse, obligation*, dette*, fusion*, acquisition*, rachat*, banque centrale,
+           "=BCE", taux d'intérêt, taux directeur*, politique monétaire, inflation, fonds souverain*, "=FMI",
+           Banque mondiale, notation, marchés financiers, investisseur*, levée de fonds, banque*]
+      de: [Börsengang*, Anleihe*, Staatsanleihe*, Übernahme*, Fusion*, Zentralbank*, "=EZB", Leitzins*,
+           Zinsen, Zinssenkung*, Zinserhöhung*, Geldpolitik, Inflation, Staatsfonds, "=IWF", Ratingagentur*,
+           Finanzmarkt*, Kapitalmarkt*, Investor*, Anleger*, Bank*, Dividende*, Schulden*]
+      ar: [طرح عام, اكتتاب, سندات, صكوك, استحواذ, اندماج, البنك المركزي, المركزي, أسعار الفائدة, الفائدة,
+           التضخم, صندوق النقد, البنك الدولي, صندوق سيادي, صناديق سيادية, البورصة, سوق الأسهم, سوق المال,
+           المستثمرين, تصنيف ائتماني, الديون, مصرف, بنوك]
+      he: [הנפקה, אג"ח, איגרות חוב, מיזוג, רכישת, בנק ישראל, הבנק המרכזי, ריבית, אינפלציה, קרן גידור,
+           הון סיכון, הבורסה, משקיעים, דירוג אשראי, קרן הון, גיוס, בנקים]
+    # Titulares de cotizaciones del día: se descartan si la noticia iba a "mercados".
+    # Son expresiones regulares (sin distinguir mayúsculas).
+    exclude:
+      - '\b(stocks?|shares|equities|futures)\b.{0,40}\b(rise|rises|rose|fall|falls|fell|jump|jumps|slip|slips|drop|drops|gain|gains|tumble|tumbles|surge|surges|rally|rallies|climb|climbs|sink|sinks|edge|edges)\b'
+      - '\b(dow|nasdaq|s&p 500|ftse|dax|cac 40|nikkei|stoxx|hang seng|ibex|merval|tasi|egx30)\b.{0,40}\b(rise|rises|fall|falls|close|closes|open|opens|gain|gains|slip|slips|drop|drops|ends|higher|lower|record)\b'
+      - 'stock market today'
+      - '\bcloses? (at|higher|lower|up|down)\b'
+      - '\b(gold|oil|brent|bitcoin|crude) (price|prices)\b'
+      - '\b(bolsa|ibex|merval|wall street)\b.{0,40}\b(sube|baja|cierra|abre|avanza|retrocede|cae)\b'
+      - '\b(cac 40|bourse de paris|wall street)\b.{0,40}\b(ouvre|termine|recule|progresse|clôture|chute)\b'
+      - '\b(dax|börse|aktien|wall street)\b.{0,40}\b(steigt|fällt|schließt|legt zu|gibt nach|im plus|im minus)\b'
+
+  tech:
+    label: Tecnología e IA
+    keywords:
+      en: [artificial intelligence, "=AI", "=A.I.", "=AGI", generative, chatbot*, ChatGPT, OpenAI, Anthropic, DeepMind,
+           "=xAI", Mistral, Hugging Face, Nvidia, chip*, chipmaker*, semiconductor*, "=TSMC", machine learning,
+           "=LLM", "=LLMs", large language model*, data center*, datacenter*, quantum, robot*, robotics,
+           autonomous, self-driving, cybersecurity, cyberattack*, hacker*, ransomware, startup*, Big Tech,
+           Microsoft, Google, Apple, Meta, Alphabet, Huawei, Samsung, algorithm*, deepfake*, software,
+           smartphone*, satellite*, 5G, cloud computing, tech]
+      es: [inteligencia artificial, "=IA", aprendizaje automático, chip*, semiconductor*, centro de datos,
+           centros de datos, ciberataque*, ciberseguridad, robótica, robot*, cuántic*, tecnológic*, tecnología,
+           algoritmo*, modelo de lenguaje, modelos de lenguaje, startup*, emergente*]
+      fr: [intelligence artificielle, "=IA", puce*, semi-conducteur*, centre de données, centres de données,
+           cyberattaque*, cybersécurité, robot*, quantique*, technologi*, algorithme*, start-up*]
+      de: [künstliche Intelligenz, künstlicher Intelligenz, "=KI", Chip*, Halbleiter*, Rechenzentr*,
+           Cyberangriff*, Cybersicherheit, Roboter*, Quanten*, Sprachmodell*, Technologie*, Software, Start-up*]
+      ar: [الذكاء الاصطناعي, أشباه الموصلات, رقائق, الرقائق, التكنولوجيا, تقنية, التقنية, هجوم سيبراني,
+           الأمن السيبراني, شات جي بي تي, روبوت, الحوسبة, مراكز البيانات, الشركات الناشئة]
+      he: [בינה מלאכותית, שבבים, שבב, סייבר, הייטק, סטארט-אפ, סטארטאפ, אנבידיה, טכנולוגיה, רובוט, מחשוב,
+           מרכזי נתונים, אפליקציה]
+
+  geopolitica:
+    label: Geopolítica
+    keywords:
+      en: [war, wars, ceasefire, truce, conflict*, sanction*, diplomac*, diplomat*, summit*, election*, coup*,
+           military, troops, army, missile*, drone*, airstrike*, "=UN", United Nations, Security Council, "=NATO",
+           African Union, "=ECOWAS", Arab League, "=GCC", "=BRICS", "=G7", "=G20", president, prime minister,
+           foreign minister, treaty, peace talks, peace deal, negotiation*, refugee*, humanitarian, protest*,
+           rebel*, insurgen*, jihadist*, militant*, terror*, nuclear, junta, hostage*, occupation, annex*,
+           border*, invasion, genocide, famine, displaced]
+      es: [guerra, alto el fuego, tregua, conflicto*, sancion*, diplomacia, diplomátic*, cumbre*, elecciones,
+           electoral, golpe de Estado, militar*, ejército, tropas, misil*, dron*, bombardeo*, "=ONU",
+           Naciones Unidas, Consejo de Seguridad, "=OTAN", Unión Africana, presidente, primer ministro,
+           canciller, tratado, negociacion*, refugiado*, humanitari*, protesta*, rebelde*, yihadista*,
+           terroris*, nuclear, junta militar, rehén, rehenes, ocupación, frontera*, invasión, genocidio, hambruna,
+           desplazados]
+      fr: [guerre, cessez-le-feu, trêve, conflit*, sanction*, diplomati*, sommet*, élection*, électoral*,
+           coup d'État, putsch, militaire*, armée, troupes, missile*, drone*, frappe*, "=ONU", Nations unies,
+           Conseil de sécurité, "=OTAN", Union africaine, "=Cédéao", président, Premier ministre,
+           traité, négociation*, réfugié*, humanitaire*, manifestation*, rebelle*, djihadiste*, jihadiste*,
+           terroris*, nucléaire, junte, otage*, frontière*, invasion, génocide, famine, déplacés]
+      de: [Krieg*, Waffenruhe, Waffenstillstand, Konflikt*, Sanktion*, Diplomat*, Gipfel*, Wahl, Wahlen,
+           Putsch, Militär*, Armee, Truppen, Rakete*, Drohne*, Luftangriff*, "=UN", "=UNO", Vereinte Nationen,
+           Sicherheitsrat, "=Nato", Afrikanische Union, Präsident*, Ministerpräsident*, Außenminister*,
+           Abkommen, Verhandlung*, Flüchtling*, humanitär*, Protest*, Rebellen, Dschihadist*, Terror*,
+           Atom*, Geisel*, Grenze*, Invasion, Völkermord, Hungersnot]
+      ar: [حرب, الحرب, وقف إطلاق النار, هدنة, صراع, نزاع, عقوبات, دبلوماسي, قمة, انتخابات, انقلاب, الجيش,
+           عسكري, قوات, صواريخ, صاروخ, مسيرة, غارات, غارة, الأمم المتحدة, مجلس الأمن, الناتو, الاتحاد الأفريقي,
+           الجامعة العربية, الرئيس, رئيس الوزراء, وزير الخارجية, اتفاق, مفاوضات, لاجئين, إنسانية, احتجاجات,
+           متمردين, إرهاب, نووي, رهائن, احتلال, الحدود, اجتياح, إبادة, مجاعة, نازحين]
+      he: [מלחמה, המלחמה, הפסקת אש, סנקציות, דיפלומטי, פסגה, בחירות, הפיכה, צבא, צה"ל, כוחות, טילים, טיל,
+           כטב"ם, תקיפה, האו"ם, מועצת הביטחון, נאט"ו, נשיא, ראש הממשלה, שר החוץ, הסכם, משא ומתן, פליטים,
+           הומניטרי, הפגנות, מחבלים, טרור, גרעין, חטופים, כיבוש, גבול, פלישה]
+
+# Regiones de foco. Una noticia puede tener las dos (por ejemplo, Egipto).
+regions:
+  africa:
+    label: África
+    keywords:
+      en: [Africa*, Sub-Saharan, Sahel, Maghreb, Horn of Africa, Algeria*, Angola*, Benin, Botswana, Burkina Faso,
+           Burundi, Cameroon*, Cape Verde, Central African Republic, Chad, Comoros, Congo*, "=DRC", Djibouti,
+           Egypt*, Equatorial Guinea, Eritrea*, Eswatini, Ethiopia*, Gabon*, Gambia*, Ghana*, Guinea*, Ivory Coast,
+           Côte d'Ivoire, Kenya*, Lesotho, Liberia*, Libya*, Madagascar, Malawi*, Mali, Malian*, Mauritania*,
+           Mauritius, Morocc*, Mozambique*, Namibia*, Niger, Nigerien*, Nigeria*, Rwanda*, Senegal*, Seychelles,
+           Sierra Leone, Somalia*, Somaliland, South Africa*, South Sudan*, Sudan*, Tanzania*, Togo*, Tunisia*,
+           Uganda*, Zambia*, Zimbabwe*, Western Sahara, Lagos, Nairobi, Addis Ababa, Johannesburg, Cairo,
+           Khartoum, Darfur, Kinshasa, Tripoli, Algiers, Tunis, Rabat, Dakar, Abuja, Accra, Bamako, Niamey,
+           Ouagadougou, Mogadishu, Al-Shabaab, Boko Haram, Wagner, Africa Corps, Tigray, Amhara, Sahrawi, Cape Town]
+      es: [África, africano*, africana*, Sahel, Magreb, Argelia, Angola, Benín, Botsuana, Burkina Faso, Camerún,
+           Cabo Verde, República Centroafricana, Chad, Congo, Yibuti, Egipto, egipci*, Guinea, Eritrea, Etiopía,
+           Gabón, Gambia, Ghana, Costa de Marfil, Kenia, Liberia, Libia, Malí, Mauritania, Marruecos, marroquí*,
+           Mozambique, Namibia, Níger, Nigeria, Ruanda, Senegal, Sierra Leona, Somalia, Sudáfrica, Sudán,
+           Sudán del Sur, Tanzania, Togo, Túnez, Uganda, Zambia, Zimbabue, Sáhara Occidental, El Cairo, Jartum]
+      fr: [Afrique, africain*, Sahel, Maghreb, Algérie, algérien*, Angola, Bénin, Botswana, Burkina, Burundi,
+           Cameroun, Cap-Vert, Centrafrique, Tchad, Comores, Congo, "=RDC", Djibouti, Égypte, égyptien*, Guinée,
+           Érythrée, Éthiopie, Gabon, Gambie, Ghana, Côte d'Ivoire, ivoirien*, Kenya, Liberia, Libye, Madagascar,
+           Malawi, Mali, malien*, Mauritanie, Maroc, marocain*, Mozambique, Namibie, Niger, nigérien*, Nigeria,
+           Rwanda, Sénégal, sénégalais*, Sierra Leone, Somalie, Afrique du Sud, Soudan, Tanzanie, Togo, Tunisie,
+           tunisien*, Ouganda, Zambie, Zimbabwe, Sahara occidental, Abidjan, Dakar, Bamako, Niamey, Ouagadougou,
+           Kinshasa, Le Caire, Alger, Tunis, Rabat]
+      de: [Afrika*, afrikanisch*, Sahel, Maghreb, Algerien, Angola, Benin, Botsuana, Burkina Faso, Kamerun,
+           Zentralafrika*, Tschad, Kongo, Dschibuti, Ägypten, ägyptisch*, Guinea, Eritrea, Äthiopien, Gabun,
+           Ghana, Elfenbeinküste, Kenia, Liberia, Libyen, Mali, Mauretanien, Marokko, Mosambik, Namibia, Niger,
+           Nigeria, Ruanda, Senegal, Sierra Leone, Somalia, Südafrika, Sudan, Südsudan, Tansania, Togo,
+           Tunesien, Uganda, Sambia, Simbabwe, Westsahara, Kairo, Khartum]
+      ar: [أفريقيا, إفريقيا, الأفريقي, الساحل, المغرب العربي, الجزائر, أنغولا, بوركينا فاسو, الكاميرون,
+           أفريقيا الوسطى, تشاد, الكونغو, جيبوتي, مصر, المصري, غينيا, إريتريا, إثيوبيا, الغابون, غانا, ساحل العاج,
+           كينيا, ليبيريا, ليبيا, الليبي, موريتانيا, المغرب, المغربي, موزمبيق, ناميبيا, النيجر, نيجيريا,
+           رواندا, السنغال, الصومال, جنوب أفريقيا, السودان, السوداني, جنوب السودان, تنزانيا, توغو, تونس,
+           التونسي, أوغندا, زامبيا, زيمبابوي, الصحراء الغربية, القاهرة, الخرطوم, دارفور, الدعم السريع, طرابلس]
+      he: [אפריקה, אפריקאי, מצרים, מצרי, לוב, תוניסיה, אלג'יריה, מרוקו, סודן, אתיופיה, סומליה, ניגריה, קניה,
+           דרום אפריקה, אריתריאה, קהיר]
+  medio_oriente:
+    label: Medio Oriente
+    keywords:
+      en: [Middle East*, Mideast, Gulf state*, Persian Gulf, Iran*, Iraq*, Syria*, Leban*, Jordan*, Palestin*,
+           Gaza*, West Bank, Israel*, Saudi*, "=UAE", Emirat*, Qatar*, Kuwait*, Bahrain*, Oman*, Yemen*, Turkey,
+           Türkiye, Turkish, Egypt*, Hezbollah, Hamas, Houthi*, Tehran, Baghdad, Damascus, Beirut, Riyadh,
+           Dubai, Abu Dhabi, Doha, Jerusalem, Tel Aviv, Ankara, Erdogan, Netanyahu, Khamenei, Kurd*, Red Sea,
+           Strait of Hormuz, "=IRGC", "=OPEC", Aramco]
+      es: [Medio Oriente, Oriente Medio, Oriente Próximo, Golfo Pérsico, Irán, iraní*, Irak, iraquí*, Siria,
+           sirio*, Líbano, libanés*, Jordania, Palestina, palestin*, Gaza, Cisjordania, Israel, israelí*,
+           Arabia Saudí, Arabia Saudita, saudí*, Emiratos, Catar, Qatar, Kuwait, Baréin, Omán, Yemen, Turquía,
+           turco*, Egipto, Hezbolá, Hamás, hutí*, Teherán, Bagdad, Damasco, Beirut, Riad, Jerusalén, kurdo*,
+           Mar Rojo, Ormuz, "=OPEP"]
+      fr: [Moyen-Orient, Proche-Orient, golfe Persique, Iran, iranien*, Irak, irakien*, Syrie, syrien*, Liban,
+           libanais*, Jordanie, Palestin*, Gaza, Cisjordanie, Israël, israélien*, Arabie saoudite, saoudien*,
+           Émirats, Qatar, Koweït, Bahreïn, Oman, Yémen, Turquie, turc*, Égypte, Hezbollah, Hamas, houthi*,
+           Téhéran, Bagdad, Damas, Beyrouth, Riyad, Jérusalem, kurde*, mer Rouge, Ormuz, "=Opep"]
+      de: [Nahost, Nahen Osten, Mittlerer Osten, Golfstaat*, Iran*, Irak*, Syrien*, syrisch*, Libanon*, Jordanien,
+           Palästin*, Gaza*, Westjordanland, Israel*, Saudi-Arabien, saudisch*, Emirat*, Katar, Kuwait, Bahrain,
+           Oman, Jemen, Türkei, türkisch*, Ägypten, Hisbollah, Hamas, Huthi*, Teheran, Bagdad, Damaskus, Beirut,
+           Riad, Jerusalem, Kurd*, Rotes Meer, Roten Meer, Hormus, "=Opec"]
+      ar: [الشرق الأوسط, الخليج, إيران, الإيراني, العراق, العراقي, سوريا, السوري, لبنان, اللبناني, الأردن,
+           فلسطين, الفلسطيني, غزة, الضفة الغربية, إسرائيل, الإسرائيلي, الاحتلال, السعودية, السعودي, الإمارات,
+           الإماراتي, قطر, القطري, الكويت, البحرين, سلطنة عمان, العُماني, اليمن, اليمني, تركيا, التركي, مصر,
+           حزب الله, حماس, الحوثي, طهران, بغداد, دمشق, بيروت, الرياض, دبي, أبوظبي, الدوحة, القدس, الأكراد,
+           البحر الأحمر, هرمز, أوبك, أرامكو]
+      he: [המזרח התיכון, איראן, איראני, עיראק, סוריה, סורי, לבנון, ירדן, פלסטיני, עזה, יהודה ושומרון,
+           הגדה המערבית, ישראל, סעודיה, ערב הסעודית, איחוד האמירויות, האמירויות, קטאר, כווית, בחריין, עומאן,
+           תימן, טורקיה, מצרים, חיזבאללה, חמאס, החות'ים, חות'י, טהרן, ביירות, דמשק, ירושלים, כורדים,
+           הים האדום, הורמוז]

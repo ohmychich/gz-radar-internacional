@@ -1,0 +1,257 @@
+# Fuentes del radar. Para sumar un medio, agregá un bloque nuevo.
+#
+#   id:     identificador corto, sin espacios
+#   name:   nombre que se muestra en el dashboard
+#   lang:   idioma original (es, en, ar, he, de, fr). ar/he/de/fr se traducen al español
+#   topic:  (opcional) tema por defecto si el feed es temático: mercados | tech | geopolitica
+#   region: (opcional) región por defecto: africa | medio_oriente
+#   urls:   uno o más feeds RSS/Atom del medio
+
+sources:
+  # ── Inglés ─────────────────────────────────────────────────────────────
+  - id: bbc
+    name: BBC News
+    lang: en
+    urls:
+      - https://feeds.bbci.co.uk/news/world/rss.xml
+      - https://feeds.bbci.co.uk/news/business/rss.xml
+      - https://feeds.bbci.co.uk/news/technology/rss.xml
+  - id: bbc-africa
+    name: BBC News
+    lang: en
+    region: africa
+    urls:
+      - https://feeds.bbci.co.uk/news/world/africa/rss.xml
+  - id: bbc-me
+    name: BBC News
+    lang: en
+    region: medio_oriente
+    urls:
+      - https://feeds.bbci.co.uk/news/world/middle_east/rss.xml
+  - id: aljazeera
+    name: Al Jazeera English
+    lang: en
+    urls:
+      - https://www.aljazeera.com/xml/rss/all.xml
+  - id: guardian
+    name: The Guardian
+    lang: en
+    urls:
+      - https://www.theguardian.com/business/rss
+      - https://www.theguardian.com/technology/artificialintelligenceai/rss
+      - https://www.theguardian.com/world/rss
+  - id: guardian-africa
+    name: The Guardian
+    lang: en
+    region: africa
+    urls:
+      - https://www.theguardian.com/world/africa/rss
+  - id: guardian-me
+    name: The Guardian
+    lang: en
+    region: medio_oriente
+    urls:
+      - https://www.theguardian.com/world/middleeast/rss
+  - id: ft
+    name: Financial Times
+    lang: en
+    urls:
+      - https://www.ft.com/world?format=rss
+      - https://www.ft.com/markets?format=rss
+      - https://www.ft.com/technology?format=rss
+  - id: cnbc
+    name: CNBC
+    lang: en
+    urls:
+      - https://www.cnbc.com/id/10000664/device/rss/rss.html    # Finance
+      - https://www.cnbc.com/id/100727362/device/rss/rss.html   # World
+      - https://www.cnbc.com/id/19854910/device/rss/rss.html    # Technology
+  - id: mittr
+    name: MIT Technology Review
+    lang: en
+    topic: tech
+    urls:
+      - https://www.technologyreview.com/feed/
+  - id: techcrunch
+    name: TechCrunch
+    lang: en
+    topic: tech
+    urls:
+      - https://techcrunch.com/category/artificial-intelligence/feed/
+  - id: africareport
+    name: The Africa Report
+    lang: en
+    region: africa
+    urls:
+      - https://www.theafricareport.com/feed/
+  - id: mee
+    name: Middle East Eye
+    lang: en
+    region: medio_oriente
+    urls:
+      - https://www.middleeasteye.net/rss
+  - id: foreignpolicy
+    name: Foreign Policy
+    lang: en
+    topic: geopolitica
+    urls:
+      - https://foreignpolicy.com/feed/
+  - id: restofworld
+    name: Rest of World
+    lang: en
+    topic: tech
+    urls:
+      - https://restofworld.org/feed/latest
+  - id: almonitor
+    name: Al-Monitor
+    lang: en
+    region: medio_oriente
+    urls:
+      - https://www.al-monitor.com/rss
+  - id: thenational
+    name: The National
+    lang: en
+    region: medio_oriente
+    urls:
+      - https://www.thenationalnews.com/arc/outboundfeeds/rss/?outputType=xml
+  - id: allafrica
+    name: AllAfrica
+    lang: en
+    region: africa
+    urls:
+      - https://allafrica.com/tools/headlines/rdf/latest/headlines.rdf
+
+  # ── Árabe ──────────────────────────────────────────────────────────────
+  - id: aljazeera-ar
+    name: Al Jazeera (árabe)
+    lang: ar
+    urls:
+      - https://www.aljazeera.net/aljazeerarss/a7c186be-1baa-4bd4-9d80-a84db769f779/73d0e1b4-532f-45ef-b135-bfdff8b8cab9
+  - id: bbc-ar
+    name: BBC Arabic
+    lang: ar
+    urls:
+      - https://feeds.bbci.co.uk/arabic/rss.xml
+  - id: aawsat
+    name: Asharq Al-Awsat
+    lang: ar
+    region: medio_oriente
+    urls:
+      - https://aawsat.com/feed
+  - id: asharqbusiness
+    name: Asharq Business
+    lang: ar
+    topic: mercados
+    urls:
+      - https://asharqbusiness.com/rss
+  - id: alarabiya
+    name: Al Arabiya
+    lang: ar
+    region: medio_oriente
+    urls:
+      - https://www.alarabiya.net/feed/rss2/ar.xml
+
+  # ── Hebreo ─────────────────────────────────────────────────────────────
+  - id: ynet
+    name: Ynet
+    lang: he
+    region: medio_oriente
+    urls:
+      - https://www.ynet.co.il/Integration/StoryRss2.xml
+  - id: globes
+    name: Globes
+    lang: he
+    topic: mercados
+    urls:
+      - https://www.globes.co.il/webservice/rss/rssfeeder.asmx/FeederNode?iID=2
+  - id: calcalist
+    name: Calcalist
+    lang: he
+    urls:
+      - https://www.calcalist.co.il/GeneralRSS/0,16335,L-8,00.xml
+  - id: haaretz
+    name: Haaretz
+    lang: he
+    region: medio_oriente
+    urls:
+      - https://www.haaretz.co.il/srv/htz---all-articles
+
+  # ── Alemán ─────────────────────────────────────────────────────────────
+  - id: spiegel
+    name: Der Spiegel
+    lang: de
+    urls:
+      - https://www.spiegel.de/ausland/index.rss
+      - https://www.spiegel.de/wirtschaft/index.rss
+  - id: handelsblatt
+    name: Handelsblatt
+    lang: de
+    topic: mercados
+    urls:
+      - https://www.handelsblatt.com/contentexport/feed/finanzen
+  - id: heise
+    name: heise online
+    lang: de
+    topic: tech
+    urls:
+      - https://www.heise.de/rss/heise-atom.xml
+  - id: dw-de
+    name: Deutsche Welle
+    lang: de
+    urls:
+      - https://rss.dw.com/xml/rss-de-all
+
+  # ── Francés ────────────────────────────────────────────────────────────
+  - id: lemonde
+    name: Le Monde
+    lang: fr
+    urls:
+      - https://www.lemonde.fr/international/rss_full.xml
+  - id: lemonde-afrique
+    name: Le Monde
+    lang: fr
+    region: africa
+    urls:
+      - https://www.lemonde.fr/afrique/rss_full.xml
+  - id: jeuneafrique
+    name: Jeune Afrique
+    lang: fr
+    region: africa
+    urls:
+      - https://www.jeuneafrique.com/feed/
+  - id: rfi-afrique
+    name: RFI Afrique
+    lang: fr
+    region: africa
+    urls:
+      - https://www.rfi.fr/fr/afrique/rss
+  - id: lesechos
+    name: Les Echos
+    lang: fr
+    topic: mercados
+    urls:
+      - https://services.lesechos.fr/rss/les-echos-finance-marches.xml
+  - id: france24-afrique
+    name: France 24
+    lang: fr
+    region: africa
+    urls:
+      - https://www.france24.com/fr/afrique/rss
+  - id: france24-mo
+    name: France 24
+    lang: fr
+    region: medio_oriente
+    urls:
+      - https://www.france24.com/fr/moyen-orient/rss
+
+  # ── Español ────────────────────────────────────────────────────────────
+  - id: elpais
+    name: El País
+    lang: es
+    urls:
+      - https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/internacional/portada
+  - id: dw-es
+    name: DW Español
+    lang: es
+    urls:
+      - https://rss.dw.com/xml/rss-es-all

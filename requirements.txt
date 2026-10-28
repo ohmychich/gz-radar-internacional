@@ -1,0 +1,4 @@
+feedparser==6.0.14
+requests==2.34.2
+PyYAML==6.0.3
+argostranslate==1.11.0
