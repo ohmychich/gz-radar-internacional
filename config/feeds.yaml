@@ -143,13 +143,7 @@ sources:
     lang: ar
     topic: mercados
     urls:
-      - https://asharqbusiness.com/rss
-  - id: alarabiya
-    name: Al Arabiya
-    lang: ar
-    region: medio_oriente
-    urls:
-      - https://www.alarabiya.net/feed/rss2/ar.xml
+      - https://asharqbusiness.com/rss.xml
 
   # ── Hebreo ─────────────────────────────────────────────────────────────
   - id: ynet
@@ -164,11 +158,12 @@ sources:
     topic: mercados
     urls:
       - https://www.globes.co.il/webservice/rss/rssfeeder.asmx/FeederNode?iID=2
-  - id: calcalist
-    name: Calcalist
+  - id: themarker
+    name: TheMarker
     lang: he
+    topic: mercados
     urls:
-      - https://www.calcalist.co.il/GeneralRSS/0,16335,L-8,00.xml
+      - https://www.themarker.com/srv/tm-all-articles
   - id: haaretz
     name: Haaretz
     lang: he
@@ -189,6 +184,12 @@ sources:
     topic: mercados
     urls:
       - https://www.handelsblatt.com/contentexport/feed/finanzen
+  - id: faz-wirtschaft
+    name: FAZ
+    lang: de
+    topic: mercados
+    urls:
+      - https://www.faz.net/rss/aktuell/wirtschaft/
   - id: heise
     name: heise online
     lang: de
@@ -225,12 +226,12 @@ sources:
     region: africa
     urls:
       - https://www.rfi.fr/fr/afrique/rss
-  - id: lesechos
-    name: Les Echos
+  - id: lefigaro-eco
+    name: Le Figaro Économie
     lang: fr
     topic: mercados
     urls:
-      - https://services.lesechos.fr/rss/les-echos-finance-marches.xml
+      - https://www.lefigaro.fr/rss/figaro_economie.xml
   - id: france24-afrique
     name: France 24
     lang: fr
@@ -254,4 +255,4 @@ sources:
     name: DW Español
     lang: es
     urls:
-      - https://rss.dw.com/xml/rss-es-all
+      - https://rss.dw.com/xml/rss-sp-all

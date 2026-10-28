@@ -2,6 +2,7 @@
 
 Uso:  python -m radar.main
 """
+import html
 import json
 import logging
 import os
@@ -129,6 +130,9 @@ def run():
     # Así un cambio en temas.yaml se aplica también a las noticias ya guardadas.
     classified = []
     for item in items:
+        for key in ("title_es", "summary_es"):
+            if item.get(key):
+                item[key] = html.unescape(item[key])
         topic, regions = classifier.classify(item, by_source[item["source_id"]])
         if topic:
             item["topic"], item["regions"] = topic, regions

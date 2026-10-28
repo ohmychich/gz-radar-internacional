@@ -45,7 +45,8 @@ class Classifier:
             item.get("title_es"), item.get("summary_es"),
         ]))
 
-        regions = [name for name, patterns in self.regions.items() if self._score(patterns, text)]
+        text_regions = [name for name, patterns in self.regions.items() if self._score(patterns, text)]
+        regions = list(text_regions)
         if source.get("region") and source["region"] not in regions:
             regions.append(source["region"])
 
@@ -63,7 +64,9 @@ class Classifier:
             # Desempate: primero el tema del feed, después el orden de prioridad.
             tied = [t for t in TOPIC_PRIORITY if scores[t] == best]
             topic = source.get("topic") if source.get("topic") in tied else tied[0]
-        elif regions:
+        elif text_regions:
+            # Menciona un país o actor de la región aunque no tenga palabras de ningún tema.
+            # La región del feed sola no alcanza: así no entran deportes o ciencia de un medio regional.
             topic = "geopolitica"
         else:
             topic = None

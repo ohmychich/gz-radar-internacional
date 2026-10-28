@@ -23,7 +23,14 @@ _WS_RE = re.compile(r"\s+")
 
 def clean_text(value):
     """Quita HTML y espacios sobrantes."""
-    text = html.unescape(_TAG_RE.sub(" ", value or ""))
+    text = value or ""
+    # Algunos feeds escapan dos veces (&amp;quot;), así que se decodifica hasta que no cambie.
+    for _ in range(3):
+        decoded = html.unescape(text)
+        if decoded == text:
+            break
+        text = decoded
+    text = _TAG_RE.sub(" ", text)
     return _WS_RE.sub(" ", text).strip()
 
 

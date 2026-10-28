@@ -18,17 +18,17 @@ topics:
            asset manager*, central bank*, Federal Reserve, "=Fed", "=ECB", interest rate*, rate cut*, rate hike*,
            monetary policy, inflation, "=SEC", stock exchange*, bourse, sovereign wealth fund*, "=IMF",
            World Bank, credit rating*, Moody's, Fitch, downgrade*, earnings, dividend*, buyback*,
-           capital market*, investor*, sukuk, fundraising, valuation, bank*, banking, debt, yields]
+           capital market*, investor*, sukuk, fundraising, valuation, banks, banking, banker*, lender*, debt, yields]
       es: [salida a bolsa, "=OPV", emisión de bonos, bono*, deuda soberana, deuda, fusión, fusiones, adquisición*,
            banco central, Reserva Federal, tipos de interés, tasas de interés, tasa de interés, política monetaria,
            inflación, fondo soberano, "=FMI", Banco Mundial, calificación crediticia, bolsa de valores,
-           mercado de capitales, mercados financieros, inversor*, inversionista*, capital de riesgo, banca, banco*]
+           mercado de capitales, mercados financieros, inversor*, inversionista*, capital de riesgo, banca, bancos, bancario*]
       fr: [introduction en bourse, obligation*, dette*, fusion*, acquisition*, rachat*, banque centrale,
            "=BCE", taux d'intérêt, taux directeur*, politique monétaire, inflation, fonds souverain*, "=FMI",
-           Banque mondiale, notation, marchés financiers, investisseur*, levée de fonds, banque*]
+           Banque mondiale, notation, marchés financiers, investisseur*, levée de fonds, banques, bancaire*]
       de: [Börsengang*, Anleihe*, Staatsanleihe*, Übernahme*, Fusion*, Zentralbank*, "=EZB", Leitzins*,
            Zinsen, Zinssenkung*, Zinserhöhung*, Geldpolitik, Inflation, Staatsfonds, "=IWF", Ratingagentur*,
-           Finanzmarkt*, Kapitalmarkt*, Investor*, Anleger*, Bank*, Dividende*, Schulden*]
+           Finanzmarkt*, Kapitalmarkt*, Investor*, Anleger*, Banken, Dividende*, Schulden*]
       ar: [طرح عام, اكتتاب, سندات, صكوك, استحواذ, اندماج, البنك المركزي, المركزي, أسعار الفائدة, الفائدة,
            التضخم, صندوق النقد, البنك الدولي, صندوق سيادي, صناديق سيادية, البورصة, سوق الأسهم, سوق المال,
            المستثمرين, تصنيف ائتماني, الديون, مصرف, بنوك]

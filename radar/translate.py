@@ -5,6 +5,7 @@ Si Argos no está instalado (por ejemplo, en una prueba local), las noticias que
 en su idioma original y se intentan traducir en la próxima corrida.
 """
 import hashlib
+import html
 import logging
 import time
 
@@ -66,14 +67,14 @@ class Translator:
         hit = self.cache.get(key)
         if hit:
             hit["used"] = self.now
-            return hit["es"]
+            return html.unescape(hit["es"])
         if self.unavailable:
             return None
         self._load(TRANSLATE_LANGS)
         if not self.engine:
             return None
         try:
-            result = self.engine.translate(text, lang, TARGET)
+            result = html.unescape(self.engine.translate(text, lang, TARGET))
         except Exception as exc:  # noqa: BLE001
             log.warning("No se pudo traducir (%s): %s", lang, exc)
             return None
