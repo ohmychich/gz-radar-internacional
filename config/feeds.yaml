@@ -2,7 +2,7 @@
 #
 #   id:     identificador corto, sin espacios
 #   name:   nombre que se muestra en el dashboard
-#   lang:   idioma original (es, en, ar, he, de, fr). ar/he/de/fr se traducen al español
+#   lang:   idioma original (es, en, ar, he, de, fr, hi, bn, zh, ja, am). Todos menos es/en se traducen al español
 #   topic:  (opcional) tema por defecto si el texto no coincide con ninguno: economia | politica | conflictos | energia | tech | sociedad
 #   region: (opcional) región por defecto: africa | medio_oriente
 #   urls:   uno o más feeds RSS/Atom del medio
@@ -765,3 +765,169 @@ sources:
     lang: es
     urls:
       - https://news.un.org/feed/subscribe/es/news/all/rss.xml
+
+  # ── Hindi ─────────────────────────────────────────────────────────────────
+  - id: bbc-hindi
+    name: BBC Hindi
+    lang: hi
+    urls:
+      - https://feeds.bbci.co.uk/hindi/rss.xml
+  - id: amarujala
+    name: Amar Ujala
+    lang: hi
+    urls:
+      - https://www.amarujala.com/rss/world.xml
+  - id: livehindustan
+    name: Hindustan
+    lang: hi
+    urls:
+      - https://api.livehindustan.com/feeds/rss/international/rssfeed.xml
+  - id: abplive
+    name: ABP Live
+    lang: hi
+    urls:
+      - https://www.abplive.com/news/world/feed
+  - id: bhaskar
+    name: Dainik Bhaskar
+    lang: hi
+    urls:
+      - https://www.bhaskar.com/rss-v1--category-1125.xml
+  - id: un-hi
+    name: Noticias ONU (hindi)
+    lang: hi
+    urls:
+      - https://news.un.org/feed/subscribe/hi/news/all/rss.xml
+
+  # ── Bengalí ───────────────────────────────────────────────────────────────
+  - id: bbc-bangla
+    name: BBC Bangla
+    lang: bn
+    urls:
+      - https://feeds.bbci.co.uk/bengali/rss.xml
+  - id: prothomalo
+    name: Prothom Alo
+    lang: bn
+    urls:
+      - https://www.prothomalo.com/feed/
+  - id: banglatribune
+    name: Bangla Tribune
+    lang: bn
+    urls:
+      - https://www.banglatribune.com/feed/
+
+  # ── Chino ─────────────────────────────────────────────────────────────────
+  - id: bbc-zh
+    name: BBC 中文
+    lang: zh
+    urls:
+      - https://feeds.bbci.co.uk/zhongwen/simp/rss.xml
+  - id: dw-zh
+    name: DW (chino)
+    lang: zh
+    urls:
+      - https://rss.dw.com/rdf/rss-chi-all
+  - id: rfi-zh
+    name: RFI (chino)
+    lang: zh
+    urls:
+      - https://www.rfi.fr/cn/rss
+  - id: chinanews
+    name: China News
+    lang: zh
+    urls:
+      - https://www.chinanews.com.cn/rss/world.xml
+      - https://www.chinanews.com.cn/rss/finance.xml
+  - id: peoplesdaily
+    name: Diario del Pueblo
+    lang: zh
+    urls:
+      - http://www.people.com.cn/rss/world.xml
+  - id: xinhua
+    name: Xinhua
+    lang: zh
+    urls:
+      - http://www.xinhuanet.com/world/news_world.xml
+  - id: ftchinese
+    name: FT 中文网
+    lang: zh
+    urls:
+      - https://www.ftchinese.com/rss/news
+  - id: nyt-zh
+    name: The New York Times (chino)
+    lang: zh
+    urls:
+      - https://cn.nytimes.com/rss/
+  - id: ifanr
+    name: ifanr
+    lang: zh
+    topic: tech
+    urls:
+      - https://www.ifanr.com/feed
+  - id: un-zh
+    name: Noticias ONU (chino)
+    lang: zh
+    urls:
+      - https://news.un.org/feed/subscribe/zh/news/all/rss.xml
+
+  # ── Japonés ───────────────────────────────────────────────────────────────
+  - id: nhk
+    name: NHK
+    lang: ja
+    urls:
+      - https://www3.nhk.or.jp/rss/news/cat6.xml
+      - https://www3.nhk.or.jp/rss/news/cat5.xml
+  - id: toyokeizai
+    name: Toyo Keizai
+    lang: ja
+    topic: economia
+    urls:
+      - https://toyokeizai.net/list/feed/rss
+  - id: itmedia-ai
+    name: ITmedia AI+
+    lang: ja
+    topic: tech
+    urls:
+      - https://rss.itmedia.co.jp/rss/2.0/aiplus.xml
+  - id: yahoo-jp
+    name: Yahoo! Japan Noticias
+    lang: ja
+    urls:
+      - https://news.yahoo.co.jp/rss/topics/world.xml
+      - https://news.yahoo.co.jp/rss/topics/business.xml
+  - id: cnn-jp
+    name: CNN.co.jp
+    lang: ja
+    urls:
+      - https://feeds.cnn.co.jp/rss/cnn/cnn.rdf
+
+  # ── Amhárico (Etiopía) ────────────────────────────────────────────────────
+  - id: bbc-amharic
+    name: BBC Amharic
+    lang: am
+    region: africa
+    urls:
+      - https://feeds.bbci.co.uk/amharic/rss.xml
+  - id: ethiopianreporter
+    name: The Reporter (Etiopía)
+    lang: am
+    region: africa
+    urls:
+      - https://www.ethiopianreporter.com/feed/
+  - id: fana
+    name: Fana
+    lang: am
+    region: africa
+    urls:
+      - https://www.fanabc.com/feed/
+  - id: wazema
+    name: Wazema Radio
+    lang: am
+    region: africa
+    urls:
+      - https://wazemaradio.com/feed/
+  - id: ethiopiainsider
+    name: Ethiopia Insider
+    lang: am
+    region: africa
+    urls:
+      - https://ethiopiainsider.com/feed/

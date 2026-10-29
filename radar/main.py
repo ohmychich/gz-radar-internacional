@@ -13,7 +13,7 @@ import yaml
 
 from radar.classify import Classifier
 from radar.feeds import fetch_all
-from radar.translate import TRANSLATE_LANGS, Translator, looks_english, tidy
+from radar.translate import MYMEMORY_LANGS, TRANSLATE_LANGS, Translator, looks_english, tidy
 
 ROOT = Path(__file__).resolve().parent.parent
 CONFIG = ROOT / "config"
@@ -95,11 +95,16 @@ def run():
     log.info("Descargadas %d noticias de %d feeds (%d con error)",
              len(fresh), len(status), sum(1 for s in status if not s["ok"]))
 
+    # Idiomas con palabras clave propias en temas.yaml. Los demás (hindi, chino...) se
+    # clasifican recién con la traducción del título.
+    keyword_langs = {lang for group in (*rules["topics"].values(), *rules["regions"].values())
+                     for lang in group["keywords"]}
+
     # Primera clasificación con el texto original: descarta lo que no es de ningún tema.
     kept = []
     for item in fresh:
         topics, regions, relevant = classifier.classify(item, by_source[item["source_id"]])
-        if relevant:
+        if relevant or item["lang"] not in keyword_langs:
             item["topics"], item["regions"] = topics, regions
             kept.append(item)
 
@@ -121,11 +126,19 @@ def run():
         if budget <= 0:
             break
         title_es = translator.translate(item["lang"], item["title"])
-        summary_es = translator.translate(item["lang"], item["summary"]) if title_es else None
-        budget -= 2
+        budget -= 1
         if title_es is None:
             continue
         item["title_es"] = title_es
+        summary_es = None
+        if item["lang"] not in keyword_langs:
+            # Sin palabras clave propias: se decide con el título traducido antes de gastar
+            # tiempo en el resumen.
+            if not classifier.classify(item, by_source[item["source_id"]])[2]:
+                continue
+        if item["lang"] not in MYMEMORY_LANGS:  # MyMemory tiene poco cupo: solo títulos
+            summary_es = translator.translate(item["lang"], item["summary"])
+            budget -= 1
         if summary_es is not None:
             item["summary_es"] = summary_es
     translator.prune()
@@ -153,8 +166,8 @@ def run():
         "updated": now,
         "topics": topics,
         "regions": regions,
-        "translation": {"pending": pending, "engine": "Argos Translate",
-                        "unavailable": translator.unavailable},
+        "translation": {"pending": pending, "engine": "Argos Translate + MyMemory (amhárico)",
+                        "unavailable": translator.unavailable, "mymemory": translator.mymemory_off},
         "items": items,
     })
     save_json(STATUS_FILE, update_status(load_json(STATUS_FILE, {}), status, now), pretty=True)

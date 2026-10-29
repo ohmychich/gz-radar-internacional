@@ -1,4 +1,8 @@
-"""Traducción local al español con Argos Translate (sin claves ni límites).
+"""Traducción al español.
+
+- Argos Translate, local y sin claves ni límites, para la mayoría de los idiomas.
+- MyMemory (API gratuita, sin cuenta) para el amhárico, que Argos no tiene. Su cupo
+  gratuito es chico (unos 5.000 caracteres por día), así que solo se usa para títulos.
 
 Las traducciones se guardan en un caché para que cada texto se traduzca una sola vez.
 Si Argos no está instalado (por ejemplo, en una prueba local), las noticias quedan
@@ -10,10 +14,16 @@ import logging
 import re
 import time
 
+import requests
+
 log = logging.getLogger(__name__)
 
 TARGET = "es"
-TRANSLATE_LANGS = {"ar", "he", "de", "fr"}
+ARGOS_LANGS = {"ar", "he", "de", "fr", "hi", "bn", "zh", "ja"}
+MYMEMORY_LANGS = {"am"}
+TRANSLATE_LANGS = ARGOS_LANGS | MYMEMORY_LANGS
+MYMEMORY_URL = "https://api.mymemory.translated.net/get"
+MYMEMORY_MAX_CHARS = 450  # el servicio acepta hasta 500 bytes por pedido
 PIVOT = "en"
 CACHE_TTL_DAYS = 14
 
@@ -46,6 +56,7 @@ class Translator:
         self.models = None
         self.unavailable = None
         self.translated = 0
+        self.mymemory_off = None
 
     def _load(self):
         """Instala (si falta) y carga los modelos de idioma necesarios."""
@@ -60,8 +71,8 @@ class Translator:
             return
 
         installed = {(p.from_code, p.to_code) for p in argostranslate.package.get_installed_packages()}
-        wanted = {(PIVOT, TARGET)} | {(lang, TARGET) for lang in TRANSLATE_LANGS} \
-            | {(lang, PIVOT) for lang in TRANSLATE_LANGS}
+        wanted = {(PIVOT, TARGET)} | {(lang, TARGET) for lang in ARGOS_LANGS} \
+            | {(lang, PIVOT) for lang in ARGOS_LANGS}
         if wanted - installed:
             argostranslate.package.update_package_index()
             available = {(p.from_code, p.to_code): p for p in argostranslate.package.get_available_packages()}
@@ -98,6 +109,23 @@ class Translator:
                              for i, p in enumerate(parts))
         return tidy(result)
 
+    def _mymemory(self, lang, text):
+        if self.mymemory_off:
+            return None
+        text = text[:MYMEMORY_MAX_CHARS]
+        try:
+            response = requests.get(MYMEMORY_URL, params={"q": text, "langpair": f"{lang}|{TARGET}"}, timeout=20)
+            data = response.json()
+        except (requests.RequestException, ValueError) as exc:
+            self.mymemory_off = f"MyMemory no respondió ({type(exc).__name__})"
+            return None
+        result = (data.get("responseData") or {}).get("translatedText") or ""
+        if data.get("quotaFinished") or str(data.get("responseStatus")) != "200" or "MYMEMORY WARNING" in result:
+            self.mymemory_off = "se agotó el cupo diario gratuito de MyMemory"
+            log.info(self.mymemory_off)
+            return None
+        return tidy(result)
+
     def translate(self, lang, text):
         """Traduce un texto. Devuelve None si no se pudo (queda para otra corrida)."""
         if not text:
@@ -107,6 +135,12 @@ class Translator:
         if hit and not looks_english(hit["es"]):
             hit["used"] = self.now
             return tidy(hit["es"])
+        if lang in MYMEMORY_LANGS:
+            result = self._mymemory(lang, text)
+            if result:
+                self.cache[key] = {"es": result, "used": self.now}
+                self.translated += 1
+            return result
         if self.unavailable:
             return tidy(hit["es"]) if hit else None
         self._load()

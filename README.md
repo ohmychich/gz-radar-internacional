@@ -9,8 +9,14 @@ El tablero tiene tres columnas: **Lo último** (todo mezclado, sin rachas de un 
 
 - Corre solo, gratis y sin IA: un robot de GitHub Actions lee los feeds RSS una vez por hora.
 - Las noticias en español e inglés quedan en su idioma original. Las que están en árabe, hebreo,
-  alemán y francés se traducen al español con [Argos Translate](https://github.com/argosopentech/argos-translate),
-  que corre dentro del mismo robot (sin claves ni límites).
+  alemán, francés, hindi, bengalí, chino y japonés se traducen al español con
+  [Argos Translate](https://github.com/argosopentech/argos-translate), que corre dentro del mismo robot
+  (sin claves ni límites).
+- Argos no tiene amhárico: esos títulos se traducen con la API gratuita de
+  [MyMemory](https://mymemory.translated.net/), sin cuenta. Su cupo es de unos 5.000 caracteres por día,
+  así que solo se traducen títulos y, si el cupo se agota, el resto espera al día siguiente.
+- En los idiomas sin palabras clave propias (hindi, bengalí, chino, japonés, amhárico) primero se traduce
+  el título y con eso se decide si la noticia entra al radar.
 - El sitio es estático y se publica con GitHub Pages.
 
 ## Cómo funciona

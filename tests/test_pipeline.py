@@ -95,12 +95,12 @@ class ConfigTest(unittest.TestCase):
         ids = [s["id"] for s in sources]
         self.assertEqual(len(ids), len(set(ids)), "hay ids repetidos")
         for source in sources:
-            self.assertIn(source["lang"], {"es", "en", "ar", "he", "de", "fr"}, source["id"])
+            self.assertIn(source["lang"], {"es", "en", "ar", "he", "de", "fr", "hi", "bn", "zh", "ja", "am"}, source["id"])
             self.assertIn(source.get("topic"), {None, *RULES["topics"]}, source["id"])
             self.assertIn(source.get("region"), {None, *RULES["regions"]}, source["id"])
             self.assertTrue(source["urls"], source["id"])
             for url in source["urls"]:
-                self.assertTrue(url.startswith("https://"), url)
+                self.assertTrue(url.startswith(("https://", "http://")), url)
 
 
 class CleanTextTest(unittest.TestCase):
@@ -118,6 +118,33 @@ class TranslateHelpersTest(unittest.TestCase):
     def test_tidy(self):
         from radar.translate import tidy
         self.assertEqual(tidy('Resultados de " Alphabet " y " Microsoft " , hoy'), 'Resultados de "Alphabet" y "Microsoft", hoy')
+
+
+class MyMemoryTest(unittest.TestCase):
+    def _translator(self, payload):
+        from unittest import mock
+        from radar import translate
+        t = translate.Translator({})
+        response = mock.Mock()
+        response.json.return_value = payload
+        patcher = mock.patch.object(translate.requests, "get", return_value=response)
+        self.addCleanup(patcher.stop)
+        return t, patcher.start()
+
+    def test_amharic_uses_mymemory_and_cache(self):
+        t, get = self._translator({"responseStatus": 200, "responseData": {"translatedText": "Etiopía y Egipto hablan de la represa"}})
+        self.assertEqual(t.translate("am", "ኢትዮጵያ እና ግብፅ"), "Etiopía y Egipto hablan de la represa")
+        self.assertEqual(t.translate("am", "ኢትዮጵያ እና ግብፅ"), "Etiopía y Egipto hablan de la represa")
+        self.assertEqual(get.call_count, 1)
+        self.assertEqual(get.call_args.kwargs["params"]["langpair"], "am|es")
+
+    def test_quota_exhausted_stops_for_the_run(self):
+        t, get = self._translator({"responseStatus": 429, "quotaFinished": True,
+                                   "responseData": {"translatedText": "MYMEMORY WARNING: YOU USED ALL AVAILABLE FREE TRANSLATIONS"}})
+        self.assertIsNone(t.translate("am", "ሰላም"))
+        self.assertIsNone(t.translate("am", "ሌላ"))
+        self.assertEqual(get.call_count, 1)
+        self.assertIn("cupo", t.mymemory_off)
 
 
 class FeedTest(unittest.TestCase):

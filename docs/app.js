@@ -6,7 +6,10 @@ const COLUMNS = [
   { id: "africa", label: "África", hint: "Foco África", filter: (i) => (i.regions || []).includes("africa") },
   { id: "medio_oriente", label: "Medio Oriente", hint: "Foco Medio Oriente", filter: (i) => (i.regions || []).includes("medio_oriente") },
 ];
-const LANG_NAMES = { es: "español", en: "inglés", ar: "árabe", he: "hebreo", de: "alemán", fr: "francés" };
+const LANG_NAMES = {
+  es: "español", en: "inglés", ar: "árabe", he: "hebreo", de: "alemán", fr: "francés",
+  hi: "hindi", bn: "bengalí", zh: "chino", ja: "japonés", am: "amhárico",
+};
 const RTL = new Set(["ar", "he"]);
 const PAGE = 40;
 const REFRESH_MS = 10 * 60 * 1000;
