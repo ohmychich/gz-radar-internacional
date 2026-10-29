@@ -1,19 +1,8 @@
 {
- "updated": 1793273825,
- "ok": 138,
+ "updated": 1793274539,
+ "ok": 139,
  "total": 139,
  "feeds": [
-  {
-   "source_id": "nation-africa",
-   "source": "Nation (Kenia)",
-   "lang": "en",
-   "url": "https://nation.africa/kenya/rss.xml",
-   "ok": false,
-   "items": 0,
-   "error": "HTTP 404",
-   "seconds": 0.1,
-   "last_ok": null
-  },
   {
    "source_id": "africanarguments",
    "source": "African Arguments",
@@ -22,8 +11,8 @@
    "ok": true,
    "items": 10,
    "error": null,
-   "seconds": 0.4,
-   "last_ok": 1793273825
+   "seconds": 1.2,
+   "last_ok": 1793274539
   },
   {
    "source_id": "africanews",
@@ -33,8 +22,8 @@
    "ok": true,
    "items": 40,
    "error": null,
-   "seconds": 0.2,
-   "last_ok": 1793273825
+   "seconds": 1.0,
+   "last_ok": 1793274539
   },
   {
    "source_id": "africanews-fr",
@@ -44,8 +33,8 @@
    "ok": true,
    "items": 40,
    "error": null,
-   "seconds": 0.2,
-   "last_ok": 1793273825
+   "seconds": 0.5,
+   "last_ok": 1793274539
   },
   {
    "source_id": "aljazeera-ar",
@@ -55,8 +44,8 @@
    "ok": true,
    "items": 25,
    "error": null,
-   "seconds": 0.2,
-   "last_ok": 1793273825
+   "seconds": 0.4,
+   "last_ok": 1793274539
   },
   {
    "source_id": "aljazeera",
@@ -66,8 +55,8 @@
    "ok": true,
    "items": 25,
    "error": null,
-   "seconds": 0.2,
-   "last_ok": 1793273825
+   "seconds": 0.3,
+   "last_ok": 1793274539
   },
   {
    "source_id": "alaraby",
@@ -77,8 +66,8 @@
    "ok": true,
    "items": 40,
    "error": null,
-   "seconds": 0.8,
-   "last_ok": 1793273825
+   "seconds": 2.7,
+   "last_ok": 1793274539
   },
   {
    "source_id": "almonitor",
@@ -89,7 +78,7 @@
    "items": 20,
    "error": null,
    "seconds": 0.2,
-   "last_ok": 1793273825
+   "last_ok": 1793274539
   },
   {
    "source_id": "alquds",
@@ -100,7 +89,7 @@
    "items": 30,
    "error": null,
    "seconds": 1.0,
-   "last_ok": 1793273825
+   "last_ok": 1793274539
   },
   {
    "source_id": "alquds-alarabi",
@@ -110,8 +99,8 @@
    "ok": true,
    "items": 10,
    "error": null,
-   "seconds": 0.2,
-   "last_ok": 1793273825
+   "seconds": 0.6,
+   "last_ok": 1793274539
   },
   {
    "source_id": "allafrica",
@@ -122,7 +111,7 @@
    "items": 33,
    "error": null,
    "seconds": 0.4,
-   "last_ok": 1793273825
+   "last_ok": 1793274539
   },
   {
    "source_id": "aawsat",
@@ -132,8 +121,8 @@
    "ok": true,
    "items": 40,
    "error": null,
-   "seconds": 0.8,
-   "last_ok": 1793273825
+   "seconds": 1.3,
+   "last_ok": 1793274539
   },
   {
    "source_id": "asharqbusiness",
@@ -143,8 +132,8 @@
    "ok": true,
    "items": 30,
    "error": null,
-   "seconds": 0.8,
-   "last_ok": 1793273825
+   "seconds": 1.0,
+   "last_ok": 1793274539
   },
   {
    "source_id": "asiatimes",
@@ -154,8 +143,8 @@
    "ok": true,
    "items": 20,
    "error": null,
-   "seconds": 0.4,
-   "last_ok": 1793273825
+   "seconds": 0.5,
+   "last_ok": 1793274539
   },
   {
    "source_id": "bbc-ar",
@@ -165,8 +154,8 @@
    "ok": true,
    "items": 27,
    "error": null,
-   "seconds": 0.4,
-   "last_ok": 1793273825
+   "seconds": 0.3,
+   "last_ok": 1793274539
   },
   {
    "source_id": "bbc-mundo",
@@ -176,8 +165,8 @@
    "ok": true,
    "items": 34,
    "error": null,
-   "seconds": 0.3,
-   "last_ok": 1793273825
+   "seconds": 0.5,
+   "last_ok": 1793274539
   },
   {
    "source_id": "bbc",
@@ -187,8 +176,8 @@
    "ok": true,
    "items": 27,
    "error": null,
-   "seconds": 0.1,
-   "last_ok": 1793273825
+   "seconds": 0.4,
+   "last_ok": 1793274539
   },
   {
    "source_id": "bbc",
@@ -198,8 +187,8 @@
    "ok": true,
    "items": 40,
    "error": null,
-   "seconds": 0.1,
-   "last_ok": 1793273825
+   "seconds": 0.5,
+   "last_ok": 1793274539
   },
   {
    "source_id": "bbc",
@@ -209,8 +198,8 @@
    "ok": true,
    "items": 20,
    "error": null,
-   "seconds": 0.1,
-   "last_ok": 1793273825
+   "seconds": 0.5,
+   "last_ok": 1793274539
   },
   {
    "source_id": "bbc-africa",
@@ -220,8 +209,8 @@
    "ok": true,
    "items": 34,
    "error": null,
-   "seconds": 0.1,
-   "last_ok": 1793273825
+   "seconds": 0.7,
+   "last_ok": 1793274539
   },
   {
    "source_id": "bbc-me",
@@ -231,8 +220,8 @@
    "ok": true,
    "items": 24,
    "error": null,
-   "seconds": 0.1,
-   "last_ok": 1793273825
+   "seconds": 0.5,
+   "last_ok": 1793274539
   },
   {
    "source_id": "bi-africa",
@@ -242,8 +231,8 @@
    "ok": true,
    "items": 25,
    "error": null,
-   "seconds": 1.4,
-   "last_ok": 1793273825
+   "seconds": 1.1,
+   "last_ok": 1793274539
   },
   {
    "source_id": "businessday-ng",
@@ -253,8 +242,8 @@
    "ok": true,
    "items": 5,
    "error": null,
-   "seconds": 1.4,
-   "last_ok": 1793273825
+   "seconds": 0.4,
+   "last_ok": 1793274539
   },
   {
    "source_id": "cnbc",
@@ -264,8 +253,8 @@
    "ok": true,
    "items": 30,
    "error": null,
-   "seconds": 0.2,
-   "last_ok": 1793273825
+   "seconds": 0.3,
+   "last_ok": 1793274539
   },
   {
    "source_id": "cnbc",
@@ -275,8 +264,8 @@
    "ok": true,
    "items": 30,
    "error": null,
-   "seconds": 0.3,
-   "last_ok": 1793273825
+   "seconds": 0.5,
+   "last_ok": 1793274539
   },
   {
    "source_id": "cnbc",
@@ -286,8 +275,8 @@
    "ok": true,
    "items": 30,
    "error": null,
-   "seconds": 0.1,
-   "last_ok": 1793273825
+   "seconds": 0.2,
+   "last_ok": 1793274539
   },
   {
    "source_id": "clarin",
@@ -297,8 +286,8 @@
    "ok": true,
    "items": 10,
    "error": null,
-   "seconds": 0.1,
-   "last_ok": 1793273825
+   "seconds": 0.2,
+   "last_ok": 1793274539
   },
   {
    "source_id": "courrierintl",
@@ -308,8 +297,8 @@
    "ok": true,
    "items": 20,
    "error": null,
-   "seconds": 0.4,
-   "last_ok": 1793273825
+   "seconds": 0.6,
+   "last_ok": 1793274539
   },
   {
    "source_id": "crisisgroup",
@@ -319,8 +308,8 @@
    "ok": true,
    "items": 10,
    "error": null,
-   "seconds": 0.3,
-   "last_ok": 1793273825
+   "seconds": 0.6,
+   "last_ok": 1793274539
   },
   {
    "source_id": "dw-en-africa",
@@ -330,8 +319,8 @@
    "ok": true,
    "items": 5,
    "error": null,
-   "seconds": 2.3,
-   "last_ok": 1793273825
+   "seconds": 0.3,
+   "last_ok": 1793274539
   },
   {
    "source_id": "dw-en",
@@ -341,8 +330,8 @@
    "ok": true,
    "items": 12,
    "error": null,
-   "seconds": 1.6,
-   "last_ok": 1793273825
+   "seconds": 0.4,
+   "last_ok": 1793274539
   },
   {
    "source_id": "dw-ar",
@@ -352,8 +341,8 @@
    "ok": true,
    "items": 40,
    "error": null,
-   "seconds": 0.9,
-   "last_ok": 1793273825
+   "seconds": 0.4,
+   "last_ok": 1793274539
   },
   {
    "source_id": "dw-es",
@@ -363,8 +352,8 @@
    "ok": true,
    "items": 19,
    "error": null,
-   "seconds": 2.8,
-   "last_ok": 1793273825
+   "seconds": 0.4,
+   "last_ok": 1793274539
   },
   {
    "source_id": "dailymaverick",
@@ -374,8 +363,8 @@
    "ok": true,
    "items": 40,
    "error": null,
-   "seconds": 0.2,
-   "last_ok": 1793273825
+   "seconds": 0.7,
+   "last_ok": 1793274539
   },
   {
    "source_id": "spiegel",
@@ -385,8 +374,8 @@
    "ok": true,
    "items": 20,
    "error": null,
-   "seconds": 0.8,
-   "last_ok": 1793273825
+   "seconds": 0.6,
+   "last_ok": 1793274539
   },
   {
    "source_id": "spiegel",
@@ -396,8 +385,8 @@
    "ok": true,
    "items": 20,
    "error": null,
-   "seconds": 0.8,
-   "last_ok": 1793273825
+   "seconds": 0.5,
+   "last_ok": 1793274539
   },
   {
    "source_id": "dw-de",
@@ -407,8 +396,8 @@
    "ok": true,
    "items": 40,
    "error": null,
-   "seconds": 3.7,
-   "last_ok": 1793273825
+   "seconds": 0.9,
+   "last_ok": 1793274539
   },
   {
    "source_id": "dlf",
@@ -418,8 +407,8 @@
    "ok": true,
    "items": 21,
    "error": null,
-   "seconds": 0.6,
-   "last_ok": 1793273825
+   "seconds": 0.8,
+   "last_ok": 1793274539
   },
   {
    "source_id": "welt",
@@ -429,8 +418,8 @@
    "ok": true,
    "items": 30,
    "error": null,
-   "seconds": 0.4,
-   "last_ok": 1793273825
+   "seconds": 0.3,
+   "last_ok": 1793274539
   },
   {
    "source_id": "zeit",
@@ -440,8 +429,8 @@
    "ok": true,
    "items": 15,
    "error": null,
-   "seconds": 0.5,
-   "last_ok": 1793273825
+   "seconds": 0.3,
+   "last_ok": 1793274539
   },
   {
    "source_id": "zeit",
@@ -451,8 +440,8 @@
    "ok": true,
    "items": 15,
    "error": null,
-   "seconds": 0.4,
-   "last_ok": 1793273825
+   "seconds": 0.2,
+   "last_ok": 1793274539
   },
   {
    "source_id": "elmundo",
@@ -462,8 +451,8 @@
    "ok": true,
    "items": 40,
    "error": null,
-   "seconds": 0.3,
-   "last_ok": 1793273825
+   "seconds": 0.5,
+   "last_ok": 1793274539
   },
   {
    "source_id": "ordenmundial",
@@ -473,8 +462,8 @@
    "ok": true,
    "items": 10,
    "error": null,
-   "seconds": 0.7,
-   "last_ok": 1793273825
+   "seconds": 0.8,
+   "last_ok": 1793274539
   },
   {
    "source_id": "elpais",
@@ -484,8 +473,8 @@
    "ok": true,
    "items": 23,
    "error": null,
-   "seconds": 1.1,
-   "last_ok": 1793273825
+   "seconds": 1.0,
+   "last_ok": 1793274539
   },
   {
    "source_id": "elpais-eco",
@@ -495,8 +484,8 @@
    "ok": true,
    "items": 40,
    "error": null,
-   "seconds": 1.2,
-   "last_ok": 1793273825
+   "seconds": 0.9,
+   "last_ok": 1793274539
   },
   {
    "source_id": "euronews",
@@ -506,8 +495,8 @@
    "ok": true,
    "items": 40,
    "error": null,
-   "seconds": 0.5,
-   "last_ok": 1793273825
+   "seconds": 0.7,
+   "last_ok": 1793274539
   },
   {
    "source_id": "euronews-es",
@@ -517,8 +506,8 @@
    "ok": true,
    "items": 40,
    "error": null,
-   "seconds": 0.1,
-   "last_ok": 1793273825
+   "seconds": 0.7,
+   "last_ok": 1793274539
   },
   {
    "source_id": "expansion",
@@ -528,8 +517,8 @@
    "ok": true,
    "items": 40,
    "error": null,
-   "seconds": 0.3,
-   "last_ok": 1793273825
+   "seconds": 0.6,
+   "last_ok": 1793274539
   },
   {
    "source_id": "financialafrik",
@@ -539,8 +528,8 @@
    "ok": true,
    "items": 15,
    "error": null,
-   "seconds": 2.5,
-   "last_ok": 1793273825
+   "seconds": 2.7,
+   "last_ok": 1793274539
   },
   {
    "source_id": "ft",
@@ -550,8 +539,8 @@
    "ok": true,
    "items": 25,
    "error": null,
-   "seconds": 0.4,
-   "last_ok": 1793273825
+   "seconds": 0.3,
+   "last_ok": 1793274539
   },
   {
    "source_id": "ft",
@@ -561,8 +550,8 @@
    "ok": true,
    "items": 25,
    "error": null,
-   "seconds": 0.5,
-   "last_ok": 1793273825
+   "seconds": 0.4,
+   "last_ok": 1793274539
   },
   {
    "source_id": "ft",
@@ -572,8 +561,8 @@
    "ok": true,
    "items": 25,
    "error": null,
-   "seconds": 0.4,
-   "last_ok": 1793273825
+   "seconds": 0.3,
+   "last_ok": 1793274539
   },
   {
    "source_id": "foreignaffairs",
@@ -583,8 +572,8 @@
    "ok": true,
    "items": 20,
    "error": null,
-   "seconds": 0.2,
-   "last_ok": 1793273825
+   "seconds": 0.3,
+   "last_ok": 1793274539
   },
   {
    "source_id": "foreignpolicy",
@@ -594,8 +583,8 @@
    "ok": true,
    "items": 25,
    "error": null,
-   "seconds": 0.2,
-   "last_ok": 1793273825
+   "seconds": 0.3,
+   "last_ok": 1793274539
   },
   {
    "source_id": "france24-afrique",
@@ -605,8 +594,8 @@
    "ok": true,
    "items": 30,
    "error": null,
-   "seconds": 1.0,
-   "last_ok": 1793273825
+   "seconds": 0.6,
+   "last_ok": 1793274539
   },
   {
    "source_id": "france24-mo",
@@ -616,8 +605,8 @@
    "ok": true,
    "items": 30,
    "error": null,
-   "seconds": 0.8,
-   "last_ok": 1793273825
+   "seconds": 0.9,
+   "last_ok": 1793274539
   },
   {
    "source_id": "france24-en-africa",
@@ -627,8 +616,8 @@
    "ok": true,
    "items": 30,
    "error": null,
-   "seconds": 0.1,
-   "last_ok": 1793273825
+   "seconds": 0.4,
+   "last_ok": 1793274539
   },
   {
    "source_id": "france24-en",
@@ -638,8 +627,8 @@
    "ok": true,
    "items": 24,
    "error": null,
-   "seconds": 0.2,
-   "last_ok": 1793273825
+   "seconds": 0.4,
+   "last_ok": 1793274539
   },
   {
    "source_id": "france24-en-me",
@@ -650,7 +639,7 @@
    "items": 30,
    "error": null,
    "seconds": 0.3,
-   "last_ok": 1793273825
+   "last_ok": 1793274539
   },
   {
    "source_id": "france24-fr",
@@ -660,8 +649,8 @@
    "ok": true,
    "items": 24,
    "error": null,
-   "seconds": 0.1,
-   "last_ok": 1793273825
+   "seconds": 0.3,
+   "last_ok": 1793274539
   },
   {
    "source_id": "france24-es",
@@ -671,8 +660,8 @@
    "ok": true,
    "items": 24,
    "error": null,
-   "seconds": 0.1,
-   "last_ok": 1793273825
+   "seconds": 0.3,
+   "last_ok": 1793274539
   },
   {
    "source_id": "france24-es-africa",
@@ -682,8 +671,8 @@
    "ok": true,
    "items": 30,
    "error": null,
-   "seconds": 1.0,
-   "last_ok": 1793273825
+   "seconds": 0.3,
+   "last_ok": 1793274539
   },
   {
    "source_id": "france24-es-mo",
@@ -693,8 +682,8 @@
    "ok": true,
    "items": 30,
    "error": null,
-   "seconds": 0.8,
-   "last_ok": 1793273825
+   "seconds": 0.3,
+   "last_ok": 1793274539
   },
   {
    "source_id": "france24-ar",
@@ -704,8 +693,8 @@
    "ok": true,
    "items": 24,
    "error": null,
-   "seconds": 0.1,
-   "last_ok": 1793273825
+   "seconds": 0.4,
+   "last_ok": 1793274539
   },
   {
    "source_id": "globes",
@@ -716,7 +705,7 @@
    "items": 15,
    "error": null,
    "seconds": 0.7,
-   "last_ok": 1793273825
+   "last_ok": 1793274539
   },
   {
    "source_id": "haaretz",
@@ -726,8 +715,8 @@
    "ok": true,
    "items": 40,
    "error": null,
-   "seconds": 0.4,
-   "last_ok": 1793273825
+   "seconds": 0.5,
+   "last_ok": 1793274539
   },
   {
    "source_id": "haaretz-en",
@@ -737,8 +726,8 @@
    "ok": true,
    "items": 40,
    "error": null,
-   "seconds": 0.5,
-   "last_ok": 1793273825
+   "seconds": 1.1,
+   "last_ok": 1793274539
   },
   {
    "source_id": "handelsblatt",
@@ -748,8 +737,8 @@
    "ok": true,
    "items": 20,
    "error": null,
-   "seconds": 0.3,
-   "last_ok": 1793273825
+   "seconds": 0.8,
+   "last_ok": 1793274539
   },
   {
    "source_id": "handelsblatt-politik",
@@ -759,8 +748,8 @@
    "ok": true,
    "items": 20,
    "error": null,
-   "seconds": 0.1,
-   "last_ok": 1793273825
+   "seconds": 0.4,
+   "last_ok": 1793274539
   },
   {
    "source_id": "hespress",
@@ -770,8 +759,8 @@
    "ok": true,
    "items": 12,
    "error": null,
-   "seconds": 0.4,
-   "last_ok": 1793273825
+   "seconds": 0.6,
+   "last_ok": 1793274539
   },
   {
    "source_id": "iris",
@@ -781,8 +770,8 @@
    "ok": true,
    "items": 10,
    "error": null,
-   "seconds": 1.4,
-   "last_ok": 1793273825
+   "seconds": 2.0,
+   "last_ok": 1793274539
   },
   {
    "source_id": "independentarabia",
@@ -792,8 +781,8 @@
    "ok": true,
    "items": 40,
    "error": null,
-   "seconds": 0.5,
-   "last_ok": 1793273825
+   "seconds": 1.2,
+   "last_ok": 1793274539
   },
   {
    "source_id": "iranintl",
@@ -803,8 +792,8 @@
    "ok": true,
    "items": 40,
    "error": null,
-   "seconds": 0.4,
-   "last_ok": 1793273825
+   "seconds": 0.8,
+   "last_ok": 1793274539
   },
   {
    "source_id": "jeuneafrique",
@@ -815,7 +804,7 @@
    "items": 30,
    "error": null,
    "seconds": 0.5,
-   "last_ok": 1793273825
+   "last_ok": 1793274539
   },
   {
    "source_id": "jeuneafrique-eco",
@@ -825,8 +814,8 @@
    "ok": true,
    "items": 30,
    "error": null,
-   "seconds": 0.2,
-   "last_ok": 1793273825
+   "seconds": 0.4,
+   "last_ok": 1793274539
   },
   {
    "source_id": "lanacion",
@@ -836,8 +825,8 @@
    "ok": true,
    "items": 40,
    "error": null,
-   "seconds": 1.3,
-   "last_ok": 1793273825
+   "seconds": 3.3,
+   "last_ok": 1793274539
   },
   {
    "source_id": "lavanguardia",
@@ -847,8 +836,8 @@
    "ok": true,
    "items": 40,
    "error": null,
-   "seconds": 0.3,
-   "last_ok": 1793273825
+   "seconds": 1.1,
+   "last_ok": 1793274539
   },
   {
    "source_id": "lefigaro-intl",
@@ -858,8 +847,8 @@
    "ok": true,
    "items": 20,
    "error": null,
-   "seconds": 0.7,
-   "last_ok": 1793273825
+   "seconds": 0.3,
+   "last_ok": 1793274539
   },
   {
    "source_id": "lefigaro-eco",
@@ -869,8 +858,8 @@
    "ok": true,
    "items": 20,
    "error": null,
-   "seconds": 0.5,
-   "last_ok": 1793273825
+   "seconds": 0.6,
+   "last_ok": 1793274539
   },
   {
    "source_id": "lemonde",
@@ -880,8 +869,8 @@
    "ok": true,
    "items": 20,
    "error": null,
-   "seconds": 0.4,
-   "last_ok": 1793273825
+   "seconds": 0.5,
+   "last_ok": 1793274539
   },
   {
    "source_id": "lemonde-afrique",
@@ -892,7 +881,7 @@
    "items": 20,
    "error": null,
    "seconds": 0.5,
-   "last_ok": 1793273825
+   "last_ok": 1793274539
   },
   {
    "source_id": "lemonde-eco",
@@ -902,8 +891,8 @@
    "ok": true,
    "items": 20,
    "error": null,
-   "seconds": 0.1,
-   "last_ok": 1793273825
+   "seconds": 0.4,
+   "last_ok": 1793274539
   },
   {
    "source_id": "lemonde-pixels",
@@ -913,8 +902,8 @@
    "ok": true,
    "items": 20,
    "error": null,
-   "seconds": 0.2,
-   "last_ok": 1793273825
+   "seconds": 0.3,
+   "last_ok": 1793274539
   },
   {
    "source_id": "mondediplo",
@@ -924,8 +913,8 @@
    "ok": true,
    "items": 20,
    "error": null,
-   "seconds": 0.7,
-   "last_ok": 1793273825
+   "seconds": 0.8,
+   "last_ok": 1793274539
   },
   {
    "source_id": "lefaso",
@@ -935,8 +924,8 @@
    "ok": true,
    "items": 40,
    "error": null,
-   "seconds": 1.8,
-   "last_ok": 1793273825
+   "seconds": 2.5,
+   "last_ok": 1793274539
   },
   {
    "source_id": "liberation",
@@ -946,8 +935,8 @@
    "ok": true,
    "items": 40,
    "error": null,
-   "seconds": 0.8,
-   "last_ok": 1793273825
+   "seconds": 1.8,
+   "last_ok": 1793274539
   },
   {
    "source_id": "mittr",
@@ -958,7 +947,7 @@
    "items": 10,
    "error": null,
    "seconds": 0.2,
-   "last_ok": 1793273825
+   "last_ok": 1793274539
   },
   {
    "source_id": "maariv",
@@ -968,8 +957,8 @@
    "ok": true,
    "items": 20,
    "error": null,
-   "seconds": 0.9,
-   "last_ok": 1793273825
+   "seconds": 0.6,
+   "last_ok": 1793274539
   },
   {
    "source_id": "madamasr",
@@ -979,8 +968,8 @@
    "ok": true,
    "items": 10,
    "error": null,
-   "seconds": 0.4,
-   "last_ok": 1793273825
+   "seconds": 1.2,
+   "last_ok": 1793274539
   },
   {
    "source_id": "mee",
@@ -990,8 +979,8 @@
    "ok": true,
    "items": 20,
    "error": null,
-   "seconds": 0.3,
-   "last_ok": 1793273825
+   "seconds": 0.4,
+   "last_ok": 1793274539
   },
   {
    "source_id": "memo",
@@ -1001,8 +990,8 @@
    "ok": true,
    "items": 40,
    "error": null,
-   "seconds": 1.7,
-   "last_ok": 1793273825
+   "seconds": 1.5,
+   "last_ok": 1793274539
   },
   {
    "source_id": "myjoyonline",
@@ -1012,8 +1001,8 @@
    "ok": true,
    "items": 40,
    "error": null,
-   "seconds": 0.7,
-   "last_ok": 1793273825
+   "seconds": 1.9,
+   "last_ok": 1793274539
   },
   {
    "source_id": "npr-world",
@@ -1024,7 +1013,7 @@
    "items": 10,
    "error": null,
    "seconds": 0.4,
-   "last_ok": 1793273825
+   "last_ok": 1793274539
   },
   {
    "source_id": "nzz",
@@ -1034,8 +1023,8 @@
    "ok": true,
    "items": 40,
    "error": null,
-   "seconds": 0.3,
-   "last_ok": 1793273825
+   "seconds": 0.5,
+   "last_ok": 1793274539
   },
   {
    "source_id": "nzz",
@@ -1046,7 +1035,18 @@
    "items": 32,
    "error": null,
    "seconds": 0.3,
-   "last_ok": 1793273825
+   "last_ok": 1793274539
+  },
+  {
+   "source_id": "nation-africa",
+   "source": "Nation (Kenia)",
+   "lang": "en",
+   "url": "https://nation.africa/kenya/rss.xml",
+   "ok": true,
+   "items": 25,
+   "error": null,
+   "seconds": 0.5,
+   "last_ok": 1793274539
   },
   {
    "source_id": "un-africa",
@@ -1056,8 +1056,8 @@
    "ok": true,
    "items": 30,
    "error": null,
-   "seconds": 0.1,
-   "last_ok": 1793273825
+   "seconds": 0.5,
+   "last_ok": 1793274539
   },
   {
    "source_id": "un-news",
@@ -1067,8 +1067,8 @@
    "ok": true,
    "items": 30,
    "error": null,
-   "seconds": 0.5,
-   "last_ok": 1793273825
+   "seconds": 0.6,
+   "last_ok": 1793274539
   },
   {
    "source_id": "un-me",
@@ -1078,8 +1078,8 @@
    "ok": true,
    "items": 30,
    "error": null,
-   "seconds": 0.5,
-   "last_ok": 1793273825
+   "seconds": 0.7,
+   "last_ok": 1793274539
   },
   {
    "source_id": "un-es",
@@ -1089,8 +1089,8 @@
    "ok": true,
    "items": 30,
    "error": null,
-   "seconds": 0.1,
-   "last_ok": 1793273825
+   "seconds": 0.6,
+   "last_ok": 1793274539
   },
   {
    "source_id": "un-ar",
@@ -1101,7 +1101,7 @@
    "items": 30,
    "error": null,
    "seconds": 0.4,
-   "last_ok": 1793273825
+   "last_ok": 1793274539
   },
   {
    "source_id": "politico-eu",
@@ -1111,8 +1111,8 @@
    "ok": true,
    "items": 10,
    "error": null,
-   "seconds": 0.4,
-   "last_ok": 1793273825
+   "seconds": 1.4,
+   "last_ok": 1793274539
   },
   {
    "source_id": "premiumtimes",
@@ -1122,8 +1122,8 @@
    "ok": true,
    "items": 15,
    "error": null,
-   "seconds": 1.1,
-   "last_ok": 1793273825
+   "seconds": 0.9,
+   "last_ok": 1793274539
   },
   {
    "source_id": "projectsyndicate",
@@ -1133,8 +1133,8 @@
    "ok": true,
    "items": 20,
    "error": null,
-   "seconds": 8.2,
-   "last_ok": 1793273825
+   "seconds": 0.6,
+   "last_ok": 1793274539
   },
   {
    "source_id": "rfi-monde",
@@ -1144,8 +1144,8 @@
    "ok": true,
    "items": 30,
    "error": null,
-   "seconds": 0.1,
-   "last_ok": 1793273825
+   "seconds": 0.3,
+   "last_ok": 1793274539
   },
   {
    "source_id": "rfi-mo",
@@ -1155,8 +1155,8 @@
    "ok": true,
    "items": 30,
    "error": null,
-   "seconds": 0.4,
-   "last_ok": 1793273825
+   "seconds": 0.3,
+   "last_ok": 1793274539
   },
   {
    "source_id": "rfi-afrique",
@@ -1166,8 +1166,8 @@
    "ok": true,
    "items": 23,
    "error": null,
-   "seconds": 0.4,
-   "last_ok": 1793273825
+   "seconds": 0.3,
+   "last_ok": 1793274539
   },
   {
    "source_id": "dabanga",
@@ -1177,8 +1177,8 @@
    "ok": true,
    "items": 12,
    "error": null,
-   "seconds": 1.3,
-   "last_ok": 1793273825
+   "seconds": 1.7,
+   "last_ok": 1793274539
   },
   {
    "source_id": "responsiblestatecraft",
@@ -1188,8 +1188,8 @@
    "ok": true,
    "items": 30,
    "error": null,
-   "seconds": 0.6,
-   "last_ok": 1793273825
+   "seconds": 1.5,
+   "last_ok": 1793274539
   },
   {
    "source_id": "restofworld",
@@ -1199,8 +1199,8 @@
    "ok": true,
    "items": 12,
    "error": null,
-   "seconds": 0.3,
-   "last_ok": 1793273825
+   "seconds": 0.4,
+   "last_ok": 1793274539
   },
   {
    "source_id": "semafor",
@@ -1210,8 +1210,8 @@
    "ok": true,
    "items": 40,
    "error": null,
-   "seconds": 1.0,
-   "last_ok": 1793273825
+   "seconds": 4.8,
+   "last_ok": 1793274539
   },
   {
    "source_id": "skynewsarabia",
@@ -1221,8 +1221,8 @@
    "ok": true,
    "items": 40,
    "error": null,
-   "seconds": 0.4,
-   "last_ok": 1793273825
+   "seconds": 0.5,
+   "last_ok": 1793274539
   },
   {
    "source_id": "sz",
@@ -1233,7 +1233,7 @@
    "items": 15,
    "error": null,
    "seconds": 0.5,
-   "last_ok": 1793273825
+   "last_ok": 1793274539
   },
   {
    "source_id": "tagesschau",
@@ -1243,8 +1243,8 @@
    "ok": true,
    "items": 40,
    "error": null,
-   "seconds": 0.9,
-   "last_ok": 1793273825
+   "seconds": 1.0,
+   "last_ok": 1793274539
   },
   {
    "source_id": "tagesschau",
@@ -1254,8 +1254,8 @@
    "ok": true,
    "items": 16,
    "error": null,
-   "seconds": 0.7,
-   "last_ok": 1793273825
+   "seconds": 0.6,
+   "last_ok": 1793274539
   },
   {
    "source_id": "techcabal",
@@ -1265,8 +1265,8 @@
    "ok": true,
    "items": 10,
    "error": null,
-   "seconds": 1.4,
-   "last_ok": 1793273825
+   "seconds": 0.8,
+   "last_ok": 1793274539
   },
   {
    "source_id": "techcrunch",
@@ -1277,7 +1277,7 @@
    "items": 20,
    "error": null,
    "seconds": 0.2,
-   "last_ok": 1793273825
+   "last_ok": 1793274539
   },
   {
    "source_id": "africareport",
@@ -1287,8 +1287,8 @@
    "ok": true,
    "items": 10,
    "error": null,
-   "seconds": 0.3,
-   "last_ok": 1793273825
+   "seconds": 0.4,
+   "last_ok": 1793274539
   },
   {
    "source_id": "thediplomat",
@@ -1298,8 +1298,8 @@
    "ok": true,
    "items": 40,
    "error": null,
-   "seconds": 0.3,
-   "last_ok": 1793273825
+   "seconds": 0.8,
+   "last_ok": 1793274539
   },
   {
    "source_id": "economist-mea",
@@ -1309,8 +1309,8 @@
    "ok": true,
    "items": 40,
    "error": null,
-   "seconds": 0.5,
-   "last_ok": 1793273825
+   "seconds": 1.1,
+   "last_ok": 1793274539
   },
   {
    "source_id": "economist",
@@ -1320,8 +1320,8 @@
    "ok": true,
    "items": 40,
    "error": null,
-   "seconds": 0.8,
-   "last_ok": 1793273825
+   "seconds": 1.1,
+   "last_ok": 1793274539
   },
   {
    "source_id": "economist",
@@ -1331,8 +1331,8 @@
    "ok": true,
    "items": 40,
    "error": null,
-   "seconds": 0.7,
-   "last_ok": 1793273825
+   "seconds": 1.3,
+   "last_ok": 1793274539
   },
   {
    "source_id": "guardian",
@@ -1342,8 +1342,8 @@
    "ok": true,
    "items": 19,
    "error": null,
-   "seconds": 0.5,
-   "last_ok": 1793273825
+   "seconds": 0.3,
+   "last_ok": 1793274539
   },
   {
    "source_id": "guardian",
@@ -1353,8 +1353,8 @@
    "ok": true,
    "items": 20,
    "error": null,
-   "seconds": 0.3,
-   "last_ok": 1793273825
+   "seconds": 0.7,
+   "last_ok": 1793274539
   },
   {
    "source_id": "guardian",
@@ -1365,7 +1365,7 @@
    "items": 40,
    "error": null,
    "seconds": 0.2,
-   "last_ok": 1793273825
+   "last_ok": 1793274539
   },
   {
    "source_id": "guardian-africa",
@@ -1375,8 +1375,8 @@
    "ok": true,
    "items": 20,
    "error": null,
-   "seconds": 0.4,
-   "last_ok": 1793273825
+   "seconds": 0.6,
+   "last_ok": 1793274539
   },
   {
    "source_id": "guardian-me",
@@ -1386,8 +1386,8 @@
    "ok": true,
    "items": 20,
    "error": null,
-   "seconds": 0.3,
-   "last_ok": 1793273825
+   "seconds": 0.2,
+   "last_ok": 1793274539
   },
   {
    "source_id": "jpost",
@@ -1397,8 +1397,8 @@
    "ok": true,
    "items": 30,
    "error": null,
-   "seconds": 0.4,
-   "last_ok": 1793273825
+   "seconds": 1.0,
+   "last_ok": 1793274539
   },
   {
    "source_id": "thenational",
@@ -1408,8 +1408,8 @@
    "ok": true,
    "items": 40,
    "error": null,
-   "seconds": 0.6,
-   "last_ok": 1793273825
+   "seconds": 1.8,
+   "last_ok": 1793274539
   },
   {
    "source_id": "newarab",
@@ -1419,8 +1419,8 @@
    "ok": true,
    "items": 40,
    "error": null,
-   "seconds": 0.7,
-   "last_ok": 1793273825
+   "seconds": 2.1,
+   "last_ok": 1793274539
   },
   {
    "source_id": "newhumanitarian",
@@ -1430,8 +1430,8 @@
    "ok": true,
    "items": 10,
    "error": null,
-   "seconds": 0.2,
-   "last_ok": 1793273825
+   "seconds": 0.7,
+   "last_ok": 1793274539
   },
   {
    "source_id": "themarker",
@@ -1441,8 +1441,8 @@
    "ok": true,
    "items": 40,
    "error": null,
-   "seconds": 0.7,
-   "last_ok": 1793273825
+   "seconds": 0.9,
+   "last_ok": 1793274539
   },
   {
    "source_id": "vanguard-ng",
@@ -1452,8 +1452,8 @@
    "ok": true,
    "items": 20,
    "error": null,
-   "seconds": 0.3,
-   "last_ok": 1793273825
+   "seconds": 0.9,
+   "last_ok": 1793274539
   },
   {
    "source_id": "warontherocks",
@@ -1463,8 +1463,8 @@
    "ok": true,
    "items": 40,
    "error": null,
-   "seconds": 0.9,
-   "last_ok": 1793273825
+   "seconds": 1.2,
+   "last_ok": 1793274539
   },
   {
    "source_id": "ynet",
@@ -1474,8 +1474,8 @@
    "ok": true,
    "items": 30,
    "error": null,
-   "seconds": 0.4,
-   "last_ok": 1793273825
+   "seconds": 0.3,
+   "last_ok": 1793274539
   },
   {
    "source_id": "ynet-news",
@@ -1485,8 +1485,8 @@
    "ok": true,
    "items": 30,
    "error": null,
-   "seconds": 0.7,
-   "last_ok": 1793273825
+   "seconds": 0.2,
+   "last_ok": 1793274539
   },
   {
    "source_id": "eldiario",
@@ -1496,8 +1496,8 @@
    "ok": true,
    "items": 27,
    "error": null,
-   "seconds": 0.8,
-   "last_ok": 1793273825
+   "seconds": 3.5,
+   "last_ok": 1793274539
   },
   {
    "source_id": "heise",
@@ -1507,8 +1507,8 @@
    "ok": true,
    "items": 40,
    "error": null,
-   "seconds": 0.9,
-   "last_ok": 1793273825
+   "seconds": 1.7,
+   "last_ok": 1793274539
   },
   {
    "source_id": "t3n",
@@ -1518,8 +1518,8 @@
    "ok": true,
    "items": 20,
    "error": null,
-   "seconds": 1.2,
-   "last_ok": 1793273825
+   "seconds": 0.9,
+   "last_ok": 1793274539
   },
   {
    "source_id": "taz",
@@ -1529,8 +1529,8 @@
    "ok": true,
    "items": 40,
    "error": null,
-   "seconds": 1.7,
-   "last_ok": 1793273825
+   "seconds": 1.1,
+   "last_ok": 1793274539
   }
  ]
 }
