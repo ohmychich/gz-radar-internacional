@@ -20,6 +20,7 @@ CACHE_TTL_DAYS = 14
 _EN_WORDS = re.compile(r"\b(the|and|of|to|in|is|for|with|has|have|was|were|that|from|after)\b", re.IGNORECASE)
 _ES_WORDS = re.compile(r"\b(el|la|los|las|de|del|y|en|que|con|por|para|un|una|se|tras)\b", re.IGNORECASE)
 _SPACED_QUOTES = re.compile(r'"\s+([^"]*?)\s+"')
+_SENTENCE_SPLIT = re.compile(r"((?<=[.;:!?])\s+|\s*,\s+)")
 
 
 def looks_english(text):
@@ -87,6 +88,14 @@ class Translator:
             result = self._run(self._run(text, lang, PIVOT), PIVOT, TARGET)
         if looks_english(result):
             result = self._run(result, PIVOT, TARGET)
+        if looks_english(result):
+            # Con textos largos el modelo inglés→español a veces devuelve el texto sin traducir:
+            # último intento, frase por frase.
+            # split con grupo de captura: las posiciones impares son los separadores originales.
+            parts = _SENTENCE_SPLIT.split(result)
+            result = "".join(p if i % 2 or not p.strip() else self._run(p, PIVOT, TARGET).rstrip(".,")
+                             + ("." if p.endswith(".") else "")
+                             for i, p in enumerate(parts))
         return tidy(result)
 
     def translate(self, lang, text):
