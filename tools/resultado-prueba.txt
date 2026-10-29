@@ -1,0 +1,159 @@
+OK   50 https://www.africanews.com/feed/rss | Libya's eastern administration bans nationals from Iran and Afghanista
+ERROR   0 https://mg.co.za/feed/ | HTTP 404
+OK   50 https://www.dailymaverick.co.za/dmrss/ | El Salvador to send over 2,000 soldiers to Haiti for rescue while elec
+OK   15 https://www.premiumtimesng.com/feed | Oshiomhole defends Tinubu’s borrowing plan, says loans will fund infra
+ERROR   0 https://www.theeastafrican.co.ke/rss | HTTP 403
+OK   25 https://nation.africa/kenya/rss.xml | NMG Summit: AI will not kill your job, but someone using it might, lea
+OK    5 https://businessday.ng/feed/ | INEC declares Benue ready for 2027 polls, lists 592 candidates, 3.05m 
+VACÍO   0 https://issafrica.org/rss | 
+OK   50 https://theconversation.com/africa/articles.atom | Comment les séries coréennes utilisent l'Afrique pour redorer l'image 
+OK   10 https://africanarguments.org/feed/ | Africa cannot build a stronger agrifood economy while the livestock se
+OK   10 https://techcabal.com/feed/ | Payment providers must look beyond transactions, fintech executives sa
+ERROR   0 https://techpoint.africa/feed/ | HTTP 403
+OK   25 https://africa.businessinsider.com/rss | US hotel giant Marriott opens first African EDITION after reported $66
+ERROR   0 https://www.ecofinagency.com/rss | HTTP 403
+ERROR   0 https://english.ahram.org.eg/rss/1/0/0/0.aspx | HTTP 403
+OK   10 https://www.madamasr.com/en/feed/ | Lina Attalah in custody after court issues LE3 mn fine, orders Mada Ma
+ERROR   0 https://sudantribune.com/feed/ | HTTP 403
+ERROR   0 https://addisstandard.com/feed/ | HTTP 403
+OK  268 https://www.semafor.com/rss.xml | Volkswagen reports its worst results in a decade
+VACÍO   0 https://www.newtimes.co.rw/rss | 
+ERROR   0 https://www.monitor.co.ug/uganda/rss.xml | HTTP 403
+ERROR   0 https://www.citizen.digital/rss | HTTP 400
+ERROR   0 https://www.thecitizen.co.tz/tanzania/rss.xml | HTTP 404
+OK   50 https://www.myjoyonline.com/feed/ | SanlamAllianz in Ghana launches “PROUD Moments 2.0” to celebrate every
+OK   20 https://www.vanguardngr.com/feed/ | EPL: Man City braced for another tough test in Brighton repeat
+ERROR   0 https://www.news24.com/news24/rss | HTTP 404
+ERROR   0 https://www.moroccoworldnews.com/feed/ | HTTP 403
+ERROR   0 https://www.libyaobserver.ly/rss.xml | HTTP 404
+OK   12 https://www.dabangasudan.org/en/feed | UN, France condemn escalating drone attacks across Sudan
+ERROR   0 https://www.garoweonline.com/en/rss | HTTP 500
+VACÍO   0 https://www.voanews.com/api/zmgqoe$mqoi | 
+OK   10 https://www.thenewhumanitarian.org/rss/all.xml | Pax Democratica: Whose peace, whose democracy?
+OK   10 https://www.crisisgroup.org/rss | Will Trump Help Putin Win in Ukraine?
+OK   50 https://www.africanews.com/feed/rss?lang=fr | Libya's eastern administration bans nationals from Iran and Afghanista
+OK   50 https://fr.africanews.com/feed/rss | Arrêt sur images du 29 octobre 2026 : un sommet Russie-Afrique pour re
+ERROR   0 https://www.ecofinagency.com/fr/rss | HTTP 404
+ERROR   0 https://www.lepoint.fr/afrique/rss.xml | HTTP 403
+ERROR   0 https://information.tv5monde.com/afrique/rss.xml | HTTP 404
+OK   30 https://www.jeuneafrique.com/rubriques/economie-entreprises/feed/ | 300 champions de la finance : notre méthodologie évolue
+OK   86 https://lefaso.net/spip.php?page=backend | Le Faso Digital 2026 : Guide KDG, FasoTuuma et Kora AI, trois solution
+ERROR   0 https://www.seneweb.com/news/rss.php | HTTP 404
+ERROR   0 https://fr.le360.ma/rss | HTTP 404
+ERROR   0 https://www.hespress.com/fr/feed | HTTP 404
+ERROR   0 https://www.aps.dz/fr/component/obrss/aps-fr | HTTP 404
+OK   15 https://www.financialafrik.com/feed/ | SAS 2026 : quand la diaspora et le continent passent de l’ambition à l
+VACÍO   0 https://www.agenceecofin.com/rss | 
+OK   30 https://www.rfi.fr/fr/monde/rss | L’Europe veut renouer le contact avec la Russie
+OK   20 https://www.courrierinternational.com/feed/all/rss.xml | Dans la fabrique des “super-bébés” de la Silicon Valley
+OK   20 https://www.monde-diplomatique.fr/recents.xml | Le Brésil n'a pas dit son dernier mot
+ERROR   0 https://www.lorientlejour.com/rss | HTTP 404
+OK   10 https://www.politico.eu/feed/ | Belgium’s deputy PM wants to use ‘trade bazooka’ on US over pharma thr
+OK   20 https://www.foreignaffairs.com/rss.xml | Don't Go Backward on China Policy
+OK   96 https://thediplomat.com/feed/ | Singapore, Indonesia Ready to Address Bilateral Issues Including Haze,
+ERROR   0 https://www.cfr.org/rss.xml | HTTP 404
+ERROR   0 https://www.chathamhouse.org/rss.xml | HTTP 403
+OK   30 https://responsiblestatecraft.org/feed/ | Why is Egypt jumping into Houthi war? First, follow the money.
+OK  100 https://warontherocks.com/feed/ | A Tale of Two Markets: A Dickensian Take on the Coming Years in Defens
+OK   10 https://feeds.npr.org/1004/rss.xml | How AI drones are influencing the course of the Ukraine war
+OK   24 https://www.france24.com/en/rss | REPLAY: French anti-terrorism prosecutor gives press conference on rac
+OK   30 https://www.france24.com/en/africa/rss | Kenya's female athletes make their mark as Youth Olympic Games approac
+OK   30 https://www.france24.com/en/middle-east/rss | Live: Israelis await final vote count as allegations of foreign interf
+OK   12 https://rss.dw.com/rdf/rss-en-world | European Central Bank (ECB) head Christine Lagarde to step down in Feb
+OK    5 https://rss.dw.com/rdf/rss-en-africa | One year on, families seek justice after election violence
+OK   50 https://www.euronews.com/rss?level=theme&name=news | Israel: protesters demand Arab-Jewish unity government after election
+OK   30 https://news.un.org/feed/subscribe/en/news/all/rss.xml | Afghanistan opium production jumps fivefold as farmers find ways round
+OK   30 https://news.un.org/feed/subscribe/en/news/region/africa/feed/rss.xml | Civilians in Sudan’s El Obeid trapped between drones and incarceration
+OK   30 https://news.un.org/feed/subscribe/en/news/region/middle-east/feed/rss.xml | Gaza: Families brace for fourth winter in tents as aid operations rema
+OK   45 https://www.theguardian.com/world/rss | Egypt fines prominent editor Lina Attalah and shuts independent news o
+VACÍO   0 https://foreignpolicy.com/category/africa/feed/ | 
+OK  300 https://www.economist.com/international/rss.xml | To understand African politics, just listen to the music
+OK  300 https://www.economist.com/middle-east-and-africa/rss.xml | South Africa’s “white party” looks for more black votes
+OK  300 https://www.economist.com/finance-and-economics/rss.xml | The countries making a fortune from the US-China rivalry
+OK   20 https://www.project-syndicate.org/rss | A Future for Europe’s Youth
+OK   20 https://asiatimes.com/feed/ | China’s Belt and Road hasn’t lived up to Xi’s promise
+OK   50 https://www.scmp.com/rss/91/feed | Lit cigarette, combustibles and ‘human fault’ led to deadly Hong Kong 
+OK   25 https://www.aljazeera.com/xml/rss/all.xml | Pentagon says Iran war has cost US taxpayers $47bn: What that means
+ERROR   0 https://www.arabnews.com/rss.xml | HTTP 403
+OK   30 https://www.jpost.com/rss/rssfeedsheadlines.aspx | IDF issues evacuation order for Tehran ahead of strikes
+OK  100 https://www.haaretz.com/srv/haaretz-latest-headlines | Eisenkot says Netanyahu leading influence campaign to undermine electi
+ERROR   0 https://gulfnews.com/rss | HTTP 404
+OK   50 https://www.iranintl.com/en/feed | Growing old alone: The parents Iran’s emigrants left behind
+VACÍO   0 https://www.dailysabah.com/rss | 
+OK   50 https://www.middleeastmonitor.com/feed/ | Shell profits double as Middle East conflict pushes up energy prices
+ERROR   0 https://english.alarabiya.net/feed/rss2/en.xml | HTTP 403
+OK  133 https://www.newarab.com/rss | Israeli military firms use European subsidiaries to obscure ties
+ERROR   0 https://www.zawya.com/sitemaps/en/rss | HTTP 403
+VACÍO   0 https://agsiw.org/feed/ | 
+OK   34 https://feeds.bbci.co.uk/mundo/rss.xml | Cuál fue la posible causa del choque de trenes de alta velocidad que d
+OK   24 https://www.france24.com/es/rss | Cómo la ofensiva antimigratoria de Trump amenaza con convertirse en un
+OK   30 https://www.france24.com/es/africa/rss | El ébola salta a Nigeria: ¿puede frenarse su expansión transfronteriza
+OK   30 https://www.france24.com/es/medio-oriente/rss | Tras elecciones sin ganador definitivo en Israel, ¿podrá la oposición 
+ERROR   0 https://cnnespanol.cnn.com/feed/ | HTTP 404
+ERROR   0 https://www.efe.com/feed/ | HTTP 500
+OK   10 https://elordenmundial.com/feed/ | El plan de Trump con las ‘midterms’: de forzar el resultado a erosiona
+OK  100 https://www.lavanguardia.com/rss/internacional.xml | Putin se presenta como alternativa a Occidente ante medio centenar de 
+OK  100 https://www.infobae.com/arc/outboundfeeds/rss/category/america/ | Elecciones en Israel EN VIVO | El bloque de Netanyahu mantiene 53 esca
+OK   10 https://www.clarin.com/rss/mundo/ | Texas al rojo vivo: un candidato demócrata estrella y el miedo republi
+OK   63 https://www.lanacion.com.ar/arc/outboundfeeds/rss/category/el-mundo/ | Quién ganó las elecciones de Israel 2026: números parejos mientras Net
+OK   20 https://www.ambito.com/rss/pages/economia.xml | El oro cayó, pero los inversores redoblaron la apuesta y llevaron a lo
+OK   27 https://www.eldiario.es/rss/internacional | Estibadores de 22 países quieren parar el tráfico marítimo en una huel
+ERROR   0 https://www.elconfidencial.com/rss/mundo/ | HTTP 404
+OK   40 https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/economia/portada | “Podríamos y deberíamos hacer más”: los expertos piden invertir en el 
+ERROR   0 https://www.swissinfo.ch/spa/rss/top-news | HTTP 404
+OK   50 https://es.euronews.com/rss | La tragedia de Urda deja ya 69 muertos: hay decenas de desaparecidos
+OK   30 https://news.un.org/feed/subscribe/es/news/all/rss.xml | Al océano le cuesta cada vez más protegernos del CO₂
+OK   48 https://www.elmundo.es/rss/internacional.xml | Ucrania y Rusia respetan el alto el fuego de Melania Trump en Oleshky 
+OK   53 https://www.expansion.com/rss/mercados.xml | Lagarde anuncia que deja la presidencia del BCE el 7 de febrero
+OK   10 https://www.alquds.co.uk/feed/ | استشهاد فلسطينيين اثنين بغارة إسرائيلية على مركبة وسط قطاع غزة
+OK   99 https://www.independentarabia.com/rss.xml | أرتيتا يهاجم ماكس داومان... مفارقة تكشف عن تناقضه
+OK   70 https://www.skynewsarabia.com/rss | ضربة دنيبرو.. زيلينسكي يطالب الغرب برد حاسم
+OK   24 https://www.france24.com/ar/rss | زيلينسكي من هولندا: لا ضمانات أمنية لأوكرانيا من دون أوروبا
+OK   48 https://rss.dw.com/rdf/rss-ar-all | بين "البدعة" و"الانفتاح".. إلغاء الاحتفال بالهالوين "تمصير" للمدارس ال
+ERROR   0 https://www.ahram.org.eg/rss/ | HTTP 403
+VACÍO   0 https://arabi21.com/rss | 
+OK  167 https://www.alaraby.co.uk/rss | الذكاء الاصطناعي أم النفط.. أيهما يحسم مسار النمو العالمي؟
+VACÍO   0 https://www.masrawy.com/rss | 
+OK   12 https://www.hespress.com/feed | لاغارد ستتنحى عن رئاسة البنك الأوروبي
+VACÍO   0 https://www.alsharq.com/rss | 
+ERROR   0 https://www.enabbaladi.net/feed | HTTP 403
+OK   30 https://www.alquds.com/feed | مصطفى يتسلم تقرير سلطة الطاقة لعام 2025 ويؤكد التوجه نحو الاستقلال الط
+OK   30 https://news.un.org/feed/subscribe/ar/news/all/rss.xml | اليمن – أكثر من 281 ألف شخص نزحوا وسط حاجة ملحة للمأوى
+OK   25 https://www.aljazeera.net/aljazeerarss/2bc1c7d7-0a2f-4f23-b88a-b1ac4bd3b16c/3d4b7e4d-1d3c-4e0b-a34c-7d3a7b8bb0d0 | بوتين: التبادل التجاري بين روسيا وأفريقيا يتجاوز 27 مليار دولار
+OK   20 https://www.maariv.co.il/Rss/RssFeedsMivzakiChadashot | מתקפת כטב"מים חריגה: אונייה של צים שיצאה מחיפה לבולגריה - הוטבעה בים ה
+OK   30 https://rss.walla.co.il/feed/1 | ירידה בטמפרטורות בסוף השבוע, גשמים וסופות רעמים בצפון ובמרכז | התחזית
+OK   30 https://rss.walla.co.il/feed/2 | שיעורי היאבקות, בלי מכרז: ה-FBI בדרך לחוזה עם ה-UFC
+OK   20 https://www.mako.co.il/rss/31750a2610f26110VgnVCM1000005201000aRCRD.xml | תעמוד באתגר? הלו"ז המטורף של מכבי חיפה
+OK  100 https://www.israelhayom.co.il/rss.xml | יובך מול יעל שלביה? הקמפיין נגד לאנס סטרול תופס תאוצה
+ERROR   0 https://www.kan.org.il/rss/news.aspx | HTTP 404
+ERROR   0 https://www.davar1.co.il/feed/ | HTTP 403
+OK   30 https://www.ynet.co.il/Integration/StoryRss1854.xml | אונייה בשירות צים טבעה בים השחור: "כטב"מים פגעו בה"
+OK   15 https://newsfeed.zeit.de/politik/ausland/index | Parlamentswahl in Israel: Behörden sehen keine Beweise für Betrug bei 
+OK   15 https://newsfeed.zeit.de/wirtschaft/index | EZB-Präsidentin: Christine Lagarde hört vorzeitig als EZB-Präsidentin 
+OK   15 https://rss.sueddeutsche.de/rss/Politik | Newsblog zu den Landtagswahlen: Linke-Politikerin Klein neue Berliner 
+OK   68 https://www.nzz.ch/international.rss | Wegen Trumps Mobbing besinnt sich Kanada auf seine Wurzeln – doch wie 
+OK   32 https://www.nzz.ch/wirtschaft.rss | Der Milliardenverlust von VW erhöht den Spardruck im Konzern
+OK   50 https://taz.de/!p4615;rss/ | Leitung der Europäischen Zentralbank: Christine Lagarde hört früher au
+OK   65 https://www.tagesschau.de/ausland/index~rss2.xml | Suche nach Opfern des Zugunglücks in Spanien geht weiter
+OK   16 https://www.tagesschau.de/wirtschaft/index~rss2.xml | EZB-Chefin Lagarde tritt im Februar vorzeitig zurück
+VACÍO   0 https://www.faz.net/rss/aktuell/politik/ausland/ | 
+VACÍO   0 https://www.faz.net/rss/aktuell/wirtschaft/ | 
+OK   20 https://www.handelsblatt.com/contentexport/feed/politik | +++ Bundespolitik +++: Linke-Politikerin Klein neue Berliner Parlament
+OK   30 https://www.welt.de/feeds/section/politik/ausland.rss | Russland greift ukrainischen Bahnhof an – 13 Tote
+OK   30 https://www.n-tv.de/politik/rss | Weitere Personen verletzt : Ukraine: 13 Menschen bei Angriff auf Bahnh
+OK   21 https://www.deutschlandfunk.de/politikportal-100.rss | "Wir können beim Schutz jüdischen Lebens keine Kompromisse eingehen"
+ERROR   0 https://www.swp-berlin.org/rss | HTTP 404
+OK   20 https://www.t3n.de/rss.xml | Auch für einige ältere Smartwatches: Samsung bringt neue KI-Gesundheit
+OK   40 https://www.golem.de/rss.php?feed=RSS2.0 | Diktiergerät Comu Action Pro im Test: Mitschreiben kann es, Buchstaben
+OK   20 https://www.lefigaro.fr/rss/figaro_international.xml | « Il en est réduit à acheter les gens » : Donald Trump promet des cade
+OK   50 https://www.liberation.fr/arc/outboundfeeds/rss/category/international/ | «Transformer le traumatisme de la guerre en divertissement est problém
+ERROR   0 https://www.latribune.fr/rss/rubriques/economie.html | HTTP 404
+OK   50 https://www.challenges.fr/rss.xml | Inventé par les Navy Seals, le TRX débarque à Paris : voici les adress
+OK   24 https://www.france24.com/fr/rss | Sommet Russie-Afrique : une démonstration de force qui peine à cacher 
+OK   20 https://www.lemonde.fr/economie/rss_full.xml | Liquidation en vue pour le cabinet d’avocats Weil : « La brutalité de 
+OK   20 https://www.lemonde.fr/pixels/rss_full.xml | Conscience artificielle : si l’IA devient sentiente, saurons-nous reco
+OK   15 https://www.numerama.com/feed/ | Vous vous souvenez de Virgin Galactic ? Ils ont un nouveau vaisseau ««
+ERROR   0 https://www.lesechos.fr/rss/rss_une.xml | HTTP 403
+OK   10 https://www.iris-france.org/feed/ | Le Japon face au défi Trump. Avec Robert Dujarric
+ERROR   0 https://www.ifri.org/fr/rss.xml | HTTP 403
+OK   30 https://www.rfi.fr/fr/moyen-orient/rss | Sud-Liban: à Zaoutar el-Gharbiyeh, les élections israéliennes «ne conc
