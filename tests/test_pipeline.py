@@ -21,54 +21,72 @@ class ClassifyTest(unittest.TestCase):
     def setUpClass(cls):
         cls.c = Classifier(RULES)
 
-    def check(self, title, topic, regions=None, lang="en", source=SOURCE, summary=""):
-        got_topic, got_regions = self.c.classify(item(title, summary, lang), source)
-        self.assertEqual(got_topic, topic, title)
+    def check(self, title, topics, regions=None, lang="en", source=SOURCE, summary="", relevant=True):
+        got_topics, got_regions, got_relevant = self.c.classify(item(title, summary, lang), source)
+        self.assertEqual(got_relevant, relevant, title)
+        for topic in topics:
+            self.assertIn(topic, got_topics, title)
         if regions is not None:
             self.assertEqual(got_regions, sorted(regions), title)
+        return got_topics
 
-    def test_markets_information(self):
-        self.check("Saudi Aramco prices $5bn sukuk as Gulf issuers rush to debt markets",
-                   "mercados", ["medio_oriente"])
+    def test_several_topics(self):
+        topics = self.check("Saudi Aramco prices $5bn sukuk as Gulf issuers rush to debt markets",
+                            ["economia", "energia"], ["medio_oriente"])
+        self.assertLessEqual(len(topics), 3)
+        self.check("Sudan war and inflation leave families struggling in Khartoum",
+                   ["conflictos", "economia"], ["africa"])
 
-    def test_price_headlines_are_discarded(self):
-        self.check("Stocks rise as Dow closes higher", None)
-        self.check("Wall Street cierra con alzas: el Merval sube 3%", None, lang="es")
+    def test_price_headlines_lose_economy(self):
+        self.check("Stocks rise as Dow closes higher", [], relevant=False)
+        self.check("Wall Street cierra con alzas: el Merval sube 3%", [], lang="es", relevant=False)
 
     def test_tech(self):
-        self.check("OpenAI unveils new model as Nvidia chip demand soars", "tech")
-        self.check("La IA generativa llega a los bancos africanos", "tech", ["africa"], lang="es")
+        self.check("OpenAI unveils new model as Nvidia chip demand soars", ["tech"])
+        self.check("La IA generativa llega a los bancos africanos", ["tech"], ["africa"], lang="es")
 
-    def test_geopolitics_and_regions(self):
-        self.check("Sudan ceasefire talks resume in Jeddah", "geopolitica", ["africa"])
-        self.check("Egypt hosts Gaza truce talks", "geopolitica", ["africa", "medio_oriente"])
+    def test_politics_conflicts_society(self):
+        self.check("Sudan ceasefire talks resume in Jeddah", ["conflictos", "politica"], ["africa"])
+        self.check("Egypt hosts Gaza truce talks", ["conflictos", "politica"], ["africa", "medio_oriente"])
+        self.check("Ebola outbreak spreads in eastern Congo", ["sociedad"], ["africa"])
+        self.check("DRC cobalt exports hit record as lithium demand grows", ["energia", "economia"], ["africa"])
 
     def test_other_languages(self):
-        self.check("Le Mali et le Niger quittent la Cédéao", "geopolitica", ["africa"], lang="fr")
-        self.check("EZB senkt den Leitzins erneut", "mercados", lang="de")
-        self.check("وقف إطلاق النار في غزة", "geopolitica", ["medio_oriente"], lang="ar")
-        self.check("בנק ישראל הותיר את הריבית ללא שינוי", "mercados", ["medio_oriente"], lang="he")
+        self.check("Le Mali et le Niger quittent la Cédéao", ["politica"], ["africa"], lang="fr")
+        self.check("EZB senkt den Leitzins erneut", ["economia"], lang="de")
+        self.check("وقف إطلاق النار في غزة", ["conflictos"], ["medio_oriente"], lang="ar")
+        self.check("בנק ישראל הותיר את הריבית ללא שינוי", ["economia"], ["medio_oriente"], lang="he")
 
     def test_case_sensitive_acronyms(self):
         # "ai" en francés (j'ai) no es IA.
-        self.check("J'ai vu un film", None, lang="fr")
+        self.check("J'ai vu un film", [], lang="fr", relevant=False)
 
     def test_feed_hints(self):
         tech_feed = dict(SOURCE, topic="tech")
-        self.check("A new release from the lab", "tech", source=tech_feed)
+        self.check("A new release from the lab", ["tech"], source=tech_feed)
+
+    def test_african_feeds_always_count(self):
         africa_feed = dict(SOURCE, region="africa")
-        self.check("Community leaders meet farmers in Kenya", "geopolitica", ["africa"], source=africa_feed)
+        self.check("Community leaders meet farmers", [], ["africa"], source=africa_feed)
+        # Salvo deportes.
+        self.check("Super Eagles striker scores hat-trick", [], source=africa_feed, relevant=False)
 
     def test_regional_feed_needs_more_than_its_region(self):
         me_feed = dict(SOURCE, region="medio_oriente")
-        self.check("Manchester United: why managers fail to succeed Ferguson", None, source=me_feed)
-        self.check("Gulf ministers meet in Riyadh", "geopolitica", ["medio_oriente"], source=me_feed)
+        self.check("Manchester United: why managers fail to succeed Ferguson", [], source=me_feed, relevant=False)
+        self.check("Gulf ministers meet in Riyadh", ["politica"], ["medio_oriente"], source=me_feed)
+
+    def test_sports_are_out_even_with_a_country(self):
+        self.check("Morocco beat Egypt in AFCON semi-final", [], relevant=False)
+        self.check("كرة القدم: المنتخب المصري يفوز", [], lang="ar", relevant=False)
 
     def test_west_bank_is_not_a_bank(self):
-        self.check("Palestinians in the West Bank see little hope in Israeli vote", "geopolitica", ["medio_oriente"])
+        topics = self.check("Palestinians in the West Bank see little hope in Israeli vote",
+                            ["politica"], ["medio_oriente"])
+        self.assertNotIn("economia", topics)
 
     def test_irrelevant(self):
-        self.check("Local bakery wins award for best croissant", None)
+        self.check("Local bakery wins award for best croissant", [], relevant=False)
 
 
 class ConfigTest(unittest.TestCase):
@@ -89,6 +107,17 @@ class CleanTextTest(unittest.TestCase):
     def test_double_escaped_entities(self):
         from radar.feeds import clean_text
         self.assertEqual(clean_text("&amp;quot;Ma&amp;#039;aden&amp;quot; <b>names</b> chair"), '"Ma\'aden" names chair')
+
+
+class TranslateHelpersTest(unittest.TestCase):
+    def test_detects_text_left_in_english(self):
+        from radar.translate import looks_english
+        self.assertTrue(looks_english("Divergent results of the companies have prompted investors to re-evaluate"))
+        self.assertFalse(looks_english("Los resultados de las empresas llevaron a los inversores a reevaluar"))
+
+    def test_tidy(self):
+        from radar.translate import tidy
+        self.assertEqual(tidy('Resultados de " Alphabet " y " Microsoft " , hoy'), 'Resultados de "Alphabet" y "Microsoft", hoy')
 
 
 class FeedTest(unittest.TestCase):

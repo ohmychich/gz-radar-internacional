@@ -16,6 +16,8 @@ USER_AGENT = (
 )
 TIMEOUT = 25
 SUMMARY_MAX = 400
+# Algunos feeds traen cientos de notas (o su archivo entero): solo se toman las más nuevas.
+MAX_PER_FEED = 40
 
 _TAG_RE = re.compile(r"<[^>]+>")
 _WS_RE = re.compile(r"\s+")
@@ -101,6 +103,7 @@ def fetch_all(sources, workers=16):
         entry = {"source_id": source["id"], "source": source["name"], "lang": source["lang"], "url": url}
         try:
             parsed_items, parsed = parse_feed(fetch_url(url), source)
+            parsed_items = sorted(parsed_items, key=lambda i: i["published"], reverse=True)[:MAX_PER_FEED]
             if not parsed_items and parsed.bozo:
                 raise ValueError(f"no es un feed válido ({type(parsed.bozo_exception).__name__})")
             entry.update(ok=bool(parsed_items), items=len(parsed_items),

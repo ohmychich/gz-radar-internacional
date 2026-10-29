@@ -32,7 +32,7 @@ jobs:
             ~/.local/share/argos-translate
             ~/.local/cache/argos-translate
             ~/stanza_resources
-          key: argos-modelos-v1
+          key: argos-modelos-v2
           restore-keys: argos-modelos-
 
       - name: Instalar dependencias

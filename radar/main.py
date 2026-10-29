@@ -2,7 +2,6 @@
 
 Uso:  python -m radar.main
 """
-import html
 import json
 import logging
 import os
@@ -14,7 +13,7 @@ import yaml
 
 from radar.classify import Classifier
 from radar.feeds import fetch_all
-from radar.translate import TRANSLATE_LANGS, Translator
+from radar.translate import TRANSLATE_LANGS, Translator, looks_english, tidy
 
 ROOT = Path(__file__).resolve().parent.parent
 CONFIG = ROOT / "config"
@@ -24,10 +23,10 @@ STATUS_FILE = DATA / "feeds-status.json"
 CACHE_FILE = DATA / "translations-cache.json"
 
 RETENTION_DAYS = 7
-MAX_ITEMS = 4000
+MAX_ITEMS = 6000
 # Tope de textos nuevos a traducir por corrida, para que el robot no tarde demasiado.
 # Lo que no entra se traduce en la corrida siguiente.
-MAX_TRANSLATIONS = int(os.environ.get("RADAR_MAX_TRANSLATIONS", "600"))
+MAX_TRANSLATIONS = int(os.environ.get("RADAR_MAX_TRANSLATIONS", "1000"))
 
 log = logging.getLogger("radar")
 
@@ -99,10 +98,9 @@ def run():
     # Primera clasificación con el texto original: descarta lo que no es de ningún tema.
     kept = []
     for item in fresh:
-        source = by_source[item["source_id"]]
-        topic, regions = classifier.classify(item, source)
-        if topic:
-            item["topic"], item["regions"] = topic, regions
+        topics, regions, relevant = classifier.classify(item, by_source[item["source_id"]])
+        if relevant:
+            item["topics"], item["regions"] = topics, regions
             kept.append(item)
 
     previous = load_json(NEWS_FILE, {}).get("items", [])
@@ -112,7 +110,13 @@ def run():
     translator = Translator(load_json(CACHE_FILE, {}))
     budget = MAX_TRANSLATIONS
     for item in items:
-        if item["lang"] not in TRANSLATE_LANGS or item.get("title_es"):
+        if item["lang"] not in TRANSLATE_LANGS:
+            continue
+        # Traducciones viejas que quedaron en inglés: se rehacen.
+        if item.get("title_es") and (looks_english(item["title_es"]) or looks_english(item.get("summary_es"))):
+            item.pop("title_es")
+            item.pop("summary_es", None)
+        if item.get("title_es"):
             continue
         if budget <= 0:
             break
@@ -132,10 +136,11 @@ def run():
     for item in items:
         for key in ("title_es", "summary_es"):
             if item.get(key):
-                item[key] = html.unescape(item[key])
-        topic, regions = classifier.classify(item, by_source[item["source_id"]])
-        if topic:
-            item["topic"], item["regions"] = topic, regions
+                item[key] = tidy(item[key])
+        topics, regions, relevant = classifier.classify(item, by_source[item["source_id"]])
+        if relevant:
+            item.pop("topic", None)  # formato anterior: un solo tema
+            item["topics"], item["regions"] = topics, regions
             classified.append(item)
     items = classified
 

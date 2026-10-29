@@ -1,40 +1,112 @@
 # Reglas de clasificación. Se aplican sobre el título y el resumen originales
 # y también sobre su traducción al español.
 #
+# Cada noticia puede tener varios temas (hasta 3): todos los que tengan al menos
+# una coincidencia, ordenados por cantidad de coincidencias.
+#
 # Sintaxis de cada palabra clave:
 #   palabra      coincide con la palabra completa, sin distinguir mayúsculas
 #   palabra*     coincide con cualquier palabra que empiece así (bond* → bonds, bondholders)
 #   =AI          distingue mayúsculas (para siglas que chocan con palabras comunes)
 #   En árabe y hebreo se busca el texto tal cual, porque los prefijos van pegados.
-#
-# Cada noticia va a una sola columna: la que suma más coincidencias.
 
 topics:
-  mercados:
-    label: Mercado de capitales
+  politica:
+    label: Política internacional
     keywords:
-      en: [IPO*, initial public offering, listing, bond*, eurobond*, sovereign debt, debt restructuring,
-           "=M&A", merger*, acquisition*, takeover*, buyout*, private equity, venture capital, hedge fund*,
-           asset manager*, central bank*, Federal Reserve, "=Fed", "=ECB", interest rate*, rate cut*, rate hike*,
-           monetary policy, inflation, "=SEC", stock exchange*, bourse, sovereign wealth fund*, "=IMF",
-           World Bank, credit rating*, Moody's, Fitch, downgrade*, earnings, dividend*, buyback*,
-           capital market*, investor*, sukuk, fundraising, valuation, banks, banking, banker*, lender*, debt, yields]
-      es: [salida a bolsa, "=OPV", emisión de bonos, bono*, deuda soberana, deuda, fusión, fusiones, adquisición*,
-           banco central, Reserva Federal, tipos de interés, tasas de interés, tasa de interés, política monetaria,
-           inflación, fondo soberano, "=FMI", Banco Mundial, calificación crediticia, bolsa de valores,
-           mercado de capitales, mercados financieros, inversor*, inversionista*, capital de riesgo, banca, bancos, bancario*]
-      fr: [introduction en bourse, obligation*, dette*, fusion*, acquisition*, rachat*, banque centrale,
-           "=BCE", taux d'intérêt, taux directeur*, politique monétaire, inflation, fonds souverain*, "=FMI",
-           Banque mondiale, notation, marchés financiers, investisseur*, levée de fonds, banques, bancaire*]
-      de: [Börsengang*, Anleihe*, Staatsanleihe*, Übernahme*, Fusion*, Zentralbank*, "=EZB", Leitzins*,
-           Zinsen, Zinssenkung*, Zinserhöhung*, Geldpolitik, Inflation, Staatsfonds, "=IWF", Ratingagentur*,
-           Finanzmarkt*, Kapitalmarkt*, Investor*, Anleger*, Banken, Dividende*, Schulden*]
-      ar: [طرح عام, اكتتاب, سندات, صكوك, استحواذ, اندماج, البنك المركزي, المركزي, أسعار الفائدة, الفائدة,
-           التضخم, صندوق النقد, البنك الدولي, صندوق سيادي, صناديق سيادية, البورصة, سوق الأسهم, سوق المال,
-           المستثمرين, تصنيف ائتماني, الديون, مصرف, بنوك]
-      he: [הנפקה, אג"ח, איגרות חוב, מיזוג, רכישת, בנק ישראל, הבנק המרכזי, ריבית, אינפלציה, קרן גידור,
-           הון סיכון, הבורסה, משקיעים, דירוג אשראי, קרן הון, גיוס, בנקים]
-    # Titulares de cotizaciones del día: se descartan si la noticia iba a "mercados".
+      en: [diplomac*, diplomat*, summit*, election*, electoral, vote, voters, referendum, president*, prime minister,
+           foreign minister, foreign policy, government*, parliament*, lawmakers, opposition, coup*, junta, treaty,
+           talks, negotiation*, alliance*, ambassador*, sanction*, "=UN", United Nations, Security Council,
+           "=NATO", "=EU", European Union, African Union, "=AU", "=ECOWAS", "=SADC", Arab League, "=GCC", "=BRICS",
+           "=G7", "=G20", Kremlin, White House, Beijing, Washington, Moscow, Brussels, geopolitic*, bilateral,
+           state visit, constitution*, democracy, authoritarian*, regime, cabinet, minister*]
+      es: [diplomacia, diplomátic*, cumbre*, elecciones, electoral*, votación, referéndum, presidente*, primer ministro,
+           canciller*, política exterior, gobierno*, parlamento*, oposición, golpe de Estado, junta militar, tratado,
+           negociacion*, alianza*, embajador*, sancion*, "=ONU", Naciones Unidas, Consejo de Seguridad, "=OTAN",
+           Unión Europea, Unión Africana, Kremlin, Casa Blanca, geopolític*, bilateral, constitución, democracia,
+           régimen, ministro*]
+      fr: [diplomati*, sommet*, élection*, électoral*, scrutin, référendum, président*, Premier ministre,
+           ministre des Affaires étrangères, gouvernement*, parlement*, opposition, coup d'État, putsch, junte, traité,
+           négociation*, alliance*, ambassadeur*, sanction*, "=ONU", Nations unies, Conseil de sécurité, "=OTAN",
+           Union européenne, Union africaine, "=Cédéao", "=UA", Kremlin, Maison Blanche, géopolitique*, bilatéral*,
+           constitution*, démocratie, régime, ministre*]
+      de: [Diplomat*, Gipfel*, Wahl, Wahlen, Wahlkampf, Abstimmung, Referendum, Präsident*, Ministerpräsident*,
+           Außenminister*, Außenpolitik, Regierung*, Parlament*, Opposition, Putsch, Junta, Abkommen, Verhandlung*,
+           Bündnis*, Botschafter*, Sanktion*, "=UN", "=UNO", Vereinte Nationen, Sicherheitsrat, "=Nato", "=EU",
+           Europäische Union, Afrikanische Union, Kreml, Weißes Haus, Geopoliti*, bilateral*, Verfassung*,
+           Demokratie, Regime, Minister*]
+      ar: [دبلوماسي, الدبلوماسية, قمة, انتخابات, الانتخابات, استفتاء, الرئيس, رئيس الوزراء, وزير الخارجية, الحكومة,
+           البرلمان, المعارضة, انقلاب, اتفاق, اتفاقية, مفاوضات, محادثات, تحالف, سفير, عقوبات, الأمم المتحدة,
+           مجلس الأمن, الناتو, الاتحاد الأوروبي, الاتحاد الأفريقي, الجامعة العربية, مجلس التعاون, البيت الأبيض,
+           الكرملين, الدستور, الديمقراطية, النظام, وزير]
+      he: [דיפלומטי, פסגה, בחירות, הבחירות, משאל עם, נשיא, ראש הממשלה, שר החוץ, ממשלה, הממשלה, הכנסת, אופוזיציה,
+           הפיכה, הסכם, משא ומתן, שיחות, ברית, שגריר, סנקציות, האו"ם, מועצת הביטחון, נאט"ו, האיחוד האירופי,
+           הבית הלבן, הקרמלין, קואליציה, מפלגה, מפלגות, שר]
+
+  conflictos:
+    label: Conflictos y seguridad
+    keywords:
+      en: [war, wars, ceasefire, truce, conflict*, military, troops, army, soldier*, missile*, drone*, airstrike*,
+           strike, strikes, attack*, killed, bombing*, shelling, clashes, fighting, rebel*, insurgen*, jihadist*,
+           militant*, terror*, hostage*, occupation, invasion, genocide, massacre*, nuclear, weapon*, arms,
+           security forces, violence, siege, offensive, Wagner, Africa Corps, Al-Shabaab, Boko Haram, "=RSF",
+           Rapid Support Forces, "=ISIS", Islamic State, Hezbollah, Hamas, Houthi*, "=IDF", "=IRGC", peacekeep*]
+      es: [guerra, alto el fuego, tregua, conflicto*, militar*, ejército, tropas, soldado*, misil*, dron*, bombardeo*,
+           ataque*, muertos, asesinad*, enfrentamiento*, combates, rebelde*, insurgente*, yihadista*, terroris*,
+           rehén, rehenes, ocupación, invasión, genocidio, masacre*, nuclear, arma*, fuerzas de seguridad,
+           violencia, asedio, ofensiva, Estado Islámico, Hezbolá, Hamás, hutí*]
+      fr: [guerre, cessez-le-feu, trêve, conflit*, militaire*, armée, troupes, soldat*, missile*, drone*, frappe*,
+           attaque*, attentat*, tués, morts, bombardement*, affrontements, combats, rebelle*, djihadiste*, jihadiste*,
+           terroris*, otage*, occupation, invasion, génocide, massacre*, nucléaire, arme*, forces de sécurité,
+           violence*, siège, offensive, État islamique, Hezbollah, Hamas, houthi*]
+      de: [Krieg*, Waffenruhe, Waffenstillstand, Konflikt*, Militär*, Armee, Truppen, Soldat*, Rakete*, Drohne*,
+           Luftangriff*, Angriff*, Anschlag*, getötet, Tote, Bombard*, Kämpfe, Gefechte, Rebellen, Dschihadist*,
+           Terror*, Geisel*, Besatzung, Invasion, Völkermord, Massaker, Atom*, Waffe*, Sicherheitskräfte, Gewalt,
+           Belagerung, Offensive, Islamischer Staat, Hisbollah, Hamas, Huthi*]
+      ar: [حرب, الحرب, وقف إطلاق النار, هدنة, صراع, نزاع, الجيش, عسكري, قوات, جنود, صواريخ, صاروخ, مسيرة, مسيرات,
+           غارات, غارة, هجوم, قصف, اشتباكات, معارك, قتلى, مقتل, متمردين, مسلحين, إرهاب, رهائن, احتلال, اجتياح,
+           إبادة, مجزرة, نووي, أسلحة, العنف, حصار, الدعم السريع, داعش, حزب الله, حماس, الحوثي, الشباب]
+      he: [מלחמה, המלחמה, הפסקת אש, צבא, צה"ל, כוחות, חיילים, טילים, טיל, כטב"ם, רחפן, תקיפה, תקיפות, פיגוע,
+           מתקפה, הרוגים, נהרגו, הפצצה, עימותים, קרבות, מחבלים, טרור, חטופים, כיבוש, פלישה, רצח עם, טבח,
+           גרעין, נשק, אלימות, מצור, מבצע, חיזבאללה, חמאס, החות'ים]
+
+  economia:
+    label: Economía y mercados
+    keywords:
+      en: [IPO*, initial public offering, bond*, eurobond*, sovereign debt, debt, debt restructuring, "=M&A",
+           merger*, acquisition*, takeover*, buyout*, private equity, venture capital, hedge fund*, asset manager*,
+           central bank*, Federal Reserve, "=Fed", "=ECB", interest rate*, rate cut*, rate hike*, monetary policy,
+           inflation, "=SEC", stock exchange*, bourse, sovereign wealth fund*, "=IMF", World Bank, credit rating*,
+           Moody's, Fitch, downgrade*, earnings, profit*, revenue*, dividend*, buyback*, capital market*,
+           investor*, investment*, sukuk, fundraising, funding, valuation, banks, banking, banker*, lender*,
+           yields, economy, economic*, "=GDP", growth, recession, trade, tariff*, export*, import*, budget*,
+           deficit*, currency, exchange rate, naira, rand, shilling, cedi, dirham, riyal, shekel, business*,
+           compan*, market*, finance*, financial, fintech, tax*, subsid*]
+      es: [salida a bolsa, "=OPV", bono*, deuda*, fusión, fusiones, adquisición*, banco central, Reserva Federal,
+           tipos de interés, tasas de interés, tasa de interés, política monetaria, inflación, fondo soberano, "=FMI",
+           Banco Mundial, calificación crediticia, bolsa de valores, mercado*, financier*, inversor*, inversionista*,
+           inversión*, capital de riesgo, banca, bancos, bancario*, economía, económic*, "=PIB", crecimiento,
+           recesión, comercio, comercial*, arancel*, exportacion*, importacion*, presupuesto*, déficit, moneda,
+           tipo de cambio, empresa*, negocio*, impuesto*, subsidio*, beneficios, ganancias]
+      fr: [introduction en bourse, obligation*, dette*, fusion*, acquisition*, rachat*, banque centrale, "=BCE",
+           taux d'intérêt, taux directeur*, politique monétaire, inflation, fonds souverain*, "=FMI", Banque mondiale,
+           notation, marché*, financ*, investisseur*, investissement*, levée de fonds, banques, bancaire*, économie*,
+           économique*, "=PIB", croissance, récession, commerce, commercia*, douane*, exportation*, importation*,
+           budget*, déficit*, monnaie, franc CFA, entreprise*, impôt*, fiscal*, bénéfice*, chiffre d'affaires]
+      de: [Börse*, Börsengang*, Anleihe*, Staatsanleihe*, Übernahme*, Fusion*, Zentralbank*, "=EZB", Leitzins*, Zinsen,
+           Zinssenkung*, Zinserhöhung*, Geldpolitik, Inflation, Staatsfonds, "=IWF", Weltbank, Ratingagentur*,
+           Finanz*, Kapitalmarkt*, Markt, Märkte, Investor*, Investition*, Anleger*, Banken, Dividende*, Schulden*,
+           Wirtschaft*, Konjunktur*, "=BIP", Wachstum, Rezession, Handel*, Zoll, Zölle*, Export*, Import*, Haushalt*,
+           Defizit*, Währung*, Unternehmen*, Konzern*, Steuer*, Gewinn*, Umsatz]
+      ar: [طرح عام, اكتتاب, سندات, صكوك, استحواذ, اندماج, البنك المركزي, المركزي, أسعار الفائدة, الفائدة, التضخم,
+           صندوق النقد, البنك الدولي, صندوق سيادي, صناديق سيادية, البورصة, الأسهم, سوق المال, الأسواق, المستثمرين,
+           استثمار, الاستثمار, تصنيف ائتماني, الديون, ديون, مصرف, بنوك, اقتصاد, الاقتصاد, اقتصادي, الناتج المحلي,
+           النمو, ركود, التجارة, تجاري, رسوم جمركية, الصادرات, الواردات, الموازنة, الميزانية, العجز, العملة, الجنيه,
+           الدولار, شركة, شركات, الضرائب, أرباح, الإيرادات]
+      he: [הנפקה, אג"ח, איגרות חוב, מיזוג, רכישת, בנק ישראל, הבנק המרכזי, ריבית, אינפלציה, קרן גידור, הון סיכון,
+           הבורסה, בורסה, מניות, משקיעים, השקעה, דירוג אשראי, קרן הון, גיוס, בנקים, כלכלה, הכלכלה, כלכלי, תמ"ג,
+           צמיחה, מיתון, סחר, מכסים, יצוא, יבוא, תקציב, גירעון, שקל, דולר, חברה, חברות, מסים, רווח, הכנסות]
+    # Titulares de cotizaciones del día: se les quita el tema "economía".
     # Son expresiones regulares (sin distinguir mayúsculas).
     exclude:
       - '\b(stocks?|shares|equities|futures)\b.{0,40}\b(rise|rises|rose|fall|falls|fell|jump|jumps|slip|slips|drop|drops|gain|gains|tumble|tumbles|surge|surges|rally|rallies|climb|climbs|sink|sinks|edge|edges)\b'
@@ -45,6 +117,33 @@ topics:
       - '\b(bolsa|ibex|merval|wall street)\b.{0,40}\b(sube|baja|cierra|abre|avanza|retrocede|cae)\b'
       - '\b(cac 40|bourse de paris|wall street)\b.{0,40}\b(ouvre|termine|recule|progresse|clôture|chute)\b'
       - '\b(dax|börse|aktien|wall street)\b.{0,40}\b(steigt|fällt|schließt|legt zu|gibt nach|im plus|im minus)\b'
+      - '\bmarktbericht\b'
+
+  energia:
+    label: Energía y recursos
+    keywords:
+      en: [oil, crude, gas, "=LNG", "=OPEC", "=OPEC+", pipeline*, refiner*, mining, miner*, mineral*, critical minerals,
+           cobalt, lithium, copper, gold mine*, uranium, rare earth*, coltan, diamonds, electricity, power grid,
+           blackout*, power cuts, load shedding, renewable*, solar, wind farm*, hydro*, dam, nuclear power,
+           energy, fuel, petrol, Aramco, "=ADNOC", Sonatrach, "=NNPC", Eskom, TotalEnergies, Shell, Chevron,
+           ExxonMobil, commodit*, cocoa, coffee, wheat, fertili*, water]
+      es: [petróleo, crudo, gas, "=GNL", "=OPEP", gasoducto*, oleoducto*, refinería*, minería, minero*, minera*,
+           mineral*, minerales críticos, cobalto, litio, cobre, uranio, tierras raras, electricidad, apagón*,
+           renovable*, solar, eólic*, hidroeléctric*, represa, presa, energía nuclear, energía*, energétic*,
+           combustible*, materias primas, cacao, café, trigo, fertilizante*, agua]
+      fr: [pétrole, pétrolier*, brut, gaz, "=GNL", "=Opep", gazoduc*, oléoduc*, raffinerie*, mine, mines, minier*,
+           minerai*, minéraux critiques, cobalt, lithium, cuivre, uranium, terres rares, électricité, délestage*,
+           coupure* de courant, renouvelable*, solaire, éolien*, hydroélectri*, barrage, énergie*, énergétique*,
+           carburant*, matières premières, cacao, café, blé, engrais, eau]
+      de: [Öl, Erdöl, Rohöl, Gas, Erdgas, "=LNG", "=Opec", Pipeline*, Raffinerie*, Bergbau, Rohstoff*, Mineral*,
+           Kobalt, Lithium, Kupfer, Uran, seltene Erden, Strom, Stromnetz, Stromausfall, erneuerbar*, Solar*,
+           Windkraft, Wasserkraft, Staudamm, Atomkraft, Kernkraft, Energie*, Kraftstoff*, Benzin, Kakao, Kaffee,
+           Weizen, Dünger, Wasser]
+      ar: [النفط, نفط, الخام, الغاز, غاز, الغاز المسال, أوبك, خط أنابيب, مصفاة, التعدين, المعادن, معادن, الكوبالت,
+           الليثيوم, النحاس, الذهب, اليورانيوم, الكهرباء, انقطاع الكهرباء, الطاقة المتجددة, الطاقة الشمسية,
+           الرياح, سد النهضة, سد, الطاقة, الوقود, البنزين, أرامكو, أدنوك, سوناطراك, القمح, المياه]
+      he: [נפט, גז, הגז, גז טבעי, אופ"ק, צינור, בית זיקוק, כרייה, מחצבים, מינרלים, ליתיום, נחושת, זהב, אורניום,
+           חשמל, הפסקת חשמל, אנרגיה מתחדשת, סולארי, אנרגיה, דלק, בנזין, מים, חיטה]
 
   tech:
     label: Tecnología e IA
@@ -54,51 +153,65 @@ topics:
            "=LLM", "=LLMs", large language model*, data center*, datacenter*, quantum, robot*, robotics,
            autonomous, self-driving, cybersecurity, cyberattack*, hacker*, ransomware, startup*, Big Tech,
            Microsoft, Google, Apple, Meta, Alphabet, Huawei, Samsung, algorithm*, deepfake*, software,
-           smartphone*, satellite*, 5G, cloud computing, tech]
+           smartphone*, satellite*, "=5G", internet, digital, cloud computing, tech, technolog*, telecom*,
+           mobile money, M-Pesa, e-commerce, social media, TikTok, Starlink, SpaceX, Tesla]
       es: [inteligencia artificial, "=IA", aprendizaje automático, chip*, semiconductor*, centro de datos,
-           centros de datos, ciberataque*, ciberseguridad, robótica, robot*, cuántic*, tecnológic*, tecnología,
-           algoritmo*, modelo de lenguaje, modelos de lenguaje, startup*, emergente*]
+           centros de datos, ciberataque*, ciberseguridad, robótica, robot*, cuántic*, tecnológic*, tecnología*,
+           algoritmo*, modelo de lenguaje, modelos de lenguaje, startup*, internet, digital*, redes sociales,
+           satélite*, telecomunicacion*]
       fr: [intelligence artificielle, "=IA", puce*, semi-conducteur*, centre de données, centres de données,
-           cyberattaque*, cybersécurité, robot*, quantique*, technologi*, algorithme*, start-up*]
+           cyberattaque*, cybersécurité, robot*, quantique*, technologi*, algorithme*, start-up*, internet,
+           numérique*, réseaux sociaux, satellite*, télécom*]
       de: [künstliche Intelligenz, künstlicher Intelligenz, "=KI", Chip*, Halbleiter*, Rechenzentr*,
-           Cyberangriff*, Cybersicherheit, Roboter*, Quanten*, Sprachmodell*, Technologie*, Software, Start-up*]
+           Cyberangriff*, Cybersicherheit, Roboter*, Quanten*, Sprachmodell*, Technologie*, Software, Start-up*,
+           Internet, digital*, soziale Medien, Satellit*, Telekom*]
       ar: [الذكاء الاصطناعي, أشباه الموصلات, رقائق, الرقائق, التكنولوجيا, تقنية, التقنية, هجوم سيبراني,
-           الأمن السيبراني, شات جي بي تي, روبوت, الحوسبة, مراكز البيانات, الشركات الناشئة]
+           الأمن السيبراني, شات جي بي تي, روبوت, الحوسبة, مراكز البيانات, الشركات الناشئة, الإنترنت, رقمي,
+           الرقمية, وسائل التواصل, الأقمار الصناعية, الاتصالات]
       he: [בינה מלאכותית, שבבים, שבב, סייבר, הייטק, סטארט-אפ, סטארטאפ, אנבידיה, טכנולוגיה, רובוט, מחשוב,
-           מרכזי נתונים, אפליקציה]
+           מרכזי נתונים, אפליקציה, אינטרנט, דיגיטלי, רשתות חברתיות, לוויין, תקשורת]
 
-  geopolitica:
-    label: Geopolítica
+  sociedad:
+    label: Sociedad y desarrollo
     keywords:
-      en: [war, wars, ceasefire, truce, conflict*, sanction*, diplomac*, diplomat*, summit*, election*, coup*,
-           military, troops, army, missile*, drone*, airstrike*, "=UN", United Nations, Security Council, "=NATO",
-           African Union, "=ECOWAS", Arab League, "=GCC", "=BRICS", "=G7", "=G20", president, prime minister,
-           foreign minister, treaty, peace talks, peace deal, negotiation*, refugee*, humanitarian, protest*,
-           rebel*, insurgen*, jihadist*, militant*, terror*, nuclear, junta, hostage*, occupation, annex*,
-           border*, invasion, genocide, famine, displaced]
-      es: [guerra, alto el fuego, tregua, conflicto*, sancion*, diplomacia, diplomátic*, cumbre*, elecciones,
-           electoral, golpe de Estado, militar*, ejército, tropas, misil*, dron*, bombardeo*, "=ONU",
-           Naciones Unidas, Consejo de Seguridad, "=OTAN", Unión Africana, presidente, primer ministro,
-           canciller, tratado, negociacion*, refugiado*, humanitari*, protesta*, rebelde*, yihadista*,
-           terroris*, nuclear, junta militar, rehén, rehenes, ocupación, frontera*, invasión, genocidio, hambruna,
-           desplazados]
-      fr: [guerre, cessez-le-feu, trêve, conflit*, sanction*, diplomati*, sommet*, élection*, électoral*,
-           coup d'État, putsch, militaire*, armée, troupes, missile*, drone*, frappe*, "=ONU", Nations unies,
-           Conseil de sécurité, "=OTAN", Union africaine, "=Cédéao", président, Premier ministre,
-           traité, négociation*, réfugié*, humanitaire*, manifestation*, rebelle*, djihadiste*, jihadiste*,
-           terroris*, nucléaire, junte, otage*, frontière*, invasion, génocide, famine, déplacés]
-      de: [Krieg*, Waffenruhe, Waffenstillstand, Konflikt*, Sanktion*, Diplomat*, Gipfel*, Wahl, Wahlen,
-           Putsch, Militär*, Armee, Truppen, Rakete*, Drohne*, Luftangriff*, "=UN", "=UNO", Vereinte Nationen,
-           Sicherheitsrat, "=Nato", Afrikanische Union, Präsident*, Ministerpräsident*, Außenminister*,
-           Abkommen, Verhandlung*, Flüchtling*, humanitär*, Protest*, Rebellen, Dschihadist*, Terror*,
-           Atom*, Geisel*, Grenze*, Invasion, Völkermord, Hungersnot]
-      ar: [حرب, الحرب, وقف إطلاق النار, هدنة, صراع, نزاع, عقوبات, دبلوماسي, قمة, انتخابات, انقلاب, الجيش,
-           عسكري, قوات, صواريخ, صاروخ, مسيرة, غارات, غارة, الأمم المتحدة, مجلس الأمن, الناتو, الاتحاد الأفريقي,
-           الجامعة العربية, الرئيس, رئيس الوزراء, وزير الخارجية, اتفاق, مفاوضات, لاجئين, إنسانية, احتجاجات,
-           متمردين, إرهاب, نووي, رهائن, احتلال, الحدود, اجتياح, إبادة, مجاعة, نازحين]
-      he: [מלחמה, המלחמה, הפסקת אש, סנקציות, דיפלומטי, פסגה, בחירות, הפיכה, צבא, צה"ל, כוחות, טילים, טיל,
-           כטב"ם, תקיפה, האו"ם, מועצת הביטחון, נאט"ו, נשיא, ראש הממשלה, שר החוץ, הסכם, משא ומתן, פליטים,
-           הומניטרי, הפגנות, מחבלים, טרור, גרעין, חטופים, כיבוש, גבול, פלישה]
+      en: [health, hospital*, epidemic*, outbreak*, Ebola, cholera, mpox, malaria, measles, vaccin*, "=WHO", famine,
+           hunger, food security, malnutrition, drought*, flood*, climate, heatwave*, cyclone*, migration, migrant*,
+           refugee*, asylum, displaced, humanitarian, aid, "=UNHCR", "=WFP", "=UNICEF", human rights, women,
+           girls, children, education, school*, universit*, protest*, demonstrat*, poverty, inequality,
+           journalist*, press freedom, corruption, activist*, rights group*, development, "=USAID", disaster*]
+      es: [salud, hospital*, epidemia*, brote*, ébola, cólera, malaria, sarampión, vacuna*, "=OMS", hambruna, hambre,
+           seguridad alimentaria, desnutrición, sequía*, inundacion*, clima, climátic*, ola de calor, ciclón,
+           migración, migrante*, refugiado*, asilo, desplazad*, humanitari*, ayuda, derechos humanos, mujeres,
+           niñas, niños, infancia, educación, escuela*, universidad*, protesta*, manifestacion*, pobreza,
+           desigualdad, periodista*, libertad de prensa, corrupción, activista*, desarrollo]
+      fr: [santé, hôpita*, épidémie*, flambée, Ebola, choléra, paludisme, rougeole, vaccin*, "=OMS", famine, faim,
+           sécurité alimentaire, malnutrition, sécheresse*, inondation*, climat*, canicule, cyclone*, migration*,
+           migrant*, réfugié*, asile, déplacés, humanitaire*, aide, droits humains, droits de l'homme, femmes,
+           filles, enfants, éducation, école*, universit*, manifestation*, pauvreté, inégalités, journaliste*,
+           liberté de la presse, corruption, militant*, développement]
+      de: [Gesundheit*, Krankenhaus*, Klinik*, Epidemie*, Ausbruch, Ebola, Cholera, Malaria, Masern, Impf*, "=WHO",
+           Hungersnot, Hunger, Ernährungssicherheit, Dürre*, Überschwemmung*, Flut*, Klima*, Hitzewelle*, Zyklon*,
+           Migration, Migrant*, Flüchtling*, Asyl*, Vertriebene*, humanitär*, Hilfe, Menschenrechte*, Frauen,
+           Mädchen, Kinder, Bildung, Schule*, Universität*, Protest*, Demonstr*, Armut, Ungleichheit, Journalist*,
+           Pressefreiheit, Korruption, Aktivist*, Entwicklung*]
+      ar: [الصحة, الصحية, مستشفى, وباء, تفشي, إيبولا, الكوليرا, الملاريا, لقاح, منظمة الصحة, المجاعة, مجاعة, الجوع,
+           الأمن الغذائي, سوء التغذية, الجفاف, فيضانات, الفيضانات, المناخ, المناخي, موجة حر, الهجرة, المهاجرين,
+           لاجئين, اللاجئين, اللجوء, نازحين, النازحين, إنسانية, الإنسانية, مساعدات, حقوق الإنسان, النساء, المرأة,
+           الأطفال, التعليم, المدارس, الجامعة, احتجاجات, مظاهرات, الفقر, صحفي, الصحفيين, حرية الصحافة, الفساد,
+           ناشط, التنمية]
+      he: [בריאות, בית חולים, מגפה, התפרצות, אבולה, כולרה, חיסון, רעב, בצורת, שיטפון, שיטפונות, אקלים, גל חום,
+           הגירה, מהגרים, פליטים, מקלט, עקורים, הומניטרי, סיוע, זכויות אדם, נשים, ילדים, חינוך, בתי ספר,
+           אוניברסיטה, הפגנות, מחאה, עוני, אי-שוויון, עיתונאי, עיתונאים, חופש העיתונות, שחיתות, פעיל]
+
+# Titulares que no interesan aunque mencionen un país (deportes, espectáculos, recetas).
+# Expresiones regulares sin distinguir mayúsculas; se aplican al título.
+exclude_headlines:
+  - '\b(football|soccer|premier league|champions league|la liga|serie a|bundesliga|ligue 1|nba|nfl|mlb|tennis|formula (1|one)|f1|golf|cricket|rugby|boxing|ufc|wimbledon|grand prix|world cup qualif\w*|afcon|transfer window|striker|midfielder|goalkeeper|hat-trick)\b'
+  - '\b(fútbol|futbol|liga de campeones|copa del rey|tenis|fórmula 1|baloncesto|delantero|arquero|portero|golazo|horóscopo|receta)\b'
+  - '\b(football|ligue des champions|tennis|formule 1|basketball|attaquant|gardien de but|recette|horoscope|can 20\d\d)\b'
+  - '\b(fußball|fussball|bundesliga|champions league|tennis|formel 1|torwart|stürmer|rezept|horoskop)\b'
+  - '(كرة القدم|الدوري (السعودي|الإنجليزي|المصري|الإسباني)|دوري روشن|مباراة|المنتخب|دوري أبطال|نادي|اللاعب|الملعب|كأس العالم|كأس أمم)'
+  - '(כדורגל|כדורסל|ליגת האלופות|ליגת העל|שחקן|שחקנית|השחקן|המאמן|מונדיאל|יורוליג|מתכון|הורוסקופ)'
 
 # Regiones de foco. Una noticia puede tener las dos (por ejemplo, Egipto).
 regions:

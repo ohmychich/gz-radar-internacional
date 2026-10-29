@@ -1,12 +1,19 @@
 "use strict";
 
-const TOPICS = ["mercados", "tech", "geopolitica"];
+// Columnas del tablero: todo mezclado, y los dos focos regionales.
+const COLUMNS = [
+  { id: "todo", label: "Lo último", hint: "Todas las regiones y temas, mezclados", filter: () => true },
+  { id: "africa", label: "África", hint: "Foco África", filter: (i) => (i.regions || []).includes("africa") },
+  { id: "medio_oriente", label: "Medio Oriente", hint: "Foco Medio Oriente", filter: (i) => (i.regions || []).includes("medio_oriente") },
+];
 const LANG_NAMES = { es: "español", en: "inglés", ar: "árabe", he: "hebreo", de: "alemán", fr: "francés" };
 const RTL = new Set(["ar", "he"]);
 const PAGE = 40;
 const REFRESH_MS = 10 * 60 * 1000;
+// Para mezclar: no más de una nota seguida del mismo medio si hay otra de hasta 2 h de diferencia.
+const MIX_WINDOW_S = 2 * 3600;
 
-const state = { data: null, status: null, region: "", shown: {}, activeTab: "mercados" };
+const state = { data: null, status: null, topics: new Set(), shown: {}, activeTab: "todo" };
 const $ = (id) => document.getElementById(id);
 
 function el(tag, props = {}, ...children) {
@@ -44,9 +51,12 @@ async function loadJSON(path) {
 async function load() {
   try {
     const [data, status] = await Promise.all([loadJSON("data/news.json"), loadJSON("data/feeds-status.json")]);
+    // Compatibilidad con el formato anterior (un solo tema por noticia).
+    for (const item of data.items) if (!item.topics) item.topics = item.topic ? [item.topic] : [];
     state.data = data;
     state.status = status;
     fillSources();
+    renderTopicChips();
     renderHeader();
     renderStatus();
     render();
@@ -60,20 +70,39 @@ function fillSources() {
   const select = $("source");
   const current = select.value;
   const names = [...new Set(state.data.items.map((i) => i.source))].sort((a, b) => a.localeCompare(b, "es"));
-  select.replaceChildren(el("option", { value: "", text: "Todos los medios" }),
+  select.replaceChildren(el("option", { value: "", text: `Todos los medios (${names.length})` }),
     ...names.map((name) => el("option", { value: name, text: name })));
   select.value = names.includes(current) ? current : "";
 }
 
+function renderTopicChips() {
+  const box = $("topics");
+  const chip = (id, label) => el("button", {
+    type: "button", class: "chip", "data-topic": id,
+    "aria-pressed": String(id ? state.topics.has(id) : state.topics.size === 0),
+    onclick: () => {
+      if (!id) state.topics.clear();
+      else if (state.topics.has(id)) state.topics.delete(id);
+      else state.topics.add(id);
+      state.shown = {};
+      renderTopicChips();
+      render();
+    },
+  }, id ? el("span", { class: "dot", "aria-hidden": "true" }) : null, label);
+  box.replaceChildren(chip("", "Todos los temas"),
+    ...Object.entries(state.data.topics).map(([id, label]) => chip(id, label)));
+}
+
 function renderHeader() {
   const { data, status } = state;
-  let text = `Actualizado ${timeAgo(data.updated)} (${formatDate(data.updated)})`;
+  const sources = new Set(status.feeds.map((f) => f.source)).size;
+  let text = `Actualizado ${timeAgo(data.updated)} (${formatDate(data.updated)}) · ${sources} medios`;
   if (data.translation && data.translation.pending) {
     text += ` · ${data.translation.pending} noticias esperando traducción`;
   }
   $("updated").textContent = text;
   const failing = status.total - status.ok;
-  const color = failing === 0 ? "var(--ok)" : failing <= 5 ? "var(--warn)" : "var(--err)";
+  const color = failing <= 3 ? "var(--ok)" : failing <= 10 ? "var(--warn)" : "var(--err)";
   $("status-btn").replaceChildren(el("span", { class: "dot", style: `background:${color}` }),
     `Fuentes: ${status.ok}/${status.total} OK`);
 }
@@ -106,7 +135,7 @@ function filtered() {
   const since = Date.now() / 1000 - Number($("period").value) * 3600;
   return state.data.items.filter((item) => {
     if (item.published < since) return false;
-    if (state.region && !(item.regions || []).includes(state.region)) return false;
+    if (state.topics.size && !item.topics.some((t) => state.topics.has(t))) return false;
     if (lang && item.lang !== lang) return false;
     if (source && item.source !== source) return false;
     if (q) {
@@ -117,14 +146,31 @@ function filtered() {
   });
 }
 
-function card(item) {
+// Ordena por fecha, pero evita rachas del mismo medio: si la siguiente nota es del mismo
+// medio que la anterior, adelanta una de otro medio publicada hasta 2 h después.
+function mix(items) {
+  const pending = [...items].sort((a, b) => b.published - a.published);
+  const out = [];
+  while (pending.length) {
+    let pick = 0;
+    const last = out[out.length - 1];
+    if (last && pending[0].source === last.source) {
+      const alt = pending.findIndex((i) => i.source !== last.source);
+      if (alt > 0 && pending[0].published - pending[alt].published <= MIX_WINDOW_S) pick = alt;
+    }
+    out.push(pending.splice(pick, 1)[0]);
+  }
+  return out;
+}
+
+function card(item, columnId) {
   const translated = Boolean(item.title_es);
   const needsTranslation = !["es", "en"].includes(item.lang);
   const meta = el("div", { class: "meta" },
     el("span", { class: "src", text: item.source }),
     el("span", { text: timeAgo(item.published), title: formatDate(item.published) }));
   for (const region of item.regions || []) {
-    meta.append(el("span", { class: "tag", text: state.data.regions[region] || region }));
+    if (region !== columnId) meta.append(el("span", { class: "tag", text: state.data.regions[region] || region }));
   }
   if (translated) meta.append(el("span", { class: "tag tr", text: `Traducido del ${LANG_NAMES[item.lang]}` }));
   else if (needsTranslation) meta.append(el("span", { class: "tag tr", text: "Traducción pendiente" }));
@@ -133,11 +179,14 @@ function card(item) {
   const dir = RTL.has(item.lang) && showOriginalText ? "rtl" : null;
   const textLang = showOriginalText ? item.lang : "es";
   const summary = translated ? item.summary_es : item.summary;
+  const topics = item.topics.length ? el("div", { class: "topics" },
+    ...item.topics.map((t) => el("span", { class: "topic", "data-topic": t, text: state.data.topics[t] || t }))) : null;
   const node = el("article", { class: "card" },
     meta,
     el("h3", { lang: textLang, dir },
       el("a", { href: item.link, target: "_blank", rel: "noopener", text: translated ? item.title_es : item.title })),
-    summary ? el("p", { lang: textLang, dir, text: summary }) : null);
+    summary ? el("p", { class: "summary", lang: textLang, dir, text: summary }) : null,
+    topics);
 
   if (translated) {
     const original = el("div", { class: "orig", lang: item.lang, dir: RTL.has(item.lang) ? "rtl" : "ltr", hidden: "" },
@@ -161,21 +210,23 @@ function render() {
   const tabs = $("tabs");
   board.replaceChildren();
   tabs.replaceChildren();
-  for (const topic of TOPICS) {
-    const list = items.filter((i) => i.topic === topic);
-    const label = state.data.topics[topic] || topic;
-    const limit = state.shown[topic] || PAGE;
-    const col = el("section", { class: `col${state.activeTab === topic ? " active" : ""}`, "data-topic": topic, "aria-label": label },
-      el("div", { class: "col-head" }, el("h2", { text: label }), el("span", { class: "count", text: `${list.length}` })));
+  for (const column of COLUMNS) {
+    const list = mix(items.filter(column.filter));
+    const limit = state.shown[column.id] || PAGE;
+    const col = el("section", {
+      class: `col${state.activeTab === column.id ? " active" : ""}`, "data-col": column.id, "aria-label": column.label,
+    }, el("div", { class: "col-head" },
+      el("div", {}, el("h2", { text: column.label }), el("span", { class: "hint", text: column.hint })),
+      el("span", { class: "count", text: `${list.length}` })));
     if (!list.length) col.append(el("p", { class: "empty", text: "No hay noticias con estos filtros." }));
-    list.slice(0, limit).forEach((item) => col.append(card(item)));
+    list.slice(0, limit).forEach((item) => col.append(card(item, column.id)));
     if (list.length > limit) {
       col.append(el("button", { type: "button", class: "more", text: `Ver más (${list.length - limit})`,
-        onclick: () => { state.shown[topic] = limit + PAGE; render(); } }));
+        onclick: () => { state.shown[column.id] = limit + PAGE; render(); } }));
     }
     board.append(col);
-    tabs.append(el("button", { type: "button", class: "tab", role: "tab", "aria-selected": String(state.activeTab === topic),
-      text: `${label} (${list.length})`, onclick: () => { state.activeTab = topic; render(); } }));
+    tabs.append(el("button", { type: "button", class: "tab", role: "tab", "aria-selected": String(state.activeTab === column.id),
+      text: `${column.label} (${list.length})`, onclick: () => { state.activeTab = column.id; render(); window.scrollTo(0, 0); } }));
   }
 }
 
@@ -183,14 +234,6 @@ function setup() {
   for (const id of ["q", "lang", "source", "period"]) {
     $(id).addEventListener("input", () => { state.shown = {}; render(); });
   }
-  document.querySelectorAll(".chip").forEach((chip) => {
-    chip.addEventListener("click", () => {
-      state.region = chip.dataset.region;
-      document.querySelectorAll(".chip").forEach((c) => c.setAttribute("aria-pressed", String(c === chip)));
-      state.shown = {};
-      render();
-    });
-  });
   $("status-btn").addEventListener("click", () => {
     const panel = $("status");
     panel.hidden = !panel.hidden;

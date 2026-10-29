@@ -1,7 +1,11 @@
 # Radar Internacional
 
-Dashboard de noticias de medios internacionales sobre **mercado de capitales**, **tecnología e IA**
-y **geopolítica**, con foco en **África y Medio Oriente**.
+Dashboard de noticias de unos 100 medios internacionales, con foco en **África y Medio Oriente**.
+Cada noticia puede tener varios temas: **política internacional**, **conflictos y seguridad**,
+**economía y mercados**, **energía y recursos**, **tecnología e IA** y **sociedad y desarrollo**.
+
+El tablero tiene tres columnas: **Lo último** (todo mezclado, sin rachas de un mismo medio),
+**África** y **Medio Oriente**. Arriba se filtra por tema, idioma, medio y período.
 
 - Corre solo, gratis y sin IA: un robot de GitHub Actions lee los feeds RSS una vez por hora.
 - Las noticias en español e inglés quedan en su idioma original. Las que están en árabe, hebreo,
@@ -22,7 +26,8 @@ feeds RSS ──► GitHub Actions (cada hora)                   ──► GitHu
 | Archivo | Para qué sirve |
 |---|---|
 | `config/feeds.yaml` | Lista de medios y feeds. Para sumar uno, agregá un bloque. |
-| `config/temas.yaml` | Palabras clave de cada tema y región, y los filtros que descartan titulares de cotizaciones. |
+| `config/temas.yaml` | Palabras clave de cada tema y región, y los filtros que descartan cotizaciones, deportes y espectáculos. |
+| `tools/candidatos.txt` | URLs para probar antes de sumarlas. Se prueban con *Actions → Probar feeds candidatos* y el resultado queda en `tools/resultado-prueba.txt`. |
 | `docs/data/news.json` | Noticias de los últimos 7 días (lo genera el robot). |
 | `docs/data/feeds-status.json` | Estado de cada feed en la última corrida (se ve en el botón "Estado de fuentes"). |
 | `docs/data/translations-cache.json` | Traducciones ya hechas, para no repetirlas. |

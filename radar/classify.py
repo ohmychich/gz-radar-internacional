@@ -1,7 +1,7 @@
-"""Clasificación por reglas: tema (una columna) y regiones de foco."""
+"""Clasificación por reglas: temas (pueden ser varios) y regiones de foco."""
 import re
 
-TOPIC_PRIORITY = ["mercados", "tech", "geopolitica"]
+MAX_TOPICS = 3
 _NON_LATIN = re.compile(r"[֐-׿؀-ۿ]")
 
 
@@ -29,21 +29,29 @@ def _compile_group(group):
 
 class Classifier:
     def __init__(self, rules):
+        self.topic_order = list(rules["topics"])
         self.topics = {name: _compile_group(t) for name, t in rules["topics"].items()}
         self.regions = {name: _compile_group(r) for name, r in rules["regions"].items()}
-        self.exclude = [re.compile(p, re.IGNORECASE)
-                        for p in rules["topics"]["mercados"].get("exclude", [])]
+        self.price_headlines = [re.compile(p, re.IGNORECASE)
+                                for p in rules["topics"]["economia"].get("exclude", [])]
+        self.off_topic = [re.compile(p, re.IGNORECASE) for p in rules.get("exclude_headlines", [])]
 
     @staticmethod
     def _score(patterns, text):
         return sum(1 for p in patterns if p.search(text))
 
     def classify(self, item, source):
-        """Devuelve (tema, regiones). El tema es None si la noticia no entra en ninguna columna."""
+        """Devuelve (temas, regiones, relevante).
+
+        relevante es False si la noticia no tiene que entrar al radar.
+        """
         text = " ".join(filter(None, [
             item["title"], item.get("summary"),
             item.get("title_es"), item.get("summary_es"),
         ]))
+        headline = " ".join(filter(None, [item["title"], item.get("title_es")]))
+        if any(p.search(headline) for p in self.off_topic):
+            return [], [], False
 
         text_regions = [name for name, patterns in self.regions.items() if self._score(patterns, text)]
         regions = list(text_regions)
@@ -51,23 +59,14 @@ class Classifier:
             regions.append(source["region"])
 
         scores = {name: self._score(patterns, text) for name, patterns in self.topics.items()}
-        if source.get("topic"):
-            # El tema del feed suma, pero no se impone si el texto habla de otra cosa.
-            scores[source["topic"]] += 1
+        if any(p.search(headline) for p in self.price_headlines):
+            scores["economia"] = 0
+        topics = sorted((t for t in self.topic_order if scores[t] > 0),
+                        key=lambda t: (-scores[t], self.topic_order.index(t)))[:MAX_TOPICS]
+        if not topics and source.get("topic"):
+            topics = [source["topic"]]
 
-        headline = " ".join(filter(None, [item["title"], item.get("title_es")]))
-        if any(p.search(headline) for p in self.exclude):
-            scores["mercados"] = 0
-
-        best = max(scores.values())
-        if best > 0:
-            # Desempate: primero el tema del feed, después el orden de prioridad.
-            tied = [t for t in TOPIC_PRIORITY if scores[t] == best]
-            topic = source.get("topic") if source.get("topic") in tied else tied[0]
-        elif text_regions:
-            # Menciona un país o actor de la región aunque no tenga palabras de ningún tema.
-            # La región del feed sola no alcanza: así no entran deportes o ciencia de un medio regional.
-            topic = "geopolitica"
-        else:
-            topic = None
-        return topic, sorted(regions)
+        # Entra si tiene algún tema o menciona un país/actor de África o Medio Oriente.
+        # Los medios africanos entran siempre (salvo deportes y espectáculos): son el foco del radar.
+        relevant = bool(topics or text_regions or source.get("region") == "africa")
+        return topics, sorted(regions), relevant

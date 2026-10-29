@@ -3,7 +3,7 @@
 #   id:     identificador corto, sin espacios
 #   name:   nombre que se muestra en el dashboard
 #   lang:   idioma original (es, en, ar, he, de, fr). ar/he/de/fr se traducen al español
-#   topic:  (opcional) tema por defecto si el feed es temático: mercados | tech | geopolitica
+#   topic:  (opcional) tema por defecto si el texto no coincide con ninguno: economia | politica | conflictos | energia | tech | sociedad
 #   region: (opcional) región por defecto: africa | medio_oriente
 #   urls:   uno o más feeds RSS/Atom del medio
 
@@ -93,7 +93,7 @@ sources:
   - id: foreignpolicy
     name: Foreign Policy
     lang: en
-    topic: geopolitica
+    topic: politica
     urls:
       - https://foreignpolicy.com/feed/
   - id: restofworld
@@ -141,7 +141,7 @@ sources:
   - id: asharqbusiness
     name: Asharq Business
     lang: ar
-    topic: mercados
+    topic: economia
     urls:
       - https://asharqbusiness.com/rss.xml
 
@@ -155,13 +155,13 @@ sources:
   - id: globes
     name: Globes
     lang: he
-    topic: mercados
+    topic: economia
     urls:
       - https://www.globes.co.il/webservice/rss/rssfeeder.asmx/FeederNode?iID=2
   - id: themarker
     name: TheMarker
     lang: he
-    topic: mercados
+    topic: economia
     urls:
       - https://www.themarker.com/srv/tm-all-articles
   - id: haaretz
@@ -181,15 +181,9 @@ sources:
   - id: handelsblatt
     name: Handelsblatt
     lang: de
-    topic: mercados
+    topic: economia
     urls:
       - https://www.handelsblatt.com/contentexport/feed/finanzen
-  - id: faz-wirtschaft
-    name: FAZ
-    lang: de
-    topic: mercados
-    urls:
-      - https://www.faz.net/rss/aktuell/wirtschaft/
   - id: heise
     name: heise online
     lang: de
@@ -229,7 +223,7 @@ sources:
   - id: lefigaro-eco
     name: Le Figaro Économie
     lang: fr
-    topic: mercados
+    topic: economia
     urls:
       - https://www.lefigaro.fr/rss/figaro_economie.xml
   - id: france24-afrique
@@ -256,3 +250,518 @@ sources:
     lang: es
     urls:
       - https://rss.dw.com/xml/rss-sp-all
+
+  # ── Inglés · África ───────────────────────────────────────────────────────
+  - id: africanews
+    name: Africanews
+    lang: en
+    region: africa
+    urls:
+      - https://www.africanews.com/feed/rss
+  - id: dailymaverick
+    name: Daily Maverick
+    lang: en
+    region: africa
+    urls:
+      - https://www.dailymaverick.co.za/dmrss/
+  - id: premiumtimes
+    name: Premium Times
+    lang: en
+    region: africa
+    urls:
+      - https://www.premiumtimesng.com/feed
+  - id: nation-africa
+    name: Nation (Kenia)
+    lang: en
+    region: africa
+    urls:
+      - https://nation.africa/kenya/rss.xml
+  - id: businessday-ng
+    name: BusinessDay (Nigeria)
+    lang: en
+    topic: economia
+    region: africa
+    urls:
+      - https://businessday.ng/feed/
+  - id: myjoyonline
+    name: MyJoyOnline (Ghana)
+    lang: en
+    region: africa
+    urls:
+      - https://www.myjoyonline.com/feed/
+  - id: vanguard-ng
+    name: Vanguard (Nigeria)
+    lang: en
+    region: africa
+    urls:
+      - https://www.vanguardngr.com/feed/
+  - id: madamasr
+    name: Mada Masr
+    lang: en
+    region: africa
+    urls:
+      - https://www.madamasr.com/en/feed/
+  - id: dabanga
+    name: Radio Dabanga
+    lang: en
+    region: africa
+    urls:
+      - https://www.dabangasudan.org/en/feed
+  - id: africanarguments
+    name: African Arguments
+    lang: en
+    region: africa
+    urls:
+      - https://africanarguments.org/feed/
+  - id: techcabal
+    name: TechCabal
+    lang: en
+    topic: tech
+    region: africa
+    urls:
+      - https://techcabal.com/feed/
+  - id: bi-africa
+    name: Business Insider Africa
+    lang: en
+    topic: economia
+    region: africa
+    urls:
+      - https://africa.businessinsider.com/rss
+  - id: dw-en-africa
+    name: DW
+    lang: en
+    region: africa
+    urls:
+      - https://rss.dw.com/rdf/rss-en-africa
+  - id: france24-en-africa
+    name: France 24
+    lang: en
+    region: africa
+    urls:
+      - https://www.france24.com/en/africa/rss
+  - id: un-africa
+    name: Noticias ONU
+    lang: en
+    region: africa
+    urls:
+      - https://news.un.org/feed/subscribe/en/news/region/africa/feed/rss.xml
+  - id: economist-mea
+    name: The Economist
+    lang: en
+    urls:
+      - https://www.economist.com/middle-east-and-africa/rss.xml
+
+  # ── Inglés · Política internacional ───────────────────────────────────────
+  - id: semafor
+    name: Semafor
+    lang: en
+    urls:
+      - https://www.semafor.com/rss.xml
+  - id: politico-eu
+    name: Politico Europe
+    lang: en
+    topic: politica
+    urls:
+      - https://www.politico.eu/feed/
+  - id: foreignaffairs
+    name: Foreign Affairs
+    lang: en
+    topic: politica
+    urls:
+      - https://www.foreignaffairs.com/rss.xml
+  - id: thediplomat
+    name: The Diplomat
+    lang: en
+    topic: politica
+    urls:
+      - https://thediplomat.com/feed/
+  - id: crisisgroup
+    name: Crisis Group
+    lang: en
+    topic: conflictos
+    urls:
+      - https://www.crisisgroup.org/rss
+  - id: newhumanitarian
+    name: The New Humanitarian
+    lang: en
+    topic: sociedad
+    urls:
+      - https://www.thenewhumanitarian.org/rss/all.xml
+  - id: responsiblestatecraft
+    name: Responsible Statecraft
+    lang: en
+    topic: politica
+    urls:
+      - https://responsiblestatecraft.org/feed/
+  - id: warontherocks
+    name: War on the Rocks
+    lang: en
+    topic: conflictos
+    urls:
+      - https://warontherocks.com/feed/
+  - id: npr-world
+    name: NPR
+    lang: en
+    urls:
+      - https://feeds.npr.org/1004/rss.xml
+  - id: france24-en
+    name: France 24
+    lang: en
+    urls:
+      - https://www.france24.com/en/rss
+  - id: dw-en
+    name: DW
+    lang: en
+    urls:
+      - https://rss.dw.com/rdf/rss-en-world
+  - id: euronews
+    name: Euronews
+    lang: en
+    urls:
+      - https://www.euronews.com/rss?level=theme&name=news
+  - id: un-news
+    name: Noticias ONU
+    lang: en
+    urls:
+      - https://news.un.org/feed/subscribe/en/news/all/rss.xml
+  - id: economist
+    name: The Economist
+    lang: en
+    urls:
+      - https://www.economist.com/international/rss.xml
+      - https://www.economist.com/finance-and-economics/rss.xml
+  - id: projectsyndicate
+    name: Project Syndicate
+    lang: en
+    topic: economia
+    urls:
+      - https://www.project-syndicate.org/rss
+  - id: asiatimes
+    name: Asia Times
+    lang: en
+    topic: politica
+    urls:
+      - https://asiatimes.com/feed/
+
+  # ── Inglés · Medio Oriente ────────────────────────────────────────────────
+  - id: france24-en-me
+    name: France 24
+    lang: en
+    region: medio_oriente
+    urls:
+      - https://www.france24.com/en/middle-east/rss
+  - id: un-me
+    name: Noticias ONU
+    lang: en
+    region: medio_oriente
+    urls:
+      - https://news.un.org/feed/subscribe/en/news/region/middle-east/feed/rss.xml
+  - id: jpost
+    name: The Jerusalem Post
+    lang: en
+    region: medio_oriente
+    urls:
+      - https://www.jpost.com/rss/rssfeedsheadlines.aspx
+  - id: haaretz-en
+    name: Haaretz (inglés)
+    lang: en
+    region: medio_oriente
+    urls:
+      - https://www.haaretz.com/srv/haaretz-latest-headlines
+  - id: iranintl
+    name: Iran International
+    lang: en
+    region: medio_oriente
+    urls:
+      - https://www.iranintl.com/en/feed
+  - id: memo
+    name: Middle East Monitor
+    lang: en
+    region: medio_oriente
+    urls:
+      - https://www.middleeastmonitor.com/feed/
+  - id: newarab
+    name: The New Arab
+    lang: en
+    region: medio_oriente
+    urls:
+      - https://www.newarab.com/rss
+
+  # ── Árabe (nuevos) ────────────────────────────────────────────────────────
+  - id: alquds-alarabi
+    name: Al-Quds Al-Arabi
+    lang: ar
+    region: medio_oriente
+    urls:
+      - https://www.alquds.co.uk/feed/
+  - id: independentarabia
+    name: Independent Arabia
+    lang: ar
+    urls:
+      - https://www.independentarabia.com/rss.xml
+  - id: skynewsarabia
+    name: Sky News Arabia
+    lang: ar
+    urls:
+      - https://www.skynewsarabia.com/rss
+  - id: france24-ar
+    name: France 24 (árabe)
+    lang: ar
+    urls:
+      - https://www.france24.com/ar/rss
+  - id: dw-ar
+    name: DW (árabe)
+    lang: ar
+    urls:
+      - https://rss.dw.com/rdf/rss-ar-all
+  - id: alaraby
+    name: Al-Araby Al-Jadeed
+    lang: ar
+    region: medio_oriente
+    urls:
+      - https://www.alaraby.co.uk/rss
+  - id: hespress
+    name: Hespress (Marruecos)
+    lang: ar
+    region: africa
+    urls:
+      - https://www.hespress.com/feed
+  - id: alquds
+    name: Al-Quds
+    lang: ar
+    region: medio_oriente
+    urls:
+      - https://www.alquds.com/feed
+  - id: un-ar
+    name: Noticias ONU (árabe)
+    lang: ar
+    urls:
+      - https://news.un.org/feed/subscribe/ar/news/all/rss.xml
+
+  # ── Hebreo (nuevos) ───────────────────────────────────────────────────────
+  - id: maariv
+    name: Maariv
+    lang: he
+    region: medio_oriente
+    urls:
+      - https://www.maariv.co.il/Rss/RssFeedsMivzakiChadashot
+  - id: ynet-news
+    name: Ynet
+    lang: he
+    region: medio_oriente
+    urls:
+      - https://www.ynet.co.il/Integration/StoryRss1854.xml
+
+  # ── Alemán (nuevos) ───────────────────────────────────────────────────────
+  - id: zeit
+    name: Die Zeit
+    lang: de
+    urls:
+      - https://newsfeed.zeit.de/politik/ausland/index
+      - https://newsfeed.zeit.de/wirtschaft/index
+  - id: sz
+    name: Süddeutsche Zeitung
+    lang: de
+    topic: politica
+    urls:
+      - https://rss.sueddeutsche.de/rss/Politik
+  - id: nzz
+    name: NZZ
+    lang: de
+    urls:
+      - https://www.nzz.ch/international.rss
+      - https://www.nzz.ch/wirtschaft.rss
+  - id: taz
+    name: taz
+    lang: de
+    urls:
+      - https://taz.de/!p4615;rss/
+  - id: tagesschau
+    name: Tagesschau
+    lang: de
+    urls:
+      - https://www.tagesschau.de/ausland/index~rss2.xml
+      - https://www.tagesschau.de/wirtschaft/index~rss2.xml
+  - id: handelsblatt-politik
+    name: Handelsblatt
+    lang: de
+    topic: politica
+    urls:
+      - https://www.handelsblatt.com/contentexport/feed/politik
+  - id: welt
+    name: Die Welt
+    lang: de
+    urls:
+      - https://www.welt.de/feeds/section/politik/ausland.rss
+  - id: dlf
+    name: Deutschlandfunk
+    lang: de
+    topic: politica
+    urls:
+      - https://www.deutschlandfunk.de/politikportal-100.rss
+  - id: t3n
+    name: t3n
+    lang: de
+    topic: tech
+    urls:
+      - https://www.t3n.de/rss.xml
+
+  # ── Francés (nuevos) ──────────────────────────────────────────────────────
+  - id: africanews-fr
+    name: Africanews (francés)
+    lang: fr
+    region: africa
+    urls:
+      - https://fr.africanews.com/feed/rss
+  - id: jeuneafrique-eco
+    name: Jeune Afrique
+    lang: fr
+    topic: economia
+    region: africa
+    urls:
+      - https://www.jeuneafrique.com/rubriques/economie-entreprises/feed/
+  - id: lefaso
+    name: Lefaso.net (Burkina Faso)
+    lang: fr
+    region: africa
+    urls:
+      - https://lefaso.net/spip.php?page=backend
+  - id: financialafrik
+    name: Financial Afrik
+    lang: fr
+    topic: economia
+    region: africa
+    urls:
+      - https://www.financialafrik.com/feed/
+  - id: rfi-monde
+    name: RFI
+    lang: fr
+    urls:
+      - https://www.rfi.fr/fr/monde/rss
+  - id: rfi-mo
+    name: RFI
+    lang: fr
+    region: medio_oriente
+    urls:
+      - https://www.rfi.fr/fr/moyen-orient/rss
+  - id: france24-fr
+    name: France 24
+    lang: fr
+    urls:
+      - https://www.france24.com/fr/rss
+  - id: courrierintl
+    name: Courrier international
+    lang: fr
+    urls:
+      - https://www.courrierinternational.com/feed/all/rss.xml
+  - id: mondediplo
+    name: Le Monde diplomatique
+    lang: fr
+    topic: politica
+    urls:
+      - https://www.monde-diplomatique.fr/recents.xml
+  - id: lefigaro-intl
+    name: Le Figaro
+    lang: fr
+    urls:
+      - https://www.lefigaro.fr/rss/figaro_international.xml
+  - id: liberation
+    name: Libération
+    lang: fr
+    urls:
+      - https://www.liberation.fr/arc/outboundfeeds/rss/category/international/
+  - id: lemonde-eco
+    name: Le Monde
+    lang: fr
+    topic: economia
+    urls:
+      - https://www.lemonde.fr/economie/rss_full.xml
+  - id: lemonde-pixels
+    name: Le Monde
+    lang: fr
+    topic: tech
+    urls:
+      - https://www.lemonde.fr/pixels/rss_full.xml
+  - id: iris
+    name: IRIS
+    lang: fr
+    topic: politica
+    urls:
+      - https://www.iris-france.org/feed/
+
+  # ── Español (nuevos) ──────────────────────────────────────────────────────
+  - id: bbc-mundo
+    name: BBC Mundo
+    lang: es
+    urls:
+      - https://feeds.bbci.co.uk/mundo/rss.xml
+  - id: france24-es
+    name: France 24
+    lang: es
+    urls:
+      - https://www.france24.com/es/rss
+  - id: france24-es-africa
+    name: France 24
+    lang: es
+    region: africa
+    urls:
+      - https://www.france24.com/es/africa/rss
+  - id: france24-es-mo
+    name: France 24
+    lang: es
+    region: medio_oriente
+    urls:
+      - https://www.france24.com/es/medio-oriente/rss
+  - id: ordenmundial
+    name: El Orden Mundial
+    lang: es
+    topic: politica
+    urls:
+      - https://elordenmundial.com/feed/
+  - id: lavanguardia
+    name: La Vanguardia
+    lang: es
+    urls:
+      - https://www.lavanguardia.com/rss/internacional.xml
+  - id: elmundo
+    name: El Mundo
+    lang: es
+    urls:
+      - https://www.elmundo.es/rss/internacional.xml
+  - id: eldiario
+    name: elDiario.es
+    lang: es
+    urls:
+      - https://www.eldiario.es/rss/internacional
+  - id: lanacion
+    name: La Nación
+    lang: es
+    urls:
+      - https://www.lanacion.com.ar/arc/outboundfeeds/rss/category/el-mundo/
+  - id: clarin
+    name: Clarín
+    lang: es
+    urls:
+      - https://www.clarin.com/rss/mundo/
+  - id: elpais-eco
+    name: El País
+    lang: es
+    topic: economia
+    urls:
+      - https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/economia/portada
+  - id: expansion
+    name: Expansión
+    lang: es
+    topic: economia
+    urls:
+      - https://www.expansion.com/rss/mercados.xml
+  - id: euronews-es
+    name: Euronews
+    lang: es
+    urls:
+      - https://es.euronews.com/rss
+  - id: un-es
+    name: Noticias ONU
+    lang: es
+    urls:
+      - https://news.un.org/feed/subscribe/es/news/all/rss.xml
